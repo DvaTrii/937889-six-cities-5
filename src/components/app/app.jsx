@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {BrowserRouter, Switch, Route} from "react-router-dom";
+import {BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
 
 import MainPage from "../pages/main-page/main-page.jsx";
 import LoginPage from "../pages/login-page/login-page.jsx";
@@ -14,18 +14,14 @@ const App = (props) => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/">
-          <MainPage totalOffers={totalOffers}/>
-        </Route>
-        <Route exact path="/login">
-          <LoginPage/>
-        </Route>
-        <Route exact path="/favorites">
-          <FavoritesPage/>
-        </Route>
-        <Route exact path="/offer:id">
-          <OfferPage/>
-        </Route>
+        <Route
+          exact
+          path="/"
+          render={() => <MainPage totalOffers={totalOffers} />} />
+        <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/favorites" component={FavoritesPage} />
+        <Route exact path="/offer:id" component={OfferPage} />
+        <Redirect from="*" to="/" />
       </Switch>
     </BrowserRouter>
   );
