@@ -1,6 +1,6 @@
 import React from "react";
 
-const Login = () => {
+const LoginPage = () => {
 
   return (
     <div className="page page--gray page--login">
@@ -56,4 +56,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

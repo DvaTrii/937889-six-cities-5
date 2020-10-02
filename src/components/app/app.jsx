@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 
-import Main from "../main/main.jsx";
-import Login from "../login/login.jsx";
-import Offer from "../offer/offer.jsx";
-import Favorites from "../favorites/favorites.jsx";
+import MainPage from "../pages/main-page/main-page.jsx";
+import LoginPage from "../pages/login-page/login-page.jsx";
+import OfferPage from "../pages/offer-page/offer-page.jsx";
+import FavoritesPage from "../pages/favorites-page/favorites-page.jsx";
 
 const App = (props) => {
 
@@ -15,16 +15,16 @@ const App = (props) => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Main totalOffers={totalOffers}/>
+          <MainPage totalOffers={totalOffers}/>
         </Route>
         <Route exact path="/login">
-          <Login/>
+          <LoginPage/>
         </Route>
         <Route exact path="/favorites">
-          <Favorites/>
+          <FavoritesPage/>
         </Route>
         <Route exact path="/offer:id">
-          <Offer/>
+          <OfferPage/>
         </Route>
       </Switch>
     </BrowserRouter>

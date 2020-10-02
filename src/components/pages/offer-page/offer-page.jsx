@@ -1,6 +1,6 @@
 import React from "react";
 
-const Offer = () => {
+const OfferPage = () => {
 
   return (
     <div className="page">
@@ -335,4 +335,4 @@ const Offer = () => {
   );
 };
 
-export default Offer;
+export default OfferPage;
