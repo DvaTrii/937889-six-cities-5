@@ -6,8 +6,8 @@ import OfferCard from "../offer-card/offer-card";
 const OffersList = (props) => {
   const {offers} = props;
 
-  return (offers.map((offer, index) => (<OfferCard
-    key={index + offer.title}
+  return (offers.map((offer) => (<OfferCard
+    key={offer.id}
     card={offer}/>))
   );
 };
