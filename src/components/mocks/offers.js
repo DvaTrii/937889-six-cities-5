@@ -3,6 +3,7 @@ import {OfferType} from "../../const";
 const offers = [
   {
     id: 101,
+    city: `Amsterdam`,
     pictures: [`img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`],
     isPremium: true,
     price: 100,
@@ -21,6 +22,7 @@ const offers = [
   },
   {
     id: 102,
+    city: `Amsterdam`,
     pictures: [`img/room.jpg`, `img/room.jpg`, `img/room.jpg`, `img/room.jpg`, `img/room.jpg`, `img/room.jpg`],
     isPremium: false,
     price: 80,
@@ -39,6 +41,7 @@ const offers = [
   },
   {
     id: 103,
+    city: `Amsterdam`,
     pictures: [`img/studio-01.jpg`, `img/studio-01.jpg`, `img/studio-01.jpg`, `img/studio-01.jpg`, `img/studio-01.jpg`, `img/studio-01.jpg`],
     isPremium: true,
     price: 120,
@@ -57,6 +60,7 @@ const offers = [
   },
   {
     id: 104,
+    city: `Amsterdam`,
     pictures: [`img/apartment-03.jpg`, `img/apartment-03.jpg`, `img/apartment-03.jpg`, `img/apartment-03.jpg`, `img/apartment-03.jpg`, `img/apartment-03.jpg`],
     isPremium: true,
     price: 100,
