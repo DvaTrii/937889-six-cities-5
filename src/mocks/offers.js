@@ -1,4 +1,4 @@
-import {OfferType} from "../../const";
+import {OfferType} from "../const";
 
 const offers = [
   {
@@ -6,8 +6,9 @@ const offers = [
     city: `Amsterdam`,
     pictures: [`img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`],
     isPremium: true,
+    isBookmark: true,
     price: 100,
-    title: `Beautiful & luxurious apartment at great location`,
+    title: `Wood and stone place`,
     type: OfferType.APARTMENT,
     rating: 5,
     description: `Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium`,
@@ -25,8 +26,9 @@ const offers = [
     city: `Amsterdam`,
     pictures: [`img/room.jpg`, `img/room.jpg`, `img/room.jpg`, `img/room.jpg`, `img/room.jpg`, `img/room.jpg`],
     isPremium: false,
+    isBookmark: true,
     price: 80,
-    title: `Beautiful & luxurious apartment at great location`,
+    title: `Nice, cozy, warm big bed apartment`,
     type: OfferType.HOTEL,
     rating: 4,
     description: `Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit`,
@@ -42,10 +44,11 @@ const offers = [
   {
     id: 103,
     city: `Amsterdam`,
-    pictures: [`img/studio-01.jpg`, `img/studio-01.jpg`, `img/studio-01.jpg`, `img/studio-01.jpg`, `img/studio-01.jpg`, `img/studio-01.jpg`],
-    isPremium: true,
+    pictures: [`img/apartment-01.jpg`, `img/apartment-01.jpg`, `img/apartment-01.jpg`, `img/apartment-01.jpg`, `img/apartment-01.jpg`, `img/apartment-01.jpg`],
+    isPremium: false,
+    isBookmark: false,
     price: 120,
-    title: `Beautiful & luxurious apartment at great location`,
+    title: `Canal View Prinsengracht`,
     type: OfferType.HOUSE,
     rating: 3,
     description: `Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam`,
@@ -63,6 +66,7 @@ const offers = [
     city: `Amsterdam`,
     pictures: [`img/apartment-03.jpg`, `img/apartment-03.jpg`, `img/apartment-03.jpg`, `img/apartment-03.jpg`, `img/apartment-03.jpg`, `img/apartment-03.jpg`],
     isPremium: true,
+    isBookmark: false,
     price: 100,
     title: `Beautiful & luxurious apartment at great location`,
     type: OfferType.ROOM,
