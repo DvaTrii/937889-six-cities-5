@@ -9,7 +9,7 @@ import FavoritesPage from "../pages/favorites-page/favorites-page.jsx";
 
 const App = (props) => {
 
-  const {totalOffers} = props;
+  const {offers} = props;
 
   return (
     <BrowserRouter>
@@ -17,7 +17,7 @@ const App = (props) => {
         <Route
           exact
           path="/"
-          render={() => <MainPage totalOffers={totalOffers} />} />
+          render={() => <MainPage offers={offers} />} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/favorites" component={FavoritesPage} />
         <Route exact path="/offer:id" component={OfferPage} />
@@ -28,7 +28,7 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  totalOffers: PropTypes.number.isRequired,
+  offers: PropTypes.array.isRequired,
 };
 
 export default App;
