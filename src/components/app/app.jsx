@@ -21,7 +21,7 @@ const App = (props) => {
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/favorites" component={FavoritesPage} />
         <Route exact
-          path="/offer:id"
+          path="/offer/:id"
           render={() => <OfferPage
             offer={offers[1]}
             reviews={reviews}/>} />
