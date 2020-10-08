@@ -1,5 +1,6 @@
 import React from "react";
 import MainHeader from "../../main-header/main-header";
+import {Link} from "react-router-dom";
 
 const FavoritesPage = () => {
 
@@ -138,9 +139,9 @@ const FavoritesPage = () => {
         </div>
       </main>
       <footer className="footer container">
-        <a className="footer__logo-link" href="main.html">
+        <Link to={``} className="footer__logo-link">
           <img className="footer__logo" src="img/logo.svg" alt="6 cities logo" width="64" height="33"></img>
-        </a>
+        </Link>
       </footer>
     </div>
   );
