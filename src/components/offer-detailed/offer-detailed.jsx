@@ -13,7 +13,7 @@ const OfferDetailed = (props) => {
     return items.map((picture, index) => {
       return (
         <div key={id + index} className="property__image-wrapper">
-          <img className="property__image" src="img/room.jpg" alt="Photo studio"></img>
+          <img className="property__image" src={picture} alt="Photo studio"></img>
         </div>
       );
     });
