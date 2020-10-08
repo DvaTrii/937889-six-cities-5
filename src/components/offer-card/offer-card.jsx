@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const OfferCard = ({card}) => {
 
-  const {pictures, isPremium, isBookmark, price, title, type, rating} = card;
+  const {id, pictures, isPremium, isBookmark, price, title, type, rating} = card;
 
   return (
     <article className="cities__place-card place-card">
@@ -39,7 +39,7 @@ const OfferCard = ({card}) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={`/offer/:id`}>{title}</Link>
+          <Link to={`/offer/${id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
@@ -49,6 +49,7 @@ const OfferCard = ({card}) => {
 
 OfferCard.propTypes = {
   card: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     pictures: PropTypes.array.isRequired,
     isPremium: PropTypes.bool.isRequired,
     isBookmark: PropTypes.bool.isRequired,

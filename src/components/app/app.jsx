@@ -22,9 +22,12 @@ const App = (props) => {
         <Route exact path="/favorites" component={FavoritesPage} />
         <Route exact
           path="/offer/:id"
-          render={() => <OfferPage
-            offer={offers[1]}
-            reviews={reviews}/>} />
+          render={({match}) => {
+            const {id} = match.params;
+            return (<OfferPage
+              offer={offers.find((item) => item.id === Number(id))}
+              reviews={reviews} />);
+          }} />
         <Redirect from="*" to="/" />
       </Switch>
     </BrowserRouter>
