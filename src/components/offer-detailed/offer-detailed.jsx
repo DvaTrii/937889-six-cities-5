@@ -1,69 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReviewForm from "../review-form/review-form";
+import OfferImageItem from "../offer-image-item/offer-image-item";
+import OfferAmenityItem from "../offer-amenity-item/offer-amenity-item";
+import OfferReviewItem from "../offer-review-item/offer-review-item";
 
-const OfferDetailed = (props) => {
+const OfferDetailed = ({offer, reviews}) => {
 
-  const {offer, reviews} = props;
-
-  const {id, pictures, isPremium, isBookmark, price, title, type, rating, description, bedroomsMax,
+  const {pictures, isPremium, isBookmark, price, title, type, rating, description, bedroomsMax,
     guestsMax, amenities, hostInfo: {avatar, name, isSuper}} = offer;
-
-  const getPicturesMarkup = (items) => {
-    return items.map((picture, index) => {
-      return (
-        <div key={id + index} className="property__image-wrapper">
-          <img className="property__image" src={picture} alt="Photo studio"></img>
-        </div>
-      );
-    });
-  };
-
-  const getAmenitiesMarkup = (items) => {
-    return items.map((item, index) => {
-      return (
-        <li key={id + index} className="property__inside-item">
-          {item}
-        </li>
-      );
-    });
-  };
-
-  const getReviewsMarkup = (items) => {
-    return items.map((item, index) => {
-      return (
-        <li key={index + item.reviewId} className="reviews__item">
-          <div className="reviews__user user">
-            <div className="reviews__avatar-wrapper user__avatar-wrapper">
-              <img className="reviews__avatar user__avatar" src={item.userInfo.userAvatar} width="54" height="54" alt="Reviews avatar"></img>
-            </div>
-            <span className="reviews__user-name">
-              {item.userInfo.userName}
-            </span>
-          </div>
-          <div className="reviews__info">
-            <div className="reviews__rating rating">
-              <div className="reviews__stars rating__stars">
-                <span style={{width: `${item.reviewRating * 20}%`}}></span>
-                <span className="visually-hidden">Rating</span>
-              </div>
-            </div>
-            <p className="reviews__text">
-              {item.reviewText}
-            </p>
-            <time className="reviews__time" dateTime="2019-04-24">{item.reviewDate}</time>
-          </div>
-        </li>
-      );
-    });
-  };
 
   return (
     <section className="property">
       <div className="property__gallery-container container">
         <div className="property__gallery">
 
-          {getPicturesMarkup(pictures)}
+          {pictures.map((item) => <OfferImageItem key={item} picture={item}/>)}
 
         </div>
       </div>
@@ -113,7 +65,7 @@ const OfferDetailed = (props) => {
             <h2 className="property__inside-title">What&apos;s inside</h2>
             <ul className="property__inside-list">
 
-              {getAmenitiesMarkup(amenities)}
+              {amenities.map((item) => <OfferAmenityItem key ={item} text={item}/>)}
 
             </ul>
           </div>
@@ -137,7 +89,7 @@ const OfferDetailed = (props) => {
             <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
             <ul className="reviews__list">
 
-              {getReviewsMarkup(reviews)}
+              {reviews.map((review) => <OfferReviewItem key={review.reviewId} review={review}/>)}
 
             </ul>
 
