@@ -7,6 +7,8 @@ import LoginPage from "../pages/login-page/login-page.jsx";
 import OfferPage from "../pages/offer-page/offer-page.jsx";
 import FavoritesPage from "../pages/favorites-page/favorites-page.jsx";
 
+import {AppRoute} from "../../const.js";
+
 const App = (props) => {
 
   const {offers, reviews} = props;
@@ -16,12 +18,12 @@ const App = (props) => {
       <Switch>
         <Route
           exact
-          path="/"
+          path={AppRoute.MAIN}
           render={() => <MainPage offers={offers} />} />
-        <Route exact path="/login" component={LoginPage} />
-        <Route exact path="/favorites" component={FavoritesPage} />
+        <Route exact path={AppRoute.LOGIN} component={LoginPage} />
+        <Route exact path={AppRoute.FAVORITES} component={FavoritesPage} />
         <Route exact
-          path="/offer/:id"
+          path={AppRoute.OFFER}
           render={({match}) => {
             const {id} = match.params;
             return (<OfferPage
@@ -29,7 +31,7 @@ const App = (props) => {
               reviews={reviews}
             />);
           }} />
-        <Redirect from="*" to="/" />
+        <Redirect to={AppRoute.MAIN} />
       </Switch>
     </BrowserRouter>
   );

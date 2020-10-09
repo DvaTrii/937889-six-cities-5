@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import OffersList from "../../offers-list/offers-list";
-import Header from "../../header/Header";
+import Header from "../../header/header";
 
 const MainPage = (props) => {
 

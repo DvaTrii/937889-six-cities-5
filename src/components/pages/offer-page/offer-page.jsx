@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import OfferDetailed from "../../offer-detailed/offer-detailed";
-import Header from "../../header/Header";
+import Header from "../../header/header";
 
 const OfferPage = (props) => {
 
-  const {offer, reviews, onCardHeaderClickHandler} = props;
+  const {offer, reviews} = props;
 
   return (
     <div className="page">
@@ -18,7 +18,7 @@ const OfferPage = (props) => {
         <OfferDetailed
           offer={offer}
           reviews={reviews}
-          onCardHeaderClickHandler={onCardHeaderClickHandler}/>
+        />
 
         <div className="container">
           <section className="near-places places">
@@ -133,7 +133,6 @@ const OfferPage = (props) => {
 OfferPage.propTypes = {
   offer: PropTypes.object.isRequired,
   reviews: PropTypes.array.isRequired,
-  onCardHeaderClickHandler: PropTypes.func.isRequired
 };
 
 export default OfferPage;
