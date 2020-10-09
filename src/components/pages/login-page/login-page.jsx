@@ -1,12 +1,12 @@
 import React from "react";
-import MainHeader from "../../main-header/main-header";
+import Header from "../../header/Header";
 
 const LoginPage = () => {
 
   return (
     <div className="page page--gray page--login">
 
-      <MainHeader />
+      <Header />
 
       <main className="page__main page__main--login">
         <div className="page__login-container container">

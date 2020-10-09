@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import OffersList from "../../offers-list/offers-list";
-import MainHeader from "../../main-header/main-header";
+import Header from "../../header/Header";
 
 const MainPage = (props) => {
 
@@ -10,7 +10,7 @@ const MainPage = (props) => {
   return (
     <div className="page page--gray page--main">
 
-      <MainHeader />
+      <Header />
 
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>

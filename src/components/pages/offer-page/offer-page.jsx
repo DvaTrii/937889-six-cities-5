@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import OfferDetailed from "../../offer-detailed/offer-detailed";
-import MainHeader from "../../main-header/main-header";
+import Header from "../../header/Header";
 
 const OfferPage = (props) => {
 
@@ -11,7 +11,7 @@ const OfferPage = (props) => {
   return (
     <div className="page">
 
-      <MainHeader />
+      <Header />
 
       <main className="page__main page__main--property">
 

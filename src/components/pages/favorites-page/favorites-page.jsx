@@ -1,5 +1,5 @@
 import React from "react";
-import MainHeader from "../../main-header/main-header";
+import Header from "../../header/Header";
 import {Link} from "react-router-dom";
 
 const FavoritesPage = () => {
@@ -7,7 +7,7 @@ const FavoritesPage = () => {
   return (
     <div className="page">
 
-      <MainHeader />
+      <Header />
 
       <main className="page__main page__main--favorites">
         <div className="page__favorites-container container">
