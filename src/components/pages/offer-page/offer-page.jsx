@@ -6,7 +6,7 @@ import MainHeader from "../../main-header/main-header";
 
 const OfferPage = (props) => {
 
-  const {offer, reviews} = props;
+  const {offer, reviews, onCardHeaderClickHandler} = props;
 
   return (
     <div className="page">
@@ -17,7 +17,8 @@ const OfferPage = (props) => {
 
         <OfferDetailed
           offer={offer}
-          reviews={reviews}/>
+          reviews={reviews}
+          onCardHeaderClickHandler={onCardHeaderClickHandler}/>
 
         <div className="container">
           <section className="near-places places">
@@ -131,7 +132,8 @@ const OfferPage = (props) => {
 
 OfferPage.propTypes = {
   offer: PropTypes.object.isRequired,
-  reviews: PropTypes.array.isRequired
+  reviews: PropTypes.array.isRequired,
+  onCardHeaderClickHandler: PropTypes.func.isRequired
 };
 
 export default OfferPage;

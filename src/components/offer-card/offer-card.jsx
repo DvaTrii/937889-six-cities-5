@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 
-const OfferCard = ({card}) => {
+const OfferCard = ({card, onCardHeaderClickHandler}) => {
 
   const {id, pictures, isPremium, isBookmark, price, title, type, rating} = card;
 
@@ -39,7 +39,7 @@ const OfferCard = ({card}) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={`/offer/${id}`}>{title}</Link>
+          <Link to={`/offer/${id}`} onClick={onCardHeaderClickHandler}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
@@ -57,7 +57,8 @@ OfferCard.propTypes = {
     title: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
-  })
+  }),
+  onCardHeaderClickHandler: PropTypes.func.isRequired
 };
 
 export default OfferCard;

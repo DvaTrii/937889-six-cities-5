@@ -22,11 +22,14 @@ const App = (props) => {
         <Route exact path="/favorites" component={FavoritesPage} />
         <Route exact
           path="/offer/:id"
-          render={({match}) => {
+          render={({match, history}) => {
             const {id} = match.params;
             return (<OfferPage
               offer={offers.find((item) => item.id === Number(id))}
-              reviews={reviews} />);
+              reviews={reviews}
+              onCardHeaderClickHandler={() => {
+                history.push(`/offer/${id}`);
+              }}/>);
           }} />
         <Redirect from="*" to="/" />
       </Switch>
