@@ -7,28 +7,39 @@ import LoginPage from "../pages/login-page/login-page.jsx";
 import OfferPage from "../pages/offer-page/offer-page.jsx";
 import FavoritesPage from "../pages/favorites-page/favorites-page.jsx";
 
+import {AppRoute} from "../../const.js";
+
 const App = (props) => {
 
-  const {totalOffers} = props;
+  const {offers, reviews} = props;
 
   return (
     <BrowserRouter>
       <Switch>
         <Route
           exact
-          path="/"
-          render={() => <MainPage totalOffers={totalOffers} />} />
-        <Route exact path="/login" component={LoginPage} />
-        <Route exact path="/favorites" component={FavoritesPage} />
-        <Route exact path="/offer:id" component={OfferPage} />
-        <Redirect from="*" to="/" />
+          path={AppRoute.MAIN}
+          render={() => <MainPage offers={offers} />} />
+        <Route exact path={AppRoute.LOGIN} component={LoginPage} />
+        <Route exact path={AppRoute.FAVORITES} component={FavoritesPage} />
+        <Route exact
+          path={AppRoute.OFFER}
+          render={({match}) => {
+            const {id} = match.params;
+            return (<OfferPage
+              offer={offers.find((item) => item.id === Number(id))}
+              reviews={reviews}
+            />);
+          }} />
+        <Redirect to={AppRoute.MAIN} />
       </Switch>
     </BrowserRouter>
   );
 };
 
 App.propTypes = {
-  totalOffers: PropTypes.number.isRequired,
+  offers: PropTypes.array.isRequired,
+  reviews: PropTypes.array.isRequired
 };
 
 export default App;

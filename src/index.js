@@ -2,13 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/app/app.jsx";
 
-const Offers = {
-  TOTAL_OFFERS: 322,
-};
+import offers from "./mocks/offers.js";
+import {reviews} from "./mocks/reviews";
 
 ReactDOM.render(
     <App
-      totalOffers={Offers.TOTAL_OFFERS}
+      offers={offers}
+      reviews={reviews}
     />,
     document.querySelector(`#root`)
 );
