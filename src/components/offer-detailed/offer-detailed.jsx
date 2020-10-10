@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReviewForm from "../review-form/review-form";
-import OfferImageItem from "../offer-image-item/offer-image-item";
-import OfferAmenityItem from "../offer-amenity-item/offer-amenity-item";
-import OfferReviewItem from "../offer-review-item/offer-review-item";
+import OfferImagesList from "../offer-images-list/offer-images-list";
+import OfferAmenitiesList from "../offer-amenities-List/offer-amenities-list";
+import OfferReviewsList from "../offer-reviews-list/offer-reviews-list";
 
 const OfferDetailed = ({offer, reviews}) => {
 
@@ -15,7 +15,7 @@ const OfferDetailed = ({offer, reviews}) => {
       <div className="property__gallery-container container">
         <div className="property__gallery">
 
-          {pictures.map((item) => <OfferImageItem key={item} picture={item}/>)}
+          <OfferImagesList pictures={pictures} />
 
         </div>
       </div>
@@ -63,11 +63,9 @@ const OfferDetailed = ({offer, reviews}) => {
           </div>
           <div className="property__inside">
             <h2 className="property__inside-title">What&apos;s inside</h2>
-            <ul className="property__inside-list">
 
-              {amenities.map((item) => <OfferAmenityItem key ={item} text={item}/>)}
+            <OfferAmenitiesList amenities={amenities} />
 
-            </ul>
           </div>
           <div className="property__host">
             <h2 className="property__host-title">Meet the host</h2>
@@ -87,11 +85,8 @@ const OfferDetailed = ({offer, reviews}) => {
           </div>
           <section className="property__reviews reviews">
             <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
-            <ul className="reviews__list">
 
-              {reviews.map((review) => <OfferReviewItem key={review.reviewId} review={review}/>)}
-
-            </ul>
+            <OfferReviewsList reviews={reviews} />
 
             <ReviewForm />
 
