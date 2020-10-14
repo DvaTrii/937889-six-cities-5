@@ -11,3 +11,10 @@ export const AppRoute = {
   FAVORITES: `/favorites`,
   OFFER: `/offer/:id`,
 };
+
+export const ZOOM = 12;
+
+export const CitiesCoordinates = {
+  Amsterdam: [52.38333, 4.9]
+};
+
