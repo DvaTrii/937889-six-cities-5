@@ -1,7 +1,7 @@
 import React from "react";
 import leaflet from "leaflet";
 
-// import "leaflet/dist/leaflet.css";
+import "leaflet/dist/leaflet.css";
 
 export default class Map extends React.PureComponent {
   constructor(props) {
@@ -14,7 +14,7 @@ export default class Map extends React.PureComponent {
     const offerCords = [52.3709553943508, 4.89309666406198];
 
     const icon = leaflet.icon({
-      iconUrl: `/img/pin.svg`,
+      iconUrl: `img/pin.svg`,
       iconSize: [30, 30]
     });
 
@@ -39,7 +39,7 @@ export default class Map extends React.PureComponent {
 
   render() {
     return (
-      <div id="myMap"></div>
+      <div id="myMap" style={{height: `100%`}}></div>
     );
   }
 }

@@ -19,6 +19,7 @@
     "eslint-config-htmlacademy": "0.5.2",
     "eslint-plugin-react": "7.18.3",
     "style-loader": "2.0.0",
+    "url-loader": "4.1.1",
     "webpack": "4.41.6",
     "webpack-cli": "3.3.12",
     "webpack-dev-server": "3.10.3"
