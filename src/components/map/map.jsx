@@ -10,6 +10,8 @@ export default class Map extends React.PureComponent {
   constructor(props) {
     super(props);
     this.pins = props.offers;
+
+    this.map = null;
   }
 
   componentDidMount() {
@@ -21,7 +23,7 @@ export default class Map extends React.PureComponent {
       iconSize: [30, 30]
     });
 
-    const map = leaflet.map(`map`, {
+    this.map = leaflet.map(`map`, {
       center: city,
       zoom,
       zoomControl: false,
@@ -33,13 +35,17 @@ export default class Map extends React.PureComponent {
           {
             attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
           })
-      .addTo(map);
+      .addTo(this.map);
 
     this.pins.forEach((item) => {
       leaflet
         .marker([item.coordinates.latitude, item.coordinates.longitude], {icon})
-        .addTo(map);
+        .addTo(this.map);
     });
+  }
+
+  componentWillUnmount() {
+    this.map = null;
   }
 
   render() {
