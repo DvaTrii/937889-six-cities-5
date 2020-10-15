@@ -1,42 +1,42 @@
 export const reviews = [
   {
-    reviewId: 300,
-    reviewDate: `April 2019`,
+    id: 300,
+    date: `April 2019`,
     userInfo: {
-      userAvatar: `img/avatar-max.jpg`,
-      userName: `Tom`
+      avatar: `img/avatar-max.jpg`,
+      name: `Tom`
     },
-    reviewText: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam`,
-    reviewRating: 4
+    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam`,
+    rating: 4
   },
   {
-    reviewId: 333,
+    id: 333,
     reviewDate: `March 2020`,
     userInfo: {
-      userAvatar: `img/avatar-max.jpg`,
-      userName: `Bob`
+      avatar: `img/avatar-max.jpg`,
+      name: `Bob`
     },
-    reviewText: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam`,
-    reviewRating: 3
+    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam`,
+    rating: 3
   },
   {
-    reviewId: 344,
+    id: 344,
     reviewDate: `May 2021`,
     userInfo: {
-      userAvatar: `img/avatar-angelina.jpg`,
-      userName: `Jess`
+      avatar: `img/avatar-angelina.jpg`,
+      name: `Jess`
     },
-    reviewText: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam`,
-    reviewRating: 2
+    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam`,
+    rating: 2
   },
   {
-    reviewId: 455,
+    id: 455,
     reviewDate: `June 2022`,
     userInfo: {
-      userAvatar: `img/avatar-angelina.jpg`,
-      userName: `Mary`
+      avatar: `img/avatar-angelina.jpg`,
+      name: `Mary`
     },
-    reviewText: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam`,
-    reviewRating: 5
+    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam`,
+    rating: 5
   },
 ];
