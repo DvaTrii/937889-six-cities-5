@@ -3,10 +3,13 @@ import PropTypes from "prop-types";
 import OffersList from "../../offers-list/offers-list";
 import Header from "../../header/header";
 import Map from "../../map/map";
+import {CardClass} from "../../../const";
 
 const MainPage = (props) => {
 
   const {offers} = props;
+
+  const cardClass = CardClass.main;
 
   return (
     <div className="page page--gray page--main">
@@ -79,7 +82,9 @@ const MainPage = (props) => {
               </form>
               <div className="cities__places-list places__list tabs__content">
 
-                <OffersList offers={offers} />
+                <OffersList
+                  offers={offers}
+                  cardType={cardClass}/>
 
               </div>
             </section>

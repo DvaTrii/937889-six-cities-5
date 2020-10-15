@@ -2,12 +2,12 @@ import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 
-const OfferCard = ({card}) => {
+const OfferCard = ({card, cardClass}) => {
 
   const {id, pictures, isPremium, isBookmark, price, title, type, rating} = card;
 
   return (
-    <article className="cities__place-card place-card">
+    <article className={`${cardClass} place-card`}>
       {isPremium && (
         <div className="place-card__mark">
           <span>Premium</span>
@@ -57,7 +57,8 @@ OfferCard.propTypes = {
     title: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
-  })
+  }),
+  cardClass: PropTypes.string.isRequired
 };
 
 export default OfferCard;
