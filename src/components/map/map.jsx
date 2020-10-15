@@ -1,4 +1,4 @@
-import React from "react";
+import React, {createRef} from "react";
 import leaflet from "leaflet";
 import PropTypes from "prop-types";
 
@@ -9,21 +9,21 @@ import "leaflet/dist/leaflet.css";
 export default class Map extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.pins = props.offers;
-
-    this.map = null;
+    this._mapRef = createRef();
   }
 
   componentDidMount() {
     const city = CitiesCoordinates.Amsterdam;
     const zoom = ZOOM;
 
+    const {offers} = this.props;
+
     const icon = leaflet.icon({
       iconUrl: `/img/pin.svg`,
       iconSize: [30, 30]
     });
 
-    this.map = leaflet.map(`map`, {
+    this.map = leaflet.map(this._mapRef.current, {
       center: city,
       zoom,
       zoomControl: false,
@@ -37,20 +37,16 @@ export default class Map extends React.PureComponent {
           })
       .addTo(this.map);
 
-    this.pins.forEach((item) => {
+    offers.forEach((item) => {
       leaflet
         .marker([item.coordinates.latitude, item.coordinates.longitude], {icon})
         .addTo(this.map);
     });
   }
 
-  componentWillUnmount() {
-    this.map = null;
-  }
-
   render() {
     return (
-      <div id="map" style={{height: `100%`}}></div>
+      <div ref={this._mapRef} style={{height: `100%`}}></div>
     );
   }
 }
