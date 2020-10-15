@@ -20,6 +20,14 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         },
+      },
+      {
+        test: /\.css$/i,
+        loader: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(png|jpe?g|svg)$/i,
+        use: ['url-loader']
       }
     ],
   },
