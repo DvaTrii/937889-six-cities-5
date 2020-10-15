@@ -4,13 +4,17 @@ import PropTypes from "prop-types";
 import OfferDetailed from "../../offer-detailed/offer-detailed";
 import Header from "../../header/header";
 import OffersList from "../../offers-list/offers-list";
+
 import {CardClass} from "../../../const";
+import offers from "../../../mocks/offers";
 
 const OfferPage = (props) => {
 
   const {offer, reviews} = props;
 
   const cardClass = CardClass.near;
+
+  const nearOffers = offers.filter((item) => offer.nearOffers.includes(item.id));
 
   return (
     <div className="page">
@@ -29,8 +33,8 @@ const OfferPage = (props) => {
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
               <OffersList
-                offers={[]}
-                cardType={cardClass}/>
+                offers={nearOffers}
+                cardClass={cardClass}/>
             </div>
           </section>
         </div>

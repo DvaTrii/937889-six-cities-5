@@ -84,7 +84,7 @@ const MainPage = (props) => {
 
                 <OffersList
                   offers={offers}
-                  cardType={cardClass}/>
+                  cardClass={cardClass}/>
 
               </div>
             </section>
