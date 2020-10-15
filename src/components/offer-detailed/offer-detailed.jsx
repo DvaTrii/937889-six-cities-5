@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ReviewForm from "../review-form/review-form";
 import OfferImagesList from "../offer-images-list/offer-images-list";
 import OfferAmenitiesList from "../offer-amenities-List/offer-amenities-list";
 import OfferReviewsList from "../offer-reviews-list/offer-reviews-list";
@@ -83,14 +82,9 @@ const OfferDetailed = ({offer, reviews}) => {
               </p>
             </div>
           </div>
-          <section className="property__reviews reviews">
-            <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
 
-            <OfferReviewsList reviews={reviews} />
+          <OfferReviewsList reviews={reviews} />
 
-            <ReviewForm />
-
-          </section>
         </div>
       </div>
       <section className="property__map map"></section>
