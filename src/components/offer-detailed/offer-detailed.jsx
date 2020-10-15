@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import OfferImagesList from "../offer-images-list/offer-images-list";
 import OfferAmenitiesList from "../offer-amenities-List/offer-amenities-list";
 import OfferReviewsList from "../offer-reviews-list/offer-reviews-list";
+import Map from "../map/map";
 
-const OfferDetailed = ({offer, reviews}) => {
+const OfferDetailed = ({offer, reviews, nearOffers}) => {
 
   const {pictures, isPremium, isBookmark, price, title, type, rating, description, bedroomsMax,
     guestsMax, amenities, hostInfo: {avatar, name, isSuper}} = offer;
@@ -87,7 +88,9 @@ const OfferDetailed = ({offer, reviews}) => {
 
         </div>
       </div>
-      <section className="property__map map"></section>
+      <section className="property__map map">
+        <Map offers={nearOffers}/>
+      </section>
     </section>
   );
 };
@@ -112,7 +115,8 @@ OfferDetailed.propTypes = {
       isSuper: PropTypes.bool.isRequired,
     })
   }),
-  reviews: PropTypes.array.isRequired
+  reviews: PropTypes.array.isRequired,
+  nearOffers: PropTypes.array.isRequired
 };
 
 export default OfferDetailed;

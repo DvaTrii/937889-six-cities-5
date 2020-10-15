@@ -26,6 +26,7 @@ const OfferPage = (props) => {
         <OfferDetailed
           offer={offer}
           reviews={reviews}
+          nearOffers={nearOffers}
         />
 
         <div className="container">
