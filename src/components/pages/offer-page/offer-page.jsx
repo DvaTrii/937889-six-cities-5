@@ -12,8 +12,6 @@ const OfferPage = (props) => {
 
   const {offer, reviews} = props;
 
-  const cardClass = CardClass.near;
-
   const nearOffers = offers.filter((item) => offer.nearOffers.includes(item.id));
 
   return (
@@ -35,7 +33,7 @@ const OfferPage = (props) => {
             <div className="near-places__list places__list">
               <OffersList
                 offers={nearOffers}
-                cardClass={cardClass}/>
+                cardClass={CardClass.near}/>
             </div>
           </section>
         </div>

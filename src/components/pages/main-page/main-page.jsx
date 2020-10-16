@@ -9,8 +9,6 @@ const MainPage = (props) => {
 
   const {offers} = props;
 
-  const cardClass = CardClass.main;
-
   return (
     <div className="page page--gray page--main">
 
@@ -84,7 +82,7 @@ const MainPage = (props) => {
 
                 <OffersList
                   offers={offers}
-                  cardClass={cardClass}/>
+                  cardClass={CardClass.main}/>
 
               </div>
             </section>
