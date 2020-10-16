@@ -18,3 +18,8 @@ export const CitiesCoordinates = {
   Amsterdam: [52.38333, 4.9]
 };
 
+export const CardClass = {
+  main: `cities__place-card`,
+  near: `near-places__card`,
+  favorite: `favorites__card`
+};

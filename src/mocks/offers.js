@@ -23,7 +23,8 @@ const offers = [
       avatar: `img/avatar-max.jpg`,
       name: `Ross`,
       isSuper: true,
-    }
+    },
+    nearOffers: [102, 103, 104]
   },
   {
     id: 102,
@@ -47,7 +48,8 @@ const offers = [
       avatar: `img/avatar-max.jpg`,
       name: `Chandler`,
       isSuper: true,
-    }
+    },
+    nearOffers: [101, 103, 104]
   },
   {
     id: 103,
@@ -71,7 +73,8 @@ const offers = [
       avatar: `img/avatar-angelina.jpg`,
       name: `Monica`,
       isSuper: false,
-    }
+    },
+    nearOffers: [102, 101, 104]
   },
   {
     id: 104,
@@ -95,7 +98,8 @@ const offers = [
       avatar: `img/avatar-angelina.jpg`,
       name: `Rachel`,
       isSuper: true,
-    }
+    },
+    nearOffers: [102, 103, 101]
   }
 ];
 
