@@ -13,7 +13,7 @@ export default class Map extends React.PureComponent {
   }
 
   componentDidMount() {
-    const city = CitiesCoordinates.Amsterdam;
+    const city = CitiesCoordinates.AMSTERDAM;
     const zoom = ZOOM;
 
     const {offers} = this.props;
