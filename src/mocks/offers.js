@@ -100,6 +100,156 @@ const offers = [
       isSuper: true,
     },
     nearOffers: [102, 103, 101]
+  },
+  {
+    id: 105,
+    city: `Paris`,
+    coordinates: {
+      latitude: 48.858093,
+      longitude: 2.294694
+    },
+    pictures: [`img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`],
+    isPremium: true,
+    isBookmark: true,
+    price: 100,
+    title: `Paris and stone place`,
+    type: OfferType.APARTMENT,
+    rating: 5,
+    description: `Paris ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium`,
+    bedroomsMax: `4 Bedrooms`,
+    guestsMax: `Max 5 adults`,
+    amenities: [`Wi-Fi`, `Heating`, `Kitchen`, `Parking`, `Flowers`, `Dishwasher`, `Towels`, `TV`],
+    hostInfo: {
+      avatar: `img/avatar-max.jpg`,
+      name: `Ross`,
+      isSuper: true,
+    },
+    nearOffers: [110]
+  },
+  {
+    id: 106,
+    city: `Cologne`,
+    coordinates: {
+      latitude: 50.941357,
+      longitude: 6.958307
+    },
+    pictures: [`img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`],
+    isPremium: true,
+    isBookmark: true,
+    price: 100,
+    title: `Cologne and stone place`,
+    type: OfferType.APARTMENT,
+    rating: 5,
+    description: `Cologne ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium`,
+    bedroomsMax: `4 Bedrooms`,
+    guestsMax: `Max 5 adults`,
+    amenities: [`Wi-Fi`, `Heating`, `Kitchen`, `Parking`, `Flowers`, `Dishwasher`, `Towels`, `TV`],
+    hostInfo: {
+      avatar: `img/avatar-max.jpg`,
+      name: `Ross`,
+      isSuper: true,
+    },
+    nearOffers: [102, 103, 104]
+  },
+  {
+    id: 107,
+    city: `Brussels`,
+    coordinates: {
+      latitude: 50.8439,
+      longitude: 4.35763
+    },
+    pictures: [`img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`],
+    isPremium: true,
+    isBookmark: true,
+    price: 100,
+    title: `Brussels and stone place`,
+    type: OfferType.APARTMENT,
+    rating: 5,
+    description: `Brussels ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium`,
+    bedroomsMax: `4 Bedrooms`,
+    guestsMax: `Max 5 adults`,
+    amenities: [`Wi-Fi`, `Heating`, `Kitchen`, `Parking`, `Flowers`, `Dishwasher`, `Towels`, `TV`],
+    hostInfo: {
+      avatar: `img/avatar-max.jpg`,
+      name: `Ross`,
+      isSuper: true,
+    },
+    nearOffers: [102, 103, 104]
+  },
+  {
+    id: 108,
+    city: `Hamburg`,
+    coordinates: {
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198
+    },
+    pictures: [`img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`],
+    isPremium: true,
+    isBookmark: true,
+    price: 100,
+    title: `Hamburg and stone place`,
+    type: OfferType.APARTMENT,
+    rating: 5,
+    description: `Hamburg ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium`,
+    bedroomsMax: `4 Bedrooms`,
+    guestsMax: `Max 5 adults`,
+    amenities: [`Wi-Fi`, `Heating`, `Kitchen`, `Parking`, `Flowers`, `Dishwasher`, `Towels`, `TV`],
+    hostInfo: {
+      avatar: `img/avatar-max.jpg`,
+      name: `Ross`,
+      isSuper: true,
+    },
+    nearOffers: [102, 103, 104]
+  },
+  {
+    id: 109,
+    city: `Dusseldorf`,
+    coordinates: {
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198
+    },
+    pictures: [`img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`],
+    isPremium: true,
+    isBookmark: true,
+    price: 100,
+    title: `Dusseldorf and stone place`,
+    type: OfferType.APARTMENT,
+    rating: 5,
+    description: `Dusseldorf ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium`,
+    bedroomsMax: `4 Bedrooms`,
+    guestsMax: `Max 5 adults`,
+    amenities: [`Wi-Fi`, `Heating`, `Kitchen`, `Parking`, `Flowers`, `Dishwasher`, `Towels`, `TV`],
+    hostInfo: {
+      avatar: `img/avatar-max.jpg`,
+      name: `Ross`,
+      isSuper: true,
+    },
+    nearOffers: [102, 103, 104]
+  },
+  {
+    id: 110,
+    city: `Paris`,
+    coordinates: {
+      latitude: 48.857805,
+      longitude: 2.295193
+    },
+    pictures: [`img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`],
+    isPremium: true,
+    isBookmark: true,
+    price: 100,
+    title: `Paris and stone place`,
+    type: OfferType.APARTMENT,
+    rating: 5,
+    description: `Paris ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium`,
+    bedroomsMax: `4 Bedrooms`,
+    guestsMax: `Max 5 adults`,
+    amenities: [`Wi-Fi`, `Heating`, `Kitchen`, `Parking`, `Flowers`, `Dishwasher`, `Towels`, `TV`],
+    hostInfo: {
+      avatar: `img/avatar-max.jpg`,
+      name: `Ross`,
+      isSuper: true,
+    },
+    nearOffers: [102, 103, 104]
   }
 ];
 
