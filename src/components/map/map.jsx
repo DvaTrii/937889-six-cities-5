@@ -10,7 +10,7 @@ import {ZOOM, CitiesCoordinates} from "../../const";
 class Map extends React.Component {
   constructor(props) {
     super(props);
-    this._mapRef = createRef();q
+    this._mapRef = createRef();
   }
 
   _update() {
