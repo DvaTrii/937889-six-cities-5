@@ -1,23 +1,24 @@
 import React, {createRef} from "react";
-import leaflet from "leaflet";
+import {connect} from "react-redux";
 import PropTypes from "prop-types";
+
+import leaflet from "leaflet";
+import "leaflet/dist/leaflet.css";
 
 import {ZOOM, CitiesCoordinates} from "../../const";
 
-import "leaflet/dist/leaflet.css";
-
-export default class Map extends React.PureComponent {
+class Map extends React.Component {
   constructor(props) {
     super(props);
-    this._mapRef = createRef();
+    this._mapRef = createRef();q
   }
 
-  componentDidMount() {
-    const city = CitiesCoordinates.AMSTERDAM;
-    const zoom = ZOOM;
-
+  _update() {
     const {offers} = this.props;
 
+    const currentCity = Object.entries(CitiesCoordinates).filter((it) => it[0] === this.props.city.toUpperCase());
+    const city = currentCity[0][1];
+    const zoom = ZOOM;
     const icon = leaflet.icon({
       iconUrl: `/img/pin.svg`,
       iconSize: [30, 30]
@@ -44,6 +45,16 @@ export default class Map extends React.PureComponent {
     });
   }
 
+
+  componentDidMount() {
+    this._update();
+  }
+
+  componentDidUpdate() {
+    this.map.remove();
+    this._update();
+  }
+
   render() {
     return (
       <div ref={this._mapRef} style={{height: `100%`}}></div>
@@ -53,4 +64,12 @@ export default class Map extends React.PureComponent {
 
 Map.propTypes = {
   offers: PropTypes.array.isRequired,
+  city: PropTypes.string.isRequired
 };
+
+const mapStateToProps = (state) => ({
+  city: state.city,
+});
+
+export {Map};
+export default connect(mapStateToProps)(Map);
