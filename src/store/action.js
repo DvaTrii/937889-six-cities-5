@@ -5,7 +5,7 @@ export const ActionType = {
 };
 
 export const ActionCreator = {
-  changeCurrentCity: (currentCityName) => ({
+  setCurrentCity: (currentCityName) => ({
     type: ActionType.SET_CURRENT_CITY,
     payload: currentCityName
   }),
