@@ -29,6 +29,10 @@ export const CardClass = {
   favorite: `favorites__card`
 };
 
+export const CurrentCityClass = {
+  ACTIVE: `tabs__item--active`
+};
+
 export const Cities = {
   PARIS: `Paris`,
   COLOGNE: `Cologne`,

@@ -1,8 +1,11 @@
 import React from "react";
+import {connect} from "react-redux";
+import {ActionCreator} from "../../store/action";
 import PropTypes from "prop-types";
 
-const CitiesList = ({cities}) => {
+import {CurrentCityClass} from "../../const";
 
+const CitiesList = ({cities, city, setCurrentCity}) => {
 
   return (
     <React.Fragment>
@@ -10,11 +13,14 @@ const CitiesList = ({cities}) => {
       <div className="tabs">
         <section className="locations container">
           <ul className="locations__list tabs__list">
-            {Object.values(cities).map((city, index) => {
+            {Object.values(cities).map((item, index) => {
               return (
-                <li key={city + index} className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>{city}</span>
+                <li key={item + index}
+                  className="locations__item"
+                  onClick={() => setCurrentCity(item)} >
+                  <a className={`locations__item-link tabs__item ${item === city ? CurrentCityClass.ACTIVE : ``}`}
+                    href="#">
+                    <span>{item}</span>
                   </a>
                 </li>);
             })}
@@ -26,7 +32,20 @@ const CitiesList = ({cities}) => {
 };
 
 CitiesList.propTypes = {
-  cities: PropTypes.object.isRequired
+  cities: PropTypes.object.isRequired,
+  city: PropTypes.string.isRequired,
+  setCurrentCity: PropTypes.func.isRequired
 };
 
-export default CitiesList;
+const mapStateToProps = (state) => ({
+  city: state.city,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentCity(city) {
+    dispatch(ActionCreator.setCurrentCity(city));
+  }
+});
+
+export {CitiesList};
+export default connect(mapStateToProps, mapDispatchToProps)(CitiesList);
