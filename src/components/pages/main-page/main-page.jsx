@@ -1,14 +1,19 @@
 import React from "react";
+import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import CitiesList from "../../cities-list/cities-list";
+
 import OffersList from "../../offers-list/offers-list";
 import Header from "../../header/header";
 import Map from "../../map/map";
+
 import {CardClass, Cities} from "../../../const";
 
 const MainPage = (props) => {
 
-  const {offers} = props;
+  const {offers, city} = props;
+
+  const currentOffers = offers.filter((it) => it.city === city);
 
   return (
     <div className="page page--gray page--main">
@@ -23,7 +28,7 @@ const MainPage = (props) => {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{offers.length} places to stay in Amsterdam</b>
+              <b className="places__found">{currentOffers.length} places to stay in {city}</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex="0">
@@ -48,14 +53,14 @@ const MainPage = (props) => {
               <div className="cities__places-list places__list tabs__content">
 
                 <OffersList
-                  offers={offers}
+                  offers={currentOffers}
                   cardClass={CardClass.main}/>
 
               </div>
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
-                <Map offers={offers}/>
+                <Map offers={currentOffers}/>
               </section>
             </div>
           </div>
@@ -67,6 +72,13 @@ const MainPage = (props) => {
 
 MainPage.propTypes = {
   offers: PropTypes.array.isRequired,
+  city: PropTypes.string.isRequired,
 };
 
-export default MainPage;
+const mapStateToProps = (state) => ({
+  city: state.city,
+});
+
+export {MainPage};
+export default connect(mapStateToProps)(MainPage);
+
