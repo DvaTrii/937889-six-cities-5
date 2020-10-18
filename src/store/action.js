@@ -1,12 +1,12 @@
 export const ActionType = {
-  CHANGE_CURRENT_CITY: `CHANGE_CURRENT_CITY`,
+  SET_CURRENT_CITY: `SET_CURRENT_CITY`,
   GET_CURRENT_CITY_OFFERS: `GET_CURRENT_CITY_OFFERS`,
   RETURN_TO_MAINPAGE: `RETURN_TO_MAINPAGE`
 };
 
 export const ActionCreator = {
   changeCurrentCity: (currentCityName) => ({
-    type: ActionType.CHANGE_CURRENT_CITY,
+    type: ActionType.SET_CURRENT_CITY,
     payload: currentCityName
   }),
   getCurrentCityOffers: (offers, currentCityName) => ({
