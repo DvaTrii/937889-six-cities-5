@@ -1,13 +1,12 @@
 import React, {createRef} from "react";
-import {connect} from "react-redux";
 import PropTypes from "prop-types";
 
 import leaflet from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-import {ZOOM, CitiesCoordinates} from "../../const";
+import {ZOOM} from "../../const";
 
-class Map extends React.Component {
+export default class Map extends React.Component {
   constructor(props) {
     super(props);
     this._mapRef = createRef();
@@ -16,8 +15,8 @@ class Map extends React.Component {
   _update() {
     const {offers} = this.props;
 
-    const currentCity = Object.entries(CitiesCoordinates).filter((it) => it[0] === this.props.city.toUpperCase());
-    const city = currentCity[0][1];
+    const cityCoordinates = offers[0].city.coordinates;
+
     const zoom = ZOOM;
     const icon = leaflet.icon({
       iconUrl: `/img/pin.svg`,
@@ -25,7 +24,7 @@ class Map extends React.Component {
     });
 
     this.map = leaflet.map(this._mapRef.current, {
-      center: city,
+      center: cityCoordinates,
       zoom,
       zoomControl: false,
       marker: true
@@ -64,12 +63,4 @@ class Map extends React.Component {
 
 Map.propTypes = {
   offers: PropTypes.array.isRequired,
-  city: PropTypes.string.isRequired
 };
-
-const mapStateToProps = (state) => ({
-  city: state.city,
-});
-
-export {Map};
-export default connect(mapStateToProps)(Map);
