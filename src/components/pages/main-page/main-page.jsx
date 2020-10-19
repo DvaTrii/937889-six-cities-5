@@ -11,9 +11,7 @@ import {CardClass, Cities} from "../../../const";
 
 const MainPage = (props) => {
 
-  const {offers, city} = props;
-
-  const currentOffers = offers.filter((it) => it.city === city);
+  const {currentOffers, city} = props;
 
   return (
     <div className="page page--gray page--main">
@@ -73,12 +71,18 @@ const MainPage = (props) => {
 MainPage.propTypes = {
   offers: PropTypes.array.isRequired,
   city: PropTypes.string.isRequired,
+  currentOffers: PropTypes.array.isRequired
 };
 
-const mapStateToProps = (state) => ({
-  city: state.city,
-});
+const mapStateToProps = (state, {offers}) => {
+  const {city} = state;
+  const currentOffers = offers.filter((it) => it.city === city);
+
+  return ({
+    city,
+    currentOffers
+  });
+};
 
 export {MainPage};
 export default connect(mapStateToProps)(MainPage);
-
