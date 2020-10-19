@@ -3,7 +3,10 @@ import {OfferType} from "../const";
 const offers = [
   {
     id: 101,
-    city: `Amsterdam`,
+    city: {
+      name: `Amsterdam`,
+      coordinates: [52.38333, 4.9]
+    },
     coordinates: {
       latitude: 52.3909553943508,
       longitude: 4.85309666406198
@@ -28,7 +31,10 @@ const offers = [
   },
   {
     id: 102,
-    city: `Amsterdam`,
+    city: {
+      name: `Amsterdam`,
+      coordinates: [52.38333, 4.9]
+    },
     coordinates: {
       latitude: 52.369553943508,
       longitude: 4.85309666406198
@@ -53,7 +59,10 @@ const offers = [
   },
   {
     id: 103,
-    city: `Amsterdam`,
+    city: {
+      name: `Amsterdam`,
+      coordinates: [52.38333, 4.9]
+    },
     coordinates: {
       latitude: 52.3909553943508,
       longitude: 4.929309666406198
@@ -78,7 +87,10 @@ const offers = [
   },
   {
     id: 104,
-    city: `Amsterdam`,
+    city: {
+      name: `Amsterdam`,
+      coordinates: [52.38333, 4.9]
+    },
     coordinates: {
       latitude: 52.3809553943508,
       longitude: 4.939309666406198
@@ -103,7 +115,10 @@ const offers = [
   },
   {
     id: 105,
-    city: `Paris`,
+    city: {
+      name: `Paris`,
+      coordinates: [48.864716, 2.349014]
+    },
     coordinates: {
       latitude: 48.858093,
       longitude: 2.294694
@@ -128,7 +143,10 @@ const offers = [
   },
   {
     id: 106,
-    city: `Cologne`,
+    city: {
+      name: `Cologne`,
+      coordinates: [50.935173, 6.953101]
+    },
     coordinates: {
       latitude: 50.941357,
       longitude: 6.958307
@@ -153,7 +171,10 @@ const offers = [
   },
   {
     id: 107,
-    city: `Brussels`,
+    city: {
+      name: `Brussels`,
+      coordinates: [50.8505, 4.3488]
+    },
     coordinates: {
       latitude: 50.8439,
       longitude: 4.35763
@@ -178,7 +199,10 @@ const offers = [
   },
   {
     id: 108,
-    city: `Hamburg`,
+    city: {
+      name: `Hamburg`,
+      coordinates: [53.551086, 9.993682]
+    },
     coordinates: {
       latitude: 52.3909553943508,
       longitude: 4.85309666406198
@@ -203,7 +227,10 @@ const offers = [
   },
   {
     id: 109,
-    city: `Dusseldorf`,
+    city: {
+      name: `Dusseldorf`,
+      coordinates: [51.233334, 6.783333]
+    },
     coordinates: {
       latitude: 52.3909553943508,
       longitude: 4.85309666406198
@@ -228,7 +255,10 @@ const offers = [
   },
   {
     id: 110,
-    city: `Paris`,
+    city: {
+      name: `Paris`,
+      coordinates: [48.864716, 2.349014]
+    },
     coordinates: {
       latitude: 48.857805,
       longitude: 2.295193
