@@ -13,7 +13,7 @@ const CitiesList = ({cities, city, setCurrentCity}) => {
       <div className="tabs">
         <section className="locations container">
           <ul className="locations__list tabs__list">
-            {Object.values(cities).map((item, index) => {
+            {cities.map((item, index) => {
               return (
                 <li key={item + index}
                   className="locations__item"
@@ -32,7 +32,7 @@ const CitiesList = ({cities, city, setCurrentCity}) => {
 };
 
 CitiesList.propTypes = {
-  cities: PropTypes.object.isRequired,
+  cities: PropTypes.array.isRequired,
   city: PropTypes.string.isRequired,
   setCurrentCity: PropTypes.func.isRequired
 };
