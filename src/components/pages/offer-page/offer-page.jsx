@@ -33,7 +33,7 @@ const OfferPage = (props) => {
             <div className="near-places__list places__list">
               <OffersList
                 offers={nearOffers}
-                cardClass={CardClass.near}/>
+                cardClass={CardClass.NEAR}/>
             </div>
           </section>
         </div>
