@@ -8,10 +8,9 @@ const InitialState = {
 const reducer = (state = InitialState, action) => {
   switch (action.type) {
     case ActionType.SET_CURRENT_CITY:
-      let currentCity = action.payload;
 
       return extend(state, {
-        city: currentCity,
+        city: action.payload,
       });
   }
 
