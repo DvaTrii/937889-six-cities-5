@@ -1,30 +1,30 @@
 import React, {createRef} from "react";
-import leaflet from "leaflet";
 import PropTypes from "prop-types";
 
-import {ZOOM, CitiesCoordinates} from "../../const";
-
+import leaflet from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-export default class Map extends React.PureComponent {
+import {ZOOM} from "../../const";
+
+export default class Map extends React.Component {
   constructor(props) {
     super(props);
     this._mapRef = createRef();
   }
 
-  componentDidMount() {
-    const city = CitiesCoordinates.Amsterdam;
-    const zoom = ZOOM;
-
+  _update() {
     const {offers} = this.props;
 
+    const cityCoordinates = offers[0].city.coordinates;
+
+    const zoom = ZOOM;
     const icon = leaflet.icon({
       iconUrl: `/img/pin.svg`,
       iconSize: [30, 30]
     });
 
     this.map = leaflet.map(this._mapRef.current, {
-      center: city,
+      center: cityCoordinates,
       zoom,
       zoomControl: false,
       marker: true
@@ -42,6 +42,16 @@ export default class Map extends React.PureComponent {
         .marker([item.coordinates.latitude, item.coordinates.longitude], {icon})
         .addTo(this.map);
     });
+  }
+
+
+  componentDidMount() {
+    this._update();
+  }
+
+  componentDidUpdate() {
+    this.map.remove();
+    this._update();
   }
 
   render() {
