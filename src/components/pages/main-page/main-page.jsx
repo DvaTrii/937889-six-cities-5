@@ -8,7 +8,7 @@ import Sorter from "../../sorter/sorter";
 import OffersList from "../../offers-list/offers-list";
 import Map from "../../map/map";
 
-import {CardClass} from "../../../const";
+import {CardClass, SorterType} from "../../../const";
 
 const MainPage = (props) => {
 
@@ -58,9 +58,24 @@ MainPage.propTypes = {
 };
 
 const mapStateToProps = (state, {offers}) => {
-  const {city} = state;
-  const currentOffers = offers.filter((it) => it.city.name === city);
+  const {city, activeSorter} = state;
+  let currentOffers = offers.filter((it) => it.city.name === city);
   const cities = [...new Set(offers.map((it) => it.city.name))];
+
+  switch (activeSorter) {
+    case SorterType.POPULAR:
+      currentOffers = currentOffers.slice();
+      break;
+    case SorterType.PRICE_HIGH_TO_LOW:
+      currentOffers = currentOffers.slice().sort((a, b) => b.price - a.price);
+      break;
+    case SorterType.PRICE_LOW_TO_HIGH:
+      currentOffers = currentOffers.slice().sort((a, b) => a.price - b.price);
+      break;
+    case SorterType.TOP_RATED_FIRST:
+      currentOffers = currentOffers.slice().sort((a, b) => b.rating - a.rating);
+      break;
+  }
 
   return ({
     city,
