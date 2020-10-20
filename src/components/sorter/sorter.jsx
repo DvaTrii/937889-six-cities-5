@@ -43,8 +43,13 @@ class Sorter extends React.PureComponent {
             Object.values(SorterType).map((it) => (
               <li key={it}
                 className={`places__option ${this.props.activeSorter === it ? SorterActiveClass.ACTIVE : ``}`}
-                onClick={() => this.setActiveSorter(it)}
-                tabIndex="0">{it}</li>))
+                onClick={() => {
+                  this.setActiveSorter(it);
+                  this._handleClick();
+                }}
+                tabIndex="0">
+                {it}
+              </li>))
           }
         </ul>
         {/* <select className="places__sorting-type" id="places-sorting">*/}
