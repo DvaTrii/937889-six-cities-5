@@ -9,7 +9,6 @@ class Sorter extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.activeSorter = this.props.activeSorter;
     this.setActiveSorter = this.props.setActiveSorter;
 
     this.state = {
@@ -33,7 +32,7 @@ class Sorter extends React.PureComponent {
         <span className="places__sorting-type"
           tabIndex="0"
           onClick={this._handleClick}>
-          {this.activeSorter}
+          {this.props.activeSorter}
           <svg className="places__sorting-arrow" width="7" height="4">
             <use xlinkHref="#icon-arrow-select"></use>
           </svg>
@@ -43,7 +42,7 @@ class Sorter extends React.PureComponent {
           {
             Object.values(SorterType).map((it) => (
               <li key={it}
-                className={`places__option ${this.activeSorter === it ? SorterActiveClass.ACTIVE : ``}`}
+                className={`places__option ${this.props.activeSorter === it ? SorterActiveClass.ACTIVE : ``}`}
                 onClick={() => this.setActiveSorter(it)}
                 tabIndex="0">{it}</li>))
           }
