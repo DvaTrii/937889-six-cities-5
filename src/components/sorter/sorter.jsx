@@ -1,18 +1,26 @@
 import React from "react";
-import {SorterType, SorterActiveClass, SorterListOpenedClass} from "../../const";
+import {connect} from "react-redux";
+import PropTypes from "prop-types";
 
-export default class Sorter extends React.PureComponent {
+import {SorterType, SorterActiveClass, SorterListOpenedClass} from "../../const";
+import {ActionCreator} from "../../store/action";
+
+class Sorter extends React.PureComponent {
   constructor(props) {
     super(props);
+
+    this.activeSorter = this.props.activeSorter;
+    this.setActiveSorter = this.props.setActiveSorter;
 
     this.state = {
       isOpened: false,
     };
 
-    this.handleClick = this.handleClick.bind(this);
+    this._handleClick = this._handleClick.bind(this);
+    this.setActiveSorter = this.setActiveSorter.bind(this);
   }
 
-  handleClick() {
+  _handleClick() {
     this.setState({
       isOpened: !this.state.isOpened
     });
@@ -24,8 +32,8 @@ export default class Sorter extends React.PureComponent {
         <span className="places__sorting-caption">Sort by</span>
         <span className="places__sorting-type"
           tabIndex="0"
-          onClick={this.handleClick}>
-          Popular
+          onClick={this._handleClick}>
+          {this.activeSorter}
           <svg className="places__sorting-arrow" width="7" height="4">
             <use xlinkHref="#icon-arrow-select"></use>
           </svg>
@@ -34,7 +42,9 @@ export default class Sorter extends React.PureComponent {
         ${this.state.isOpened ? SorterListOpenedClass.OPENED : ``}`}>
           {
             Object.values(SorterType).map((it) => (
-              <li key={it} className={`places__option`}
+              <li key={it}
+                className={`places__option ${this.activeSorter === it ? SorterActiveClass.ACTIVE : ``}`}
+                onClick={() => this.setActiveSorter(it)}
                 tabIndex="0">{it}</li>))
           }
         </ul>
@@ -49,3 +59,22 @@ export default class Sorter extends React.PureComponent {
   }
 }
 
+Sorter.propTypes = {
+  activeSorter: PropTypes.string.isRequired,
+  setActiveSorter: PropTypes.func.isRequired
+};
+
+const mapStateToProps = (state) => {
+  return ({
+    activeSorter: state.activeSorter,
+  });
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  setActiveSorter(sorter) {
+    dispatch(ActionCreator.setActiveSorter(sorter));
+  }
+});
+
+export {Sorter};
+export default connect(mapStateToProps, mapDispatchToProps)(Sorter);
