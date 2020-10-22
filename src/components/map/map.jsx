@@ -5,8 +5,9 @@ import leaflet from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 import {ZOOM} from "../../const";
+import {connect} from "react-redux";
 
-export default class Map extends React.Component {
+class Map extends React.PureComponent {
   constructor(props) {
     super(props);
     this._mapRef = createRef();
@@ -18,8 +19,14 @@ export default class Map extends React.Component {
     const cityCoordinates = offers[0].city.coordinates;
 
     const zoom = ZOOM;
+
     const icon = leaflet.icon({
       iconUrl: `/img/pin.svg`,
+      iconSize: [30, 30]
+    });
+
+    const hoveredIcon = leaflet.icon({
+      iconUrl: `/img/pin-active.svg`,
       iconSize: [30, 30]
     });
 
@@ -38,12 +45,17 @@ export default class Map extends React.Component {
       .addTo(this.map);
 
     offers.forEach((item) => {
-      leaflet
-        .marker([item.coordinates.latitude, item.coordinates.longitude], {icon})
-        .addTo(this.map);
+      if (item.id === this.props.hoveredOfferId) {
+        leaflet
+          .marker([item.coordinates.latitude, item.coordinates.longitude], {icon: hoveredIcon})
+          .addTo(this.map);
+      } else {
+        leaflet
+          .marker([item.coordinates.latitude, item.coordinates.longitude], {icon})
+          .addTo(this.map);
+      }
     });
   }
-
 
   componentDidMount() {
     this._update();
@@ -56,11 +68,19 @@ export default class Map extends React.Component {
 
   render() {
     return (
-      <div ref={this._mapRef} style={{height: `100%`}}></div>
+      <div ref={this._mapRef} style={{height: `100%`}}/>
     );
   }
 }
 
 Map.propTypes = {
   offers: PropTypes.array.isRequired,
+  hoveredOfferId: PropTypes.number.isRequired
 };
+
+const mapStateToProps = (state) => ({
+  hoveredOfferId: state.hoveredOfferId,
+});
+
+export {Map};
+export default connect(mapStateToProps)(Map);

@@ -1,20 +1,31 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
+import {ActionCreator} from "../../store/action";
+import {connect} from "react-redux";
 
-const OfferCard = ({card, cardClass}) => {
+const OfferCard = ({card, cardClass, setHoveredOfferId, resetHoveredOfferId}) => {
 
   const {id, pictures, isPremium, isBookmark, price, title, type, rating} = card;
 
   return (
-    <article className={`${cardClass} place-card`}>
+    <article className={`${cardClass} place-card`}
+      onMouseEnter={() => {
+        setHoveredOfferId(id);
+      }}
+      onMouseLeave={() => {
+        resetHoveredOfferId();
+      }}>
       {isPremium && (
         <div className="place-card__mark">
           <span>Premium</span>
         </div>)}
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
-          <img className="place-card__image" src={pictures[0]} width="260" height="200" alt="Place image"></img>
+          <img className="place-card__image"
+            src={pictures[0]}
+            width="260" height="200"
+            alt="Place image" />
         </a>
       </div>
       <div className="place-card__info">
@@ -27,7 +38,7 @@ const OfferCard = ({card, cardClass}) => {
            ${isBookmark && `place-card__bookmark-button--active`}
            button`} type="button">
             <svg className="place-card__bookmark-icon" width="18" height="19">
-              <use xlinkHref="#icon-bookmark"></use>
+              <use xlinkHref="#icon-bookmark" />
             </svg>
             <span className="visually-hidden">{isBookmark ? `In bookmarks` : `To bookmarks`}</span>
           </button>
@@ -58,8 +69,23 @@ OfferCard.propTypes = {
     type: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
   }),
-  cardClass: PropTypes.string.isRequired
+  cardClass: PropTypes.string.isRequired,
+  setHoveredOfferId: PropTypes.func.isRequired,
+  resetHoveredOfferId: PropTypes.func.isRequired
 };
 
-export default OfferCard;
+const mapStateToProps = (state) => ({
+  hoveredOfferId: state.hoveredOfferId,
+});
 
+const mapDispatchToProps = (dispatch) => ({
+  setHoveredOfferId(id) {
+    dispatch(ActionCreator.setHoveredOfferId(id));
+  },
+  resetHoveredOfferId() {
+    dispatch(ActionCreator.resetHoveredOfferId());
+  }
+});
+
+export {OfferCard};
+export default connect(mapStateToProps, mapDispatchToProps)(OfferCard);
