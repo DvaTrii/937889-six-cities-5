@@ -9,6 +9,7 @@ import OffersList from "../../offers-list/offers-list";
 import Map from "../../map/map";
 
 import {CardClass} from "../../../const";
+import {Cities} from "../../../const";
 import {sortOffers} from "../../../utils";
 
 const MainPage = (props) => {
@@ -60,8 +61,8 @@ MainPage.propTypes = {
 
 const mapStateToProps = (state, {offers}) => {
   const {city, activeSorter} = state;
-  const cities = [...new Set(offers.map((it) => it.city.name))];
 
+  const cities = Object.values(Cities);
   let currentOffers = offers.filter((it) => it.city.name === city);
   currentOffers = sortOffers(currentOffers, activeSorter);
 
