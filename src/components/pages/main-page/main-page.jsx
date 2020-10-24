@@ -4,11 +4,12 @@ import PropTypes from "prop-types";
 
 import Header from "../../header/header";
 import CitiesList from "../../cities-list/cities-list";
+import NoOffers from "../../no-offers/no-offers";
 import Sorter from "../../sorter/sorter";
 import OffersList from "../../offers-list/offers-list";
 import Map from "../../map/map";
 
-import {CardClass} from "../../../const";
+import {CardClass, MainPageNoOffersClass} from "../../../const";
 import {Cities} from "../../../const";
 import {sortOffers} from "../../../utils";
 
@@ -21,33 +22,40 @@ const MainPage = (props) => {
 
       <Header />
 
-      <main className="page__main page__main--index">
+      <main className={`page__main page__main--index
+      ${currentOffers.length !== 0 ?
+      `` :
+      MainPageNoOffersClass.NO_OFFERS}`}>
 
         <CitiesList cities={cities} />
+        {
+          currentOffers.length !== 0 ?
+            <div className="cities">
+              <div className="cities__places-container container">
+                <section className="cities__places places">
+                  <h2 className="visually-hidden">Places</h2>
+                  <b className="places__found">{currentOffers.length} places to stay in {city}</b>
 
-        <div className="cities">
-          <div className="cities__places-container container">
-            <section className="cities__places places">
-              <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{currentOffers.length} places to stay in {city}</b>
+                  <Sorter />
 
-              <Sorter />
+                  <div className="cities__places-list places__list tabs__content">
 
-              <div className="cities__places-list places__list tabs__content">
+                    <OffersList
+                      offers={currentOffers}
+                      cardClass={CardClass.MAIN}/>
 
-                <OffersList
-                  offers={currentOffers}
-                  cardClass={CardClass.MAIN}/>
-
+                  </div>
+                </section>
+                <div className="cities__right-section">
+                  <section className="cities__map map">
+                    <Map offers={currentOffers}/>
+                  </section>
+                </div>
               </div>
-            </section>
-            <div className="cities__right-section">
-              <section className="cities__map map">
-                <Map offers={currentOffers}/>
-              </section>
-            </div>
-          </div>
-        </div>
+            </div> :
+
+            <NoOffers city={city}/>
+        }
       </main>
     </div>
   );
