@@ -1,8 +1,7 @@
 import React from "react";
 import Header from "../../header/header";
-import {Link} from "react-router-dom";
 
-import {AppRoute} from "../../../const";
+import Footer from "../../footer/footer";
 
 const FavoritesPage = () => {
 
@@ -28,7 +27,7 @@ const FavoritesPage = () => {
                   <article className="favorites__card place-card">
                     <div className="favorites__image-wrapper place-card__image-wrapper">
                       <a href="#">
-                        <img className="place-card__image" src="img/apartment-small-03.jpg" width="150" height="110" alt="Place image"></img>
+                        <img className="place-card__image" src="img/apartment-small-03.jpg" width="150" height="110" alt="Place image"/>
                       </a>
                     </div>
                     <div className="favorites__card-info place-card__info">
@@ -140,11 +139,9 @@ const FavoritesPage = () => {
           </section>
         </div>
       </main>
-      <footer className="footer container">
-        <Link to={AppRoute.MAIN} className="footer__logo-link">
-          <img className="footer__logo" src="img/logo.svg" alt="6 cities logo" width="64" height="33"></img>
-        </Link>
-      </footer>
+
+      <Footer />
+
     </div>
   );
 };
