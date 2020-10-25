@@ -228,7 +228,7 @@ const offers = [
   {
     id: 109,
     city: {
-      name: `Dusseldorf`,
+      name: `Paris`,
       coordinates: [51.233334, 6.783333]
     },
     coordinates: {

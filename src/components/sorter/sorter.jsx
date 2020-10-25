@@ -1,5 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
+import {compose} from "redux";
 import PropTypes from "prop-types";
 
 import {withActiveFlag} from "../hocs/withActiveFlag/withActiveFlag";
@@ -67,4 +68,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export {Sorter};
-export default withActiveFlag(connect(mapStateToProps, mapDispatchToProps)(Sorter));
+export default compose(withActiveFlag, connect(mapStateToProps, mapDispatchToProps))(Sorter);

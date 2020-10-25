@@ -29,6 +29,10 @@ export const CardClass = {
   FAVORITE: `favorites__card`
 };
 
+export const MainPageNoOffersClass = {
+  NO_OFFERS: `page__main--index-empty`
+};
+
 export const CurrentCityClass = {
   ACTIVE: `tabs__item--active`
 };
