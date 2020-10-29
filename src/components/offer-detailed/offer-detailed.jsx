@@ -51,10 +51,10 @@ const OfferDetailed = ({offer, reviews, nearOffers}) => {
               {type}
             </li>
             <li className="property__feature property__feature--bedrooms">
-              {bedroomsMax}
+              {bedroomsMax} ${bedroomsMax === 1 ? `Bedroom` : `Bedrooms`}
             </li>
             <li className="property__feature property__feature--adults">
-              {guestsMax}
+              Max {guestsMax} adults
             </li>
           </ul>
           <div className="property__price">
@@ -106,8 +106,8 @@ OfferDetailed.propTypes = {
     type: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
-    bedroomsMax: PropTypes.string.isRequired,
-    guestsMax: PropTypes.string.isRequired,
+    bedroomsMax: PropTypes.number.isRequired,
+    guestsMax: PropTypes.number.isRequired,
     amenities: PropTypes.array,
     hostInfo: PropTypes.shape({
       avatar: PropTypes.string.isRequired,

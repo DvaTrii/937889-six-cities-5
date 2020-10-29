@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 
 const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferIdAction}) => {
 
-  const {id, pictures, isPremium, isBookmark, price, title, type, rating} = card;
+  const {id, previewImage, isPremium, isBookmark, price, title, type, rating} = card;
 
   return (
     <article className={`${cardClass} place-card`}
@@ -23,7 +23,7 @@ const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferI
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
           <img className="place-card__image"
-            src={pictures[0]}
+            src={previewImage}
             width="260" height="200"
             alt="Place image" />
         </a>
@@ -61,9 +61,9 @@ const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferI
 OfferCard.propTypes = {
   card: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    pictures: PropTypes.array.isRequired,
+    previewImage: PropTypes.string.isRequired,
     isPremium: PropTypes.bool.isRequired,
-    isBookmark: PropTypes.bool.isRequired,
+    isBookmark: PropTypes.bool,
     price: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,

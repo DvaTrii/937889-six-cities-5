@@ -16,7 +16,8 @@ class Map extends React.PureComponent {
   _update() {
     const {offers} = this.props;
 
-    const cityCoordinates = offers[0].city.coordinates;
+    const city = offers[0].city.coordinates;
+    const coordinates = [city.latitude, city.longitude];
 
     const zoom = ZOOM;
 
@@ -31,7 +32,7 @@ class Map extends React.PureComponent {
     });
 
     this.map = leaflet.map(this._mapRef.current, {
-      center: cityCoordinates,
+      center: coordinates,
       zoom,
       zoomControl: false,
       marker: true
