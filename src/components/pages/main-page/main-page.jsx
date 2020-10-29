@@ -44,7 +44,7 @@ MainPage.propTypes = {
 };
 
 const mapStateToProps = (state, {offers}) => {
-  const {city, activeSorter} = state;
+  const {APP: {city, activeSorter}} = state;
 
   const cities = Object.values(Cities);
   let currentOffers = offers.filter((it) => it.city.name === city);

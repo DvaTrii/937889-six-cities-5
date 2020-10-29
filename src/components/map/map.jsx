@@ -78,8 +78,8 @@ Map.propTypes = {
   hoveredOfferId: PropTypes.number.isRequired
 };
 
-const mapStateToProps = (state) => ({
-  hoveredOfferId: state.hoveredOfferId,
+const mapStateToProps = ({APP}) => ({
+  hoveredOfferId: APP.hoveredOfferId,
 });
 
 export {Map};

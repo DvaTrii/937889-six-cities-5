@@ -8,6 +8,8 @@ import OfferPage from "../pages/offer-page/offer-page.jsx";
 import FavoritesPage from "../pages/favorites-page/favorites-page.jsx";
 
 import {AppRoute} from "../../const.js";
+import {connect} from "react-redux";
+import {CitiesList} from "../cities-list/cities-list";
 
 const App = (props) => {
 
@@ -42,4 +44,9 @@ App.propTypes = {
   reviews: PropTypes.array.isRequired
 };
 
-export default App;
+const mapStateToProps = ({DATA}) => ({
+  offers: DATA.offers,
+});
+
+export {App};
+export default connect(mapStateToProps)(App);

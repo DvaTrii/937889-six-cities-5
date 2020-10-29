@@ -55,9 +55,9 @@ Sorter.propTypes = {
   setActiveSorterAction: PropTypes.func.isRequired
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({APP}) => {
   return ({
-    activeSorter: state.activeSorter,
+    activeSorter: APP.activeSorter,
   });
 };
 
