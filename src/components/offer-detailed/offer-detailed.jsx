@@ -5,7 +5,9 @@ import OfferAmenitiesList from "../offer-amenities-List/offer-amenities-list";
 import OfferReviewsList from "../offer-reviews-list/offer-reviews-list";
 import Map from "../map/map";
 
-const OfferDetailed = ({offer, reviews, nearOffers}) => {
+import nearOffers from "../../mocks/offers";
+
+const OfferDetailed = ({offer, reviews}) => {
 
   const {pictures, isPremium, isBookmark, price, title, type, rating, description, bedroomsMax,
     guestsMax, amenities, hostInfo: {avatar, name, isSuper}} = offer;
@@ -100,7 +102,7 @@ OfferDetailed.propTypes = {
     id: PropTypes.number.isRequired,
     pictures: PropTypes.array.isRequired,
     isPremium: PropTypes.bool.isRequired,
-    isBookmark: PropTypes.bool.isRequired,
+    isBookmark: PropTypes.bool,
     price: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
@@ -116,7 +118,6 @@ OfferDetailed.propTypes = {
     })
   }),
   reviews: PropTypes.array.isRequired,
-  nearOffers: PropTypes.array.isRequired
 };
 
 export default OfferDetailed;
