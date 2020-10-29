@@ -9,7 +9,6 @@ import {fetchOffersList} from "./store/api-actions";
 import App from "./components/app/app.jsx";
 
 import rootReducer from "./store/root-reducer";
-// import offers from "./mocks/offers.js";
 import {reviews} from "./mocks/reviews";
 
 const api = createApi();
@@ -25,7 +24,6 @@ ReactDOM.render(
     <Provider store={store}>
 
       <App
-        // offers={offers}
         reviews={reviews}
       />
     </Provider>,
