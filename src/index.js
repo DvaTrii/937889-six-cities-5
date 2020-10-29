@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import thunk from "redux-thunk";
 import {createStore, applyMiddleware} from "redux";
+import {composeWithDevTools} from "redux-devtools-extension";
 import {Provider} from "react-redux";
 import {createApi} from "./services/api/api";
 import {fetchOffersList} from "./store/api-actions";
@@ -15,8 +16,9 @@ const api = createApi();
 
 const store = createStore(
     rootReducer,
-    applyMiddleware(thunk.withExtraArgument(api))
-);
+    composeWithDevTools(
+        applyMiddleware(thunk.withExtraArgument(api))
+    ));
 
 store.dispatch(fetchOffersList());
 
