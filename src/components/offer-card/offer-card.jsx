@@ -1,20 +1,20 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
-import {ActionCreator} from "../../store/action";
+import {setHoveredOfferId, resetHoveredOfferId} from "../../store/action";
 import {connect} from "react-redux";
 
-const OfferCard = ({card, cardClass, setHoveredOfferId, resetHoveredOfferId}) => {
+const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferIdAction}) => {
 
   const {id, pictures, isPremium, isBookmark, price, title, type, rating} = card;
 
   return (
     <article className={`${cardClass} place-card`}
       onMouseEnter={() => {
-        setHoveredOfferId(id);
+        setHoveredOfferIdAction(id);
       }}
       onMouseLeave={() => {
-        resetHoveredOfferId();
+        resetHoveredOfferIdAction();
       }}>
       {isPremium && (
         <div className="place-card__mark">
@@ -70,8 +70,8 @@ OfferCard.propTypes = {
     rating: PropTypes.number.isRequired,
   }),
   cardClass: PropTypes.string.isRequired,
-  setHoveredOfferId: PropTypes.func.isRequired,
-  resetHoveredOfferId: PropTypes.func.isRequired
+  setHoveredOfferIdAction: PropTypes.func.isRequired,
+  resetHoveredOfferIdAction: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -79,11 +79,11 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setHoveredOfferId(id) {
-    dispatch(ActionCreator.setHoveredOfferId(id));
+  setHoveredOfferIdAction(id) {
+    dispatch(setHoveredOfferId(id));
   },
-  resetHoveredOfferId() {
-    dispatch(ActionCreator.resetHoveredOfferId());
+  resetHoveredOfferIdAction() {
+    dispatch(resetHoveredOfferId());
   }
 });
 

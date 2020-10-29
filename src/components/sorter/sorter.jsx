@@ -5,10 +5,10 @@ import PropTypes from "prop-types";
 
 import {withActiveFlag} from "../hocs/withActiveFlag/withActiveFlag";
 import {SorterType, SorterActiveClass, SorterListOpenedClass} from "../../const";
-import {ActionCreator} from "../../store/action";
+import {setActiveSorter} from "../../store/action";
 
 
-const Sorter = ({isActive, onActiveChange, activeSorter, setActiveSorter}) => {
+const Sorter = ({isActive, onActiveChange, activeSorter, setActiveSorterAction}) => {
   return (
     <form className="places__sorting" action="#" method="get">
       <span className="places__sorting-caption">Sort by</span>
@@ -29,7 +29,7 @@ const Sorter = ({isActive, onActiveChange, activeSorter, setActiveSorter}) => {
             <li key={it}
               className={`places__option ${activeSorter === it ? SorterActiveClass.ACTIVE : ``}`}
               onClick={() => {
-                setActiveSorter(it);
+                setActiveSorterAction(it);
                 onActiveChange();
               }}
               tabIndex="0">
@@ -52,7 +52,7 @@ Sorter.propTypes = {
   isActive: PropTypes.bool.isRequired,
   onActiveChange: PropTypes.func.isRequired,
   activeSorter: PropTypes.string.isRequired,
-  setActiveSorter: PropTypes.func.isRequired
+  setActiveSorterAction: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {
@@ -62,8 +62,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  setActiveSorter(sorter) {
-    dispatch(ActionCreator.setActiveSorter(sorter));
+  setActiveSorterAction(sorter) {
+    dispatch(setActiveSorter(sorter));
   }
 });
 
