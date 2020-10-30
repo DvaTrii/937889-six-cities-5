@@ -1,5 +1,5 @@
 import {extend} from "../../utils";
-import {ActionType} from "../action";
+import {ActionType} from "./actions";
 
 const initialState = {
   city: `Amsterdam`,

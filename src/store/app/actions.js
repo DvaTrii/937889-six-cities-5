@@ -26,7 +26,3 @@ export const resetHoveredOfferId = () => ({
   payload: -1
 });
 
-export const loadOffers = (loadedOffers) => ({
-  type: ActionType.LOAD_OFFERS,
-  payload: loadedOffers
-});

@@ -5,7 +5,7 @@ import {createStore, applyMiddleware} from "redux";
 import {composeWithDevTools} from "redux-devtools-extension";
 import {Provider} from "react-redux";
 import {createApi} from "./services/api/api";
-import {fetchOffersList} from "./store/api-actions";
+import {fetchOffersList} from "./store/data/actions";
 
 import App from "./components/app/app.jsx";
 

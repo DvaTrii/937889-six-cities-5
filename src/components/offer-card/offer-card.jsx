@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
-import {setHoveredOfferId, resetHoveredOfferId} from "../../store/action";
+import {setHoveredOfferId, resetHoveredOfferId} from "../../store/app/actions";
 import {connect} from "react-redux";
 
 const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferIdAction}) => {

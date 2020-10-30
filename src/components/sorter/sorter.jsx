@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 import {withActiveFlag} from "../hocs/withActiveFlag/withActiveFlag";
 import {SorterType, SorterActiveClass, SorterListOpenedClass} from "../../const";
-import {setActiveSorter} from "../../store/action";
+import {setActiveSorter} from "../../store/app/actions";
 
 
 const Sorter = ({isActive, onActiveChange, activeSorter, setActiveSorterAction}) => {

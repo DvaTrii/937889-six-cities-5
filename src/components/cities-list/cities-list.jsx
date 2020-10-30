@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {setCurrentCity} from "../../store/action";
+import {setCurrentCity} from "../../store/app/actions";
 import PropTypes from "prop-types";
 
 import {CurrentCityClass} from "../../const";
