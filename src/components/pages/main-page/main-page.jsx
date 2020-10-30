@@ -9,7 +9,7 @@ import NoOffers from "../../no-offers/no-offers";
 
 import {MainPageNoOffersClass} from "../../../const";
 import {Cities} from "../../../const";
-import {sortOffers} from "../../../utils";
+import {getCities, getCity, getSortedOffers} from "../../../selectors";
 
 const MainPage = (props) => {
 
@@ -43,17 +43,11 @@ MainPage.propTypes = {
   currentOffers: PropTypes.array.isRequired
 };
 
-const mapStateToProps = (state, {offers}) => {
-  const {APP: {city, activeSorter}} = state;
-
-  const cities = Object.values(Cities);
-  let currentOffers = offers.filter((it) => it.city.name === city);
-  currentOffers = sortOffers(currentOffers, activeSorter);
-
+const mapStateToProps = (state) => {
   return ({
-    city,
-    currentOffers,
-    cities
+    city: getCity(state),
+    currentOffers: getSortedOffers(state),
+    cities: getCities(Cities)
   });
 };
 
