@@ -31,17 +31,19 @@ export const adaptOffer = (offer) => {
     id: offer[`id`],
     city: {
       name: offer[`city`][`name`],
-      coordinates: { // был [33, 33]
+      coordinates: {
         latitude: offer[`city`][`location`][`latitude`],
-        longitude: offer[`city`][`location`][`longitude`]
+        longitude: offer[`city`][`location`][`longitude`],
+        zoom: offer[`city`][`location`][`zoom`]
       }
     },
     coordinates: {
       latitude: offer[`location`][`latitude`],
-      longitude: offer[`location`][`longitude`]
+      longitude: offer[`location`][`longitude`],
+      zoom: offer[`location`][`zoom`]
     },
     pictures: offer[`images`],
-    previewImage: offer[`preview_image`], // не было - +
+    previewImage: offer[`preview_image`],
     isPremium: offer[`is_premium`],
     isBookmark: offer[`is_favourite`],
     price: offer[`price`],
@@ -49,14 +51,14 @@ export const adaptOffer = (offer) => {
     type: offer[`type`],
     rating: offer[`rating`],
     description: offer[`description`],
-    bedroomsMax: offer[`bedrooms`], // number +
-    guestsMax: offer[`max_adults`], // number +
+    bedroomsMax: offer[`bedrooms`],
+    guestsMax: offer[`max_adults`],
     amenities: offer[`goods`],
     hostInfo: {
       avatar: offer[`host`][`avatar_url`],
       name: offer[`host`][`name`],
       isSuper: offer[`host`][`is_pro`],
     },
-    nearOffers: [] // no information
+    nearOffers: []
   };
 };
