@@ -8,8 +8,8 @@ import OfferPage from "../pages/offer-page/offer-page.jsx";
 import FavoritesPage from "../pages/favorites-page/favorites-page.jsx";
 
 import {AppRoute} from "../../const.js";
+import {getOffers} from "../../store/data/selectors";
 import {connect} from "react-redux";
-import {CitiesList} from "../cities-list/cities-list";
 
 const App = (props) => {
 
@@ -44,8 +44,8 @@ App.propTypes = {
   reviews: PropTypes.array.isRequired
 };
 
-const mapStateToProps = ({DATA}) => ({
-  offers: DATA.offers,
+const mapStateToProps = (state) => ({
+  offers: getOffers(state),
 });
 
 export {App};

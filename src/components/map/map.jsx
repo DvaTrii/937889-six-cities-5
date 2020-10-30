@@ -5,6 +5,7 @@ import leaflet from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 import {ZOOM} from "../../const";
+import {getHoveredOfferId} from "../../store/app/selectors";
 import {connect} from "react-redux";
 
 class Map extends React.PureComponent {
@@ -79,8 +80,8 @@ Map.propTypes = {
   hoveredOfferId: PropTypes.number.isRequired
 };
 
-const mapStateToProps = ({APP}) => ({
-  hoveredOfferId: APP.hoveredOfferId,
+const mapStateToProps = (state) => ({
+  hoveredOfferId: getHoveredOfferId(state),
 });
 
 export {Map};

@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 
 import {withActiveFlag} from "../hocs/withActiveFlag/withActiveFlag";
 import {SorterType, SorterActiveClass, SorterListOpenedClass} from "../../const";
+import {getActiveSorter} from "../../store/app/selectors";
 import {setActiveSorter} from "../../store/app/actions";
 
 
@@ -55,9 +56,9 @@ Sorter.propTypes = {
   setActiveSorterAction: PropTypes.func.isRequired
 };
 
-const mapStateToProps = ({APP}) => {
+const mapStateToProps = (state) => {
   return ({
-    activeSorter: APP.activeSorter,
+    activeSorter: getActiveSorter(state),
   });
 };
 

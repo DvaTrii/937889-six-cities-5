@@ -4,6 +4,7 @@ import {setCurrentCity} from "../../store/app/actions";
 import PropTypes from "prop-types";
 
 import {CurrentCityClass} from "../../const";
+import {getCity} from "../../store/app/selectors";
 
 const CitiesList = ({cities, city, setCurrentCityAction}) => {
 
@@ -37,8 +38,8 @@ CitiesList.propTypes = {
   setCurrentCityAction: PropTypes.func.isRequired
 };
 
-const mapStateToProps = ({APP}) => ({
-  city: APP.city,
+const mapStateToProps = (state) => ({
+  city: getCity(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

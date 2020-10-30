@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import {setHoveredOfferId, resetHoveredOfferId} from "../../store/app/actions";
+import {getHoveredOfferId} from "../../store/app/selectors";
 import {connect} from "react-redux";
 
 const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferIdAction}) => {
@@ -75,7 +76,7 @@ OfferCard.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  hoveredOfferId: state.hoveredOfferId,
+  hoveredOfferId: getHoveredOfferId(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

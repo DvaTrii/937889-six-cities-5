@@ -11,4 +11,4 @@ const getOffersByCity = createSelector([getOffers, getCity],
 const getSortedOffers = createSelector([getOffersByCity, getActiveSorter],
     (offers, activeSorter) => sortOffers(offers, activeSorter));
 
-export {getCity, getCities, getOffersByCity, getSortedOffers};
+export {getCity, getCities, getOffers, getOffersByCity, getSortedOffers};
