@@ -9,7 +9,8 @@ import NoOffers from "../../no-offers/no-offers";
 
 import {MainPageNoOffersClass} from "../../../const";
 import {Cities} from "../../../const";
-import {getCities, getCity, getSortedOffers} from "../../../selectors";
+import {getSortedOffers} from "../../../store/data/selectors";
+import {getCities, getCity} from "../../../store/app/selectors";
 
 const MainPage = (props) => {
 
