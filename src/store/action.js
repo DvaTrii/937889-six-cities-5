@@ -30,26 +30,3 @@ export const loadOffers = (loadedOffers) => ({
   type: ActionType.LOAD_OFFERS,
   payload: loadedOffers
 });
-
-export const ActionCreator = {
-  setCurrentCity: (currentCityName) => ({
-    type: ActionType.SET_CURRENT_CITY,
-    payload: currentCityName
-  }),
-  setActiveSorter: (activeSorter) => ({
-    type: ActionType.SET_ACTIVE_SORTER,
-    payload: activeSorter
-  }),
-  setHoveredOfferId: (id) => ({
-    type: ActionType.SET_HOVERED_OFFER_ID,
-    payload: id
-  }),
-  resetHoveredOfferId: () => ({
-    type: ActionType.RESET_HOVERED_OFFER_ID,
-    payload: -1
-  }),
-  loadOffers: (loadedOffers) => ({
-    type: ActionType.LOAD_OFFERS,
-    payload: loadedOffers
-  })
-};
