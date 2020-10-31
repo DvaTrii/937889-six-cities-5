@@ -1,20 +1,21 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
-import {ActionCreator} from "../../store/action";
+import {setHoveredOfferId, resetHoveredOfferId} from "../../store/app/actions";
+import {getHoveredOfferId} from "../../store/app/selectors";
 import {connect} from "react-redux";
 
-const OfferCard = ({card, cardClass, setHoveredOfferId, resetHoveredOfferId}) => {
+const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferIdAction}) => {
 
-  const {id, pictures, isPremium, isBookmark, price, title, type, rating} = card;
+  const {id, previewImage, isPremium, isBookmark, price, title, type, rating} = card;
 
   return (
     <article className={`${cardClass} place-card`}
       onMouseEnter={() => {
-        setHoveredOfferId(id);
+        setHoveredOfferIdAction(id);
       }}
       onMouseLeave={() => {
-        resetHoveredOfferId();
+        resetHoveredOfferIdAction();
       }}>
       {isPremium && (
         <div className="place-card__mark">
@@ -23,7 +24,7 @@ const OfferCard = ({card, cardClass, setHoveredOfferId, resetHoveredOfferId}) =>
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
           <img className="place-card__image"
-            src={pictures[0]}
+            src={previewImage}
             width="260" height="200"
             alt="Place image" />
         </a>
@@ -61,29 +62,29 @@ const OfferCard = ({card, cardClass, setHoveredOfferId, resetHoveredOfferId}) =>
 OfferCard.propTypes = {
   card: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    pictures: PropTypes.array.isRequired,
+    previewImage: PropTypes.string.isRequired,
     isPremium: PropTypes.bool.isRequired,
-    isBookmark: PropTypes.bool.isRequired,
+    isBookmark: PropTypes.bool,
     price: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
   }),
   cardClass: PropTypes.string.isRequired,
-  setHoveredOfferId: PropTypes.func.isRequired,
-  resetHoveredOfferId: PropTypes.func.isRequired
+  setHoveredOfferIdAction: PropTypes.func.isRequired,
+  resetHoveredOfferIdAction: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  hoveredOfferId: state.hoveredOfferId,
+  hoveredOfferId: getHoveredOfferId(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setHoveredOfferId(id) {
-    dispatch(ActionCreator.setHoveredOfferId(id));
+  setHoveredOfferIdAction(id) {
+    dispatch(setHoveredOfferId(id));
   },
-  resetHoveredOfferId() {
-    dispatch(ActionCreator.resetHoveredOfferId());
+  resetHoveredOfferIdAction() {
+    dispatch(resetHoveredOfferId());
   }
 });
 

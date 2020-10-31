@@ -1,13 +1,13 @@
-import {extend} from "../utils";
-import {ActionType} from "./action";
+import {extend} from "../../utils";
+import {ActionType} from "./actions";
 
-const InitialState = {
+const initialState = {
   city: `Amsterdam`,
   activeSorter: `Popular`,
   hoveredOfferId: -1,
 };
 
-const reducer = (state = InitialState, action) => {
+const app = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.SET_CURRENT_CITY:
       return extend(state, {
@@ -33,4 +33,4 @@ const reducer = (state = InitialState, action) => {
   return state;
 };
 
-export {reducer};
+export {app};

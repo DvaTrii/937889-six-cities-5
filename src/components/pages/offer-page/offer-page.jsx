@@ -6,13 +6,14 @@ import Header from "../../header/header";
 import OffersList from "../../offers-list/offers-list";
 
 import {CardClass} from "../../../const";
-import offers from "../../../mocks/offers";
+import nearOffers from "../../../mocks/offers";
+
 
 const OfferPage = (props) => {
 
   const {offer, reviews} = props;
 
-  const nearOffers = offers.filter((item) => offer.nearOffers.includes(item.id));
+  // const nearOffers = offers.filter((item) => offer.nearOffers.includes(item.id));
 
   return (
     <div className="page">
@@ -24,7 +25,6 @@ const OfferPage = (props) => {
         <OfferDetailed
           offer={offer}
           reviews={reviews}
-          nearOffers={nearOffers}
         />
 
         <div className="container">

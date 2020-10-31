@@ -1,11 +1,12 @@
 import React from "react";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../store/action";
+import {setCurrentCity} from "../../store/app/actions";
 import PropTypes from "prop-types";
 
 import {CurrentCityClass} from "../../const";
+import {getCity} from "../../store/app/selectors";
 
-const CitiesList = ({cities, city, setCurrentCity}) => {
+const CitiesList = ({cities, city, setCurrentCityAction}) => {
 
   return (
     <React.Fragment>
@@ -17,7 +18,7 @@ const CitiesList = ({cities, city, setCurrentCity}) => {
               return (
                 <li key={item + index}
                   className="locations__item"
-                  onClick={() => setCurrentCity(item)} >
+                  onClick={() => setCurrentCityAction(item)} >
                   <a className={`locations__item-link tabs__item ${item === city ? CurrentCityClass.ACTIVE : ``}`}
                     href="#">
                     <span>{item}</span>
@@ -34,16 +35,16 @@ const CitiesList = ({cities, city, setCurrentCity}) => {
 CitiesList.propTypes = {
   cities: PropTypes.array.isRequired,
   city: PropTypes.string.isRequired,
-  setCurrentCity: PropTypes.func.isRequired
+  setCurrentCityAction: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  city: state.city,
+  city: getCity(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setCurrentCity(city) {
-    dispatch(ActionCreator.setCurrentCity(city));
+  setCurrentCityAction(city) {
+    dispatch(setCurrentCity(city));
   }
 });
 
