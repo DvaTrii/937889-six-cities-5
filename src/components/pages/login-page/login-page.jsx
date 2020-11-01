@@ -53,7 +53,7 @@ class LoginPage extends PureComponent {
                 <div className="login__input-wrapper form__input-wrapper">
                   <label className="visually-hidden">Password</label>
                   <input
-                    ref={this.loginRef}
+                    ref={this.passwordRef}
                     className="login__input form__input"
                     type="password"
                     name="password"
