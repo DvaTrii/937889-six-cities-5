@@ -4,9 +4,9 @@ import {connect} from "react-redux";
 import PropTypes from "prop-types";
 
 import {AppRoute, AuthorizationStatus} from "../../const";
-import {getAuthorizationStatus} from "../../store/user/selectors";
+import {getAuthorizationStatus, getUserName} from "../../store/user/selectors";
 
-const Header = ({authorizationStatus}) => {
+const Header = ({authorizationStatus, userName}) => {
   return (
     <header className="header">
       <div className="container">
@@ -25,7 +25,7 @@ const Header = ({authorizationStatus}) => {
                   <span className="header__user-name user__name">
                     { authorizationStatus === AuthorizationStatus.NO_AUTH ?
                       `Sign In` :
-                      `Oliver.conner@gmail.com`}
+                      userName}
                   </span>
                 </Link>
               </li>
@@ -39,10 +39,12 @@ const Header = ({authorizationStatus}) => {
 
 Header.propTypes = {
   authorizationStatus: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthorizationStatus(state),
+  userName: getUserName(state)
 });
 
 export {Header};
