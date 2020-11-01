@@ -3,6 +3,7 @@ import {ActionType} from "./actions";
 
 const initialState = {
   authorizationStatus: AuthorizationStatus.NO_AUTH,
+  userInfo: {},
 };
 
 const user = (state = initialState, action) => {
@@ -10,6 +11,10 @@ const user = (state = initialState, action) => {
     case ActionType.REQUIRED_AUTHORIZATION:
       return Object.assign({}, state, {
         authorizationStatus: action.payload,
+      });
+    case ActionType.SET_USER_INFO:
+      return Object.assign({}, state, {
+        userInfo: action.payload,
       });
   }
 
