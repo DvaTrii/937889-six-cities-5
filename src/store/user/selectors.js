@@ -1,5 +1,5 @@
 import {NameSpace} from "../root-reducer";
 
-const getAuthorizationStatus = (state) => state[NameSpace.USER].user;
+const getAuthorizationStatus = (state) => state[NameSpace.USER].authorizationStatus;
 
 export {getAuthorizationStatus};
