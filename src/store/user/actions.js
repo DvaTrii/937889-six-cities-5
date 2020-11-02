@@ -29,4 +29,7 @@ export const login = ({login: email, password}) => (dispatch, _getState, api) =>
       dispatch(requireAuthorization(AuthorizationStatus.AUTH));
       dispatch(setUserData(res.data));
     })
+    .catch((err) => {
+      throw err;
+    })
 );
