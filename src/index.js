@@ -12,7 +12,6 @@ import {AuthorizationStatus} from "./const";
 import App from "./components/app/app.jsx";
 
 import rootReducer from "./store/root-reducer";
-import {reviews} from "./mocks/reviews";
 
 const api = createApi(
     () => store.dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH))
@@ -28,10 +27,7 @@ store.dispatch(fetchOffersList());
 store.dispatch(checkAuth());
 ReactDOM.render(
     <Provider store={store}>
-
-      <App
-        reviews={reviews}
-      />
+      <App />
     </Provider>,
     document.querySelector(`#root`)
 );

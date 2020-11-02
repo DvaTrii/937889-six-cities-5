@@ -12,9 +12,12 @@ import {AppRoute} from "../../const.js";
 import {getOffers} from "../../store/data/selectors";
 import {connect} from "react-redux";
 
+import {reviews} from "../../mocks/reviews";
+
+
 const App = (props) => {
 
-  const {offers, reviews} = props;
+  const {offers} = props;
 
   return (
     <BrowserRouter>
@@ -22,7 +25,7 @@ const App = (props) => {
         <Route
           exact
           path={AppRoute.MAIN}
-          render={() => <MainPage offers={offers} />}
+          render={() => <MainPage />}
         />
         <Route
           exact
@@ -52,7 +55,6 @@ const App = (props) => {
 
 App.propTypes = {
   offers: PropTypes.array.isRequired,
-  reviews: PropTypes.array.isRequired
 };
 
 const mapStateToProps = (state) => ({
