@@ -13,4 +13,7 @@ const getSortedOffers = createSelector([getOffersByCity, getActiveSorter],
 
 const getOffersByCityNumber = createSelector(getOffersByCity, (offers) => offers.length);
 
-export {getOffers, getOffersByCity, getSortedOffers, getOffersByCityNumber};
+const getOfferById = createSelector([getOffersByCity, (state, ownProps) => Number(ownProps.match.params.id)],
+    (offers, id) => offers.find((it) => it.id === id));
+
+export {getOffers, getOffersByCity, getSortedOffers, getOffersByCityNumber, getOfferById};

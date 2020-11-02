@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
 
 import MainPage from "../pages/main-page/main-page.jsx";
@@ -9,13 +8,8 @@ import PrivateRoute from "../private-route/private-route";
 import FavoritesPage from "../pages/favorites-page/favorites-page.jsx";
 
 import {AppRoute} from "../../const.js";
-import {getOffers} from "../../store/data/selectors";
-import {connect} from "react-redux";
 
-const App = (props) => {
-
-  const {offers} = props;
-
+const App = () => {
   return (
     <BrowserRouter>
       <Switch>
@@ -36,12 +30,7 @@ const App = (props) => {
         />
         <Route exact
           path={AppRoute.OFFER}
-          render={({match}) => {
-            const {id} = match.params;
-            return (<OfferPage
-              offer={offers.find((item) => item.id === Number(id))}
-            />);
-          }}
+          component={OfferPage}
         />
         <Redirect to={AppRoute.MAIN} />
       </Switch>
@@ -49,13 +38,4 @@ const App = (props) => {
   );
 };
 
-App.propTypes = {
-  offers: PropTypes.array.isRequired,
-};
-
-const mapStateToProps = (state) => ({
-  offers: getOffers(state),
-});
-
-export {App};
-export default connect(mapStateToProps)(App);
+export default App;
