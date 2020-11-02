@@ -5,14 +5,17 @@ import Sorter from "../sorter/sorter";
 import OffersList from "../offers-list/offers-list";
 import {CardClass} from "../../const";
 import Map from "../map/map";
+import {getCity} from "../../store/app/selectors";
+import {getSortedOffers, getOffersByCityNumber} from "../../store/data/selectors";
+import {connect} from "react-redux";
 
-const MainContent = ({currentOffers, city}) => {
+const MainContent = ({currentOffers, city, offersByCityNumber}) => {
   return (
     <div className="cities">
       <div className="cities__places-container container">
         <section className="cities__places places">
           <h2 className="visually-hidden">Places</h2>
-          <b className="places__found">{currentOffers.length} places to stay in {city}</b>
+          <b className="places__found">{offersByCityNumber} places to stay in {city}</b>
 
           <Sorter />
 
@@ -36,7 +39,17 @@ const MainContent = ({currentOffers, city}) => {
 
 MainContent.propTypes = {
   currentOffers: PropTypes.array.isRequired,
-  city: PropTypes.string.isRequired
+  city: PropTypes.string.isRequired,
+  offersByCityNumber: PropTypes.number.isRequired
 };
 
-export default MainContent;
+const mapStateToProps = (state) => {
+  return ({
+    city: getCity(state),
+    currentOffers: getSortedOffers(state),
+    offersByCityNumber: getOffersByCityNumber(state)
+  });
+};
+
+export {MainContent};
+export default connect(mapStateToProps)(MainContent);

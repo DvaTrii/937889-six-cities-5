@@ -8,47 +8,34 @@ import MainContent from "../../main-content/main-content";
 import NoOffers from "../../no-offers/no-offers";
 
 import {MainPageNoOffersClass} from "../../../const";
-import {Cities} from "../../../const";
-import {getSortedOffers} from "../../../store/data/selectors";
-import {getCities, getCity} from "../../../store/app/selectors";
+import {getOffersByCityNumber} from "../../../store/data/selectors";
 
-const MainPage = (props) => {
 
-  const {currentOffers, city, cities} = props;
-
+const MainPage = ({offersByCityNumber}) => {
   return (
     <div className="page page--gray page--main">
 
       <Header />
 
       <main className={`page__main page__main--index
-      ${currentOffers.length || MainPageNoOffersClass.NO_OFFERS}`}>
+      ${offersByCityNumber || MainPageNoOffersClass.NO_OFFERS}`}>
 
-        <CitiesList cities={cities} />
-        {
-          currentOffers.length ?
-            <MainContent
-              currentOffers={currentOffers}
-              city={city}/> :
+        <CitiesList />
 
-            <NoOffers city={city}/>
-        }
+        {offersByCityNumber ? <MainContent /> : <NoOffers />}
+
       </main>
     </div>
   );
 };
 
 MainPage.propTypes = {
-  cities: PropTypes.array.isRequired,
-  city: PropTypes.string.isRequired,
-  currentOffers: PropTypes.array.isRequired
+  offersByCityNumber: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => {
   return ({
-    city: getCity(state),
-    currentOffers: getSortedOffers(state),
-    cities: getCities(Cities)
+    offersByCityNumber: getOffersByCityNumber(state),
   });
 };
 

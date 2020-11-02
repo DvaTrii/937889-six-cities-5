@@ -3,8 +3,8 @@ import {connect} from "react-redux";
 import {setCurrentCity} from "../../store/app/actions";
 import PropTypes from "prop-types";
 
-import {CurrentCityClass} from "../../const";
-import {getCity} from "../../store/app/selectors";
+import {Cities, CurrentCityClass} from "../../const";
+import {getCities, getCity} from "../../store/app/selectors";
 
 const CitiesList = ({cities, city, setCurrentCityAction}) => {
 
@@ -40,6 +40,7 @@ CitiesList.propTypes = {
 
 const mapStateToProps = (state) => ({
   city: getCity(state),
+  cities: getCities(Cities)
 });
 
 const mapDispatchToProps = (dispatch) => ({

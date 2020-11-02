@@ -1,7 +1,7 @@
 import {createSelector} from "reselect";
 import {NameSpace} from "../root-reducer";
 import {sortOffers} from "../../utils";
-import {getCities, getCity, getActiveSorter} from "../app/selectors";
+import {getCity, getActiveSorter} from "../app/selectors";
 
 const getOffers = (state) => state[NameSpace.DATA].offers;
 
@@ -11,4 +11,6 @@ const getOffersByCity = createSelector([getOffers, getCity],
 const getSortedOffers = createSelector([getOffersByCity, getActiveSorter],
     (offers, activeSorter) => sortOffers(offers, activeSorter));
 
-export {getCity, getCities, getOffers, getOffersByCity, getSortedOffers};
+const getOffersByCityNumber = createSelector(getOffersByCity, (offers) => offers.length);
+
+export {getOffers, getOffersByCity, getSortedOffers, getOffersByCityNumber};
