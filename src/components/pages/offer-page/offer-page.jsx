@@ -7,11 +7,12 @@ import OffersList from "../../offers-list/offers-list";
 
 import {CardClass} from "../../../const";
 import nearOffers from "../../../mocks/offers";
+import {reviews} from "../../../mocks/reviews";
 
 
 const OfferPage = (props) => {
 
-  const {offer, reviews} = props;
+  const {offer} = props;
 
   // const nearOffers = offers.filter((item) => offer.nearOffers.includes(item.id));
 
@@ -44,7 +45,6 @@ const OfferPage = (props) => {
 
 OfferPage.propTypes = {
   offer: PropTypes.object.isRequired,
-  reviews: PropTypes.array.isRequired,
 };
 
 export default OfferPage;

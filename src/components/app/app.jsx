@@ -12,9 +12,6 @@ import {AppRoute} from "../../const.js";
 import {getOffers} from "../../store/data/selectors";
 import {connect} from "react-redux";
 
-import {reviews} from "../../mocks/reviews";
-
-
 const App = (props) => {
 
   const {offers} = props;
@@ -25,7 +22,7 @@ const App = (props) => {
         <Route
           exact
           path={AppRoute.MAIN}
-          render={() => <MainPage />}
+          component={MainPage}
         />
         <Route
           exact
@@ -35,7 +32,7 @@ const App = (props) => {
         <PrivateRoute
           exact
           path={AppRoute.FAVORITES}
-          render={() => <FavoritesPage />}
+          component={FavoritesPage}
         />
         <Route exact
           path={AppRoute.OFFER}
@@ -43,7 +40,6 @@ const App = (props) => {
             const {id} = match.params;
             return (<OfferPage
               offer={offers.find((item) => item.id === Number(id))}
-              reviews={reviews}
             />);
           }}
         />
