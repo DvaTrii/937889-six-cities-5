@@ -8,12 +8,11 @@ import OffersList from "../../offers-list/offers-list";
 
 import {CardClass} from "../../../const";
 import nearOffers from "../../../mocks/offers";
-import {reviews} from "../../../mocks/reviews";
-import {getOfferById} from "../../../store/data/selectors";
+import {getOfferById, getReviewsById} from "../../../store/data/selectors";
 
 const OfferPage = (props) => {
 
-  const {offer} = props;
+  const {offer, reviews} = props;
 
   return (
     <div className="page">
@@ -44,11 +43,13 @@ const OfferPage = (props) => {
 
 OfferPage.propTypes = {
   offer: PropTypes.object.isRequired,
+  reviews: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => {
   return ({
     offer: getOfferById(state, ownProps),
+    reviews: getReviewsById(state),
   });
 };
 
