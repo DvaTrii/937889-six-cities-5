@@ -44,7 +44,7 @@ const App = ({authorizationStatus}) => {
 };
 
 App.propTypes = {
-  authorizationStatus: PropTypes.string.isRequired
+  authorizationStatus: PropTypes.bool.isRequired
 };
 
 

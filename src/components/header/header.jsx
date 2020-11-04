@@ -38,7 +38,7 @@ const Header = ({authorizationStatus, userName}) => {
 };
 
 Header.propTypes = {
-  authorizationStatus: PropTypes.string.isRequired,
+  authorizationStatus: PropTypes.bool.isRequired,
   userName: PropTypes.string.isRequired
 };
 
