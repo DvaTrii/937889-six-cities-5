@@ -1,15 +1,20 @@
 import React from "react";
 import {BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
+import PropTypes from "prop-types";
+
 
 import MainPage from "../pages/main-page/main-page.jsx";
 import LoginPage from "../pages/login-page/login-page.jsx";
 import OfferPage from "../pages/offer-page/offer-page.jsx";
-import PrivateRoute from "../private-route/private-route";
 import FavoritesPage from "../pages/favorites-page/favorites-page.jsx";
-
+import {withPrivateRoute} from "../hocs/withPrivateRoute/withPrivateRoute";
 import {AppRoute} from "../../const.js";
+import {getAuthorizationStatus} from "../../store/user/selectors";
+import {connect} from "react-redux";
 
-const App = () => {
+const App = ({authorizationStatus}) => {
+  const LoginWrappedPrivate = withPrivateRoute(LoginPage, !authorizationStatus);
+  const FavoritesWrappedPrivate = withPrivateRoute(FavoritesPage, authorizationStatus, AppRoute.LOGIN);
   return (
     <BrowserRouter>
       <Switch>
@@ -20,13 +25,13 @@ const App = () => {
         />
         <Route
           exact
-          path={AppRoute.LOGIN}
-          component={LoginPage}
-        />
-        <PrivateRoute
-          exact
           path={AppRoute.FAVORITES}
-          component={FavoritesPage}
+          component={FavoritesWrappedPrivate}
+        />
+        <Route
+          exact
+          path={AppRoute.LOGIN}
+          component={LoginWrappedPrivate}
         />
         <Route exact
           path={AppRoute.OFFER}
@@ -38,4 +43,15 @@ const App = () => {
   );
 };
 
-export default App;
+App.propTypes = {
+  authorizationStatus: PropTypes.string.isRequired
+};
+
+
+const mapStateToProps = (state) => ({
+  authorizationStatus: getAuthorizationStatus(state),
+});
+
+
+export {App};
+export default connect(mapStateToProps)(App);
