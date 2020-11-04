@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import {setHoveredOfferId, resetHoveredOfferId} from "../../store/app/actions";
-import {fetchReviewsList} from "../../store/data/actions";
+import {fetchReviewsList} from "../../store/data/operations";
 import {getHoveredOfferId} from "../../store/app/selectors";
 import {connect} from "react-redux";
 
