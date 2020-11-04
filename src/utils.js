@@ -62,3 +62,22 @@ export const adaptOffer = (offer) => {
     nearOffers: []
   };
 };
+
+// адаптер для изменения структуры данных review
+
+export const adaptReview = (review) => {
+  return {
+    id: review[`id`],
+    reviewDate: review[`date`],
+    text: review[`comment`],
+    rating: review[`rating`],
+    userInfo: {
+      avatar: review[`user`][`avatar_url`],
+      name: review[`user`][`name`],
+      id: review[`user`][`id`],
+      isSuper: review[`user`][`is_pro`],
+    },
+  };
+};
+
+

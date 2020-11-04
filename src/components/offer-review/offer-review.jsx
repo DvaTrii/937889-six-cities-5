@@ -25,7 +25,7 @@ const OfferReview = ({review}) => {
         <p className="reviews__text">
           {text}
         </p>
-        <time className="reviews__time" dateTime="2019-04-24">{date}</time>
+        <time className="reviews__time" dateTime={`${date}`}>{date}</time>
       </div>
     </li>
   );

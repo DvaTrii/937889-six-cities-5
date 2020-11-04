@@ -61,3 +61,8 @@ export const SorterListOpenedClass = {
   OPENED: `places__options--opened`
 };
 
+export const AuthorizationStatus = {
+  AUTH: true,
+  NO_AUTH: false,
+};
+

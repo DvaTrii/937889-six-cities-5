@@ -1,4 +1,5 @@
 import React from "react";
+import {connect} from "react-redux";
 import PropTypes from "prop-types";
 
 import OfferDetailed from "../../offer-detailed/offer-detailed";
@@ -7,13 +8,11 @@ import OffersList from "../../offers-list/offers-list";
 
 import {CardClass} from "../../../const";
 import nearOffers from "../../../mocks/offers";
-
+import {getOfferById, getReviewsById} from "../../../store/data/selectors";
 
 const OfferPage = (props) => {
 
   const {offer, reviews} = props;
-
-  // const nearOffers = offers.filter((item) => offer.nearOffers.includes(item.id));
 
   return (
     <div className="page">
@@ -47,4 +46,12 @@ OfferPage.propTypes = {
   reviews: PropTypes.array.isRequired,
 };
 
-export default OfferPage;
+const mapStateToProps = (state, ownProps) => {
+  return ({
+    offer: getOfferById(state, ownProps),
+    reviews: getReviewsById(state),
+  });
+};
+
+export {OfferPage};
+export default connect(mapStateToProps)(OfferPage);

@@ -1,38 +1,42 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
+import PropTypes from "prop-types";
+
 
 import MainPage from "../pages/main-page/main-page.jsx";
 import LoginPage from "../pages/login-page/login-page.jsx";
 import OfferPage from "../pages/offer-page/offer-page.jsx";
 import FavoritesPage from "../pages/favorites-page/favorites-page.jsx";
-
+import {withPrivateRoute} from "../hocs/withPrivateRoute/withPrivateRoute";
 import {AppRoute} from "../../const.js";
-import {getOffers} from "../../store/data/selectors";
+import {getAuthorizationStatus} from "../../store/user/selectors";
 import {connect} from "react-redux";
 
-const App = (props) => {
-
-  const {offers, reviews} = props;
-
+const App = ({authorizationStatus}) => {
+  const LoginWrappedPrivate = withPrivateRoute(LoginPage, !authorizationStatus);
+  const FavoritesWrappedPrivate = withPrivateRoute(FavoritesPage, authorizationStatus, AppRoute.LOGIN);
   return (
     <BrowserRouter>
       <Switch>
         <Route
           exact
           path={AppRoute.MAIN}
-          render={() => <MainPage offers={offers} />} />
-        <Route exact path={AppRoute.LOGIN} component={LoginPage} />
-        <Route exact path={AppRoute.FAVORITES} component={FavoritesPage} />
+          component={MainPage}
+        />
+        <Route
+          exact
+          path={AppRoute.FAVORITES}
+          component={FavoritesWrappedPrivate}
+        />
+        <Route
+          exact
+          path={AppRoute.LOGIN}
+          component={LoginWrappedPrivate}
+        />
         <Route exact
           path={AppRoute.OFFER}
-          render={({match}) => {
-            const {id} = match.params;
-            return (<OfferPage
-              offer={offers.find((item) => item.id === Number(id))}
-              reviews={reviews}
-            />);
-          }} />
+          component={OfferPage}
+        />
         <Redirect to={AppRoute.MAIN} />
       </Switch>
     </BrowserRouter>
@@ -40,13 +44,14 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  offers: PropTypes.array.isRequired,
-  reviews: PropTypes.array.isRequired
+  authorizationStatus: PropTypes.string.isRequired
 };
 
+
 const mapStateToProps = (state) => ({
-  offers: getOffers(state),
+  authorizationStatus: getAuthorizationStatus(state),
 });
+
 
 export {App};
 export default connect(mapStateToProps)(App);

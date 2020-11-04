@@ -3,7 +3,6 @@ export const ActionType = {
   SET_ACTIVE_SORTER: `SET_ACTIVE_SORTER`,
   SET_HOVERED_OFFER_ID: `SET_HOVERED_OFFER_ID`,
   RESET_HOVERED_OFFER_ID: `RESET_HOVERED_OFFER_ID`,
-  LOAD_OFFERS: `LOAD_OFFERS`,
 };
 
 export const setCurrentCity = (currentCityName) => ({
