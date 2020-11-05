@@ -1,16 +1,47 @@
 import {adaptOffer, adaptReview} from "../../utils";
-import {loadOffers, loadReviews} from "./actions";
+import {
+  loadOffers,
+  loadReviews,
+  loadOfferById,
+  loadNearOffersById,
+  setIsLoadFlagOffers,
+  setIsLoadFlagReviews,
+  setIsLoadFlagOffer,
+  setIsLoadFlagNearOffers
+} from "./actions";
 
 export const fetchOffersList = () => (dispatch, _getState, api) => (
   api.get(`/hotels`)
-    .then(({data}) => dispatch(loadOffers(
-        data.map((it) => adaptOffer(it))
-    )))
+    .then(({data}) => {
+      dispatch(loadOffers(
+          data.map((it) => adaptOffer(it))));
+      dispatch(setIsLoadFlagOffers(true));
+    })
 );
 
 export const fetchReviewsList = (id) => (dispatch, _getState, api) => (
   api.get(`/comments/${id}`)
-    .then(({data}) => dispatch(loadReviews(
-        data.map((it) => adaptReview(it))
-    )))
+    .then(({data}) => {
+      dispatch(loadReviews(
+          data.map((it) => adaptReview(it))));
+      dispatch(setIsLoadFlagReviews(true));
+    })
+);
+
+export const fetchOfferById = (id) => (dispatch, _getState, api) => (
+  api.get(`/hotels/${id}`)
+    .then(({data}) => {
+      dispatch(loadOfferById(adaptOffer(data)));
+      dispatch(setIsLoadFlagOffer(true));
+    })
+);
+
+export const fetchNearOffersById = (id) => (dispatch, _getState, api) => (
+  api.get(`/hotels/${id}/nearby`)
+    .then(({data}) => {
+      dispatch(loadNearOffersById(
+          data.map((it) => adaptOffer(it))
+      ));
+      dispatch(setIsLoadFlagNearOffers(true));
+    })
 );
