@@ -7,7 +7,8 @@ import {
   setIsLoadFlagOffers,
   setIsLoadFlagReviews,
   setIsLoadFlagOffer,
-  setIsLoadFlagNearOffers
+  setIsLoadFlagNearOffers,
+  setUserReview
 } from "./actions";
 
 export const fetchOffersList = () => (dispatch, _getState, api) => (
@@ -43,5 +44,17 @@ export const fetchNearOffersById = (id) => (dispatch, _getState, api) => (
           data.map((it) => adaptOffer(it))
       ));
       dispatch(setIsLoadFlagNearOffers(true));
+    })
+);
+
+export const postReview = ({review: comment, rating}, id) => (dispatch, _getState, api) => (
+  api.post(`/comments/${id}`, {comment, rating})
+    .then(({data}) => {
+      dispatch(setUserReview(
+          data.map((it) => adaptReview(it))
+      ));
+    })
+    .catch((err) => {
+      throw err;
     })
 );

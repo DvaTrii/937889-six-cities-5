@@ -46,6 +46,10 @@ const data = (state = initialState, action) => {
       return extend(state, {
         isLoadedNearOffers: action.payload,
       });
+    case ActionType.SET_USER_REVIEW:
+      return extend(state, {
+        reviews: action.payload,
+      });
   }
 
   return state;

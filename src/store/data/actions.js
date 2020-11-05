@@ -7,6 +7,7 @@ export const ActionType = {
   SET_IS_LOAD_FLAG_OFFER: `SET_IS_LOAD_FLAG_OFFER`,
   SET_IS_LOAD_FLAG_REVIEWS: `SET_IS_LOAD_FLAG_REVIEWS`,
   SET_IS_LOAD_FLAG_NEAR_OFFERS: `SET_IS_LOAD_FLAG_NEAR_OFFERS`,
+  SET_USER_REVIEW: `SET_USER_REVIEW`,
 };
 
 export const loadOffers = (loadedOffers) => ({
@@ -47,5 +48,10 @@ export const setIsLoadFlagReviews = (setFlag) => ({
 export const setIsLoadFlagNearOffers = (setFlag) => ({
   type: ActionType.SET_IS_LOAD_FLAG_NEAR_OFFERS,
   payload: setFlag
+});
+
+export const setUserReview = (data) => ({
+  type: ActionType.SET_USER_REVIEW,
+  payload: data,
 });
 
