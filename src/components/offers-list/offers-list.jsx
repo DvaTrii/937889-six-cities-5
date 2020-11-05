@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 import OfferCard from "../offer-card/offer-card";
 
+import {withLoadFlag} from "../hocs/withLoadFlag/with-load-flag";
+
 const OffersList = (props) => {
   const {offers, cardClass} = props;
 
@@ -18,4 +20,4 @@ OffersList.propTypes = {
   offers: PropTypes.array.isRequired
 };
 
-export default OffersList;
+export default withLoadFlag(OffersList);

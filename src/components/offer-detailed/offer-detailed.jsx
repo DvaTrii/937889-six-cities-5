@@ -5,9 +5,11 @@ import OfferAmenitiesList from "../offer-amenities-List/offer-amenities-list";
 import OfferReviewsList from "../offer-reviews-list/offer-reviews-list";
 import Map from "../map/map";
 
-import nearOffers from "../../mocks/offers";
+import {withLoadFlag} from "../hocs/withLoadFlag/with-load-flag";
 
-const OfferDetailed = ({offer, reviews}) => {
+// import nearOffers from "../../mocks/offers";
+
+const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers}) => {
 
   const {pictures, isPremium, isBookmark, price, title, type, rating, description, bedroomsMax,
     guestsMax, amenities, hostInfo: {avatar, name, isSuper}} = offer;
@@ -91,7 +93,10 @@ const OfferDetailed = ({offer, reviews}) => {
         </div>
       </div>
       <section className="property__map map">
-        <Map offers={nearOffers}/>
+        <Map
+          offers={nearOffers}
+          isLoaded={isLoadedNearOffers}
+        />
       </section>
     </section>
   );
@@ -118,6 +123,8 @@ OfferDetailed.propTypes = {
     })
   }),
   reviews: PropTypes.array.isRequired,
+  nearOffers: PropTypes.array.isRequired,
+  isLoadedNearOffers: PropTypes.bool,
 };
 
-export default OfferDetailed;
+export default withLoadFlag(OfferDetailed);
