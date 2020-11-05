@@ -1,6 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {postReview} from "../../store/data/operations";
+import {getAuthorizationStatus} from "../../store/user/selectors";
 
-export default class ReviewForm extends React.PureComponent {
+class ReviewForm extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -15,6 +19,11 @@ export default class ReviewForm extends React.PureComponent {
 
   handleSubmit(evt) {
     evt.preventDefault();
+    this.props.postReview(this.state, this.props.id);
+    this.setState({
+      rating: ``,
+      review: ``,
+    });
   }
 
   handleFieldChange(evt) {
@@ -24,7 +33,11 @@ export default class ReviewForm extends React.PureComponent {
 
   render() {
     return (
-      <form className="reviews__form form" action="#" method="post" onSubmit={this.handleSubmit}>
+      <form
+        className="reviews__form form"
+        action="#"
+        method="post"
+        onSubmit={this.handleSubmit}>
         <label className="reviews__label form__label" htmlFor="review">Your review</label>
         <div className="reviews__rating-form form__rating">
           <input
@@ -109,10 +122,36 @@ export default class ReviewForm extends React.PureComponent {
             To submit review please make sure to set <span className="reviews__star">rating</span> and describe
             your stay with at least <b className="reviews__text-amount">50 characters</b>.
           </p>
-          <button className="reviews__submit form__submit button" type="submit" disabled="">Submit</button>
+          <button
+            className="reviews__submit form__submit button"
+            type="submit"
+            disabled={!this.props.authorizationStatus}>
+            Submit</button>
         </div>
       </form>
     );
   }
 }
+
+ReviewForm.propTypes = {
+  postReview: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+  authorizationStatus: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = (state) => {
+  return ({
+    id: state[`DATA`].offerById.id,
+    authorizationStatus: getAuthorizationStatus(state),
+  });
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  postReview(data, id) {
+    dispatch(postReview(data, id));
+  }
+});
+
+export {ReviewForm};
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewForm);
 
