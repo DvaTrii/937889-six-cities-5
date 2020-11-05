@@ -84,9 +84,6 @@ const mapStateToProps = (state, ownProps) => {
     isLoadedReviews: getIsLoadedReviews(state),
     isLoadedNearOffers: getIsLoadedNearOffers(state),
     id: getOfferIdFromUrl(ownProps),
-    getOfferByIdAction: PropTypes.func.isRequired,
-    getNearOffersByIdAction: PropTypes.func.isRequired,
-    getReviewsListAction: PropTypes.func.isRequired,
   });
 };
 
