@@ -7,51 +7,100 @@ import Header from "../../header/header";
 import OffersList from "../../offers-list/offers-list";
 
 import {CardClass} from "../../../const";
-import nearOffers from "../../../mocks/offers";
-import {getOfferById, getReviewsById} from "../../../store/data/selectors";
+import {
+  getIsLoadedNearOffers,
+  getIsLoadedOffer,
+  getIsLoadedReviews,
+  getNearOffers,
+  getOfferByIdFromServer, getOfferIdFromUrl,
+  getReviewsById
+} from "../../../store/data/selectors";
+import {fetchOfferById, fetchReviewsList, fetchNearOffersById} from "../../../store/data/operations";
 
-const OfferPage = (props) => {
+class OfferPage extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.id = props.id;
+  }
 
-  const {offer, reviews} = props;
+  componentDidMount() {
+    this.props.getOfferByIdAction(this.id);
+    this.props.getNearOffersByIdAction(this.id);
+    this.props.getReviewsListAction(this.id);
+  }
 
-  return (
-    <div className="page">
+  render() {
+    return (
+      <div className="page">
 
-      <Header />
+        <Header />
 
-      <main className="page__main page__main--property">
+        <main className="page__main page__main--property">
 
-        <OfferDetailed
-          offer={offer}
-          reviews={reviews}
-        />
+          <OfferDetailed
+            offer={this.props.offer}
+            reviews={this.props.reviews}
+            nearOffers={this.props.nearOffers}
+            isLoaded={this.props.isLoadedOffer}
+            isLoadedNearOffers={this.props.isLoadedNearOffers}
+          />
 
-        <div className="container">
-          <section className="near-places places">
-            <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            <div className="near-places__list places__list">
-              <OffersList
-                offers={nearOffers}
-                cardClass={CardClass.NEAR}/>
-            </div>
-          </section>
-        </div>
-      </main>
-    </div>
-  );
-};
+          <div className="container">
+            <section className="near-places places">
+              <h2 className="near-places__title">Other places in the neighbourhood</h2>
+              <div className="near-places__list places__list">
+                <OffersList
+                  offers={this.props.nearOffers}
+                  cardClass={CardClass.NEAR}
+                  isLoaded={this.props.isLoadedNearOffers}
+                />
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
+    );
+  }
+}
 
 OfferPage.propTypes = {
-  offer: PropTypes.object.isRequired,
-  reviews: PropTypes.array.isRequired,
+  offer: PropTypes.object,
+  reviews: PropTypes.array,
+  nearOffers: PropTypes.array,
+  isLoadedOffer: PropTypes.bool,
+  isLoadedNearOffers: PropTypes.bool,
+  id: PropTypes.number.isRequired,
+  getOfferByIdAction: PropTypes.func,
+  getNearOffersByIdAction: PropTypes.func,
+  getReviewsListAction: PropTypes.func,
 };
 
 const mapStateToProps = (state, ownProps) => {
   return ({
-    offer: getOfferById(state, ownProps),
+    offer: getOfferByIdFromServer(state),
     reviews: getReviewsById(state),
+    nearOffers: getNearOffers(state),
+    isLoadedOffer: getIsLoadedOffer(state),
+    isLoadedReviews: getIsLoadedReviews(state),
+    isLoadedNearOffers: getIsLoadedNearOffers(state),
+    id: getOfferIdFromUrl(ownProps),
+    getOfferByIdAction: PropTypes.func.isRequired,
+    getNearOffersByIdAction: PropTypes.func.isRequired,
+    getReviewsListAction: PropTypes.func.isRequired,
   });
 };
 
+const mapDispatchToProps = (dispatch) => ({
+  getOfferByIdAction(id) {
+    dispatch(fetchOfferById(id));
+  },
+  getNearOffersByIdAction(id) {
+    dispatch(fetchNearOffersById(id));
+  },
+  getReviewsListAction(id) {
+    dispatch(fetchReviewsList(id));
+  },
+});
+
 export {OfferPage};
-export default connect(mapStateToProps)(OfferPage);
+export default connect(mapStateToProps, mapDispatchToProps)(OfferPage);
