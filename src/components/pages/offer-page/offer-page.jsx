@@ -16,6 +16,7 @@ import {
   getReviewsById
 } from "../../../store/data/selectors";
 import {fetchOfferById, fetchReviewsList, fetchNearOffersById} from "../../../store/data/operations";
+import {setIsLoadFlagNearOffers, setIsLoadFlagOffer, setIsLoadFlagReviews} from "../../../store/data/actions";
 
 class OfferPage extends React.PureComponent {
   constructor(props) {
@@ -25,6 +26,13 @@ class OfferPage extends React.PureComponent {
 
   componentDidMount() {
     this.props.getOfferInformation(this.id);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.id !== this.props.id) {
+      this.props.setIsLoadFlag(false);
+      this.props.getOfferInformation(this.props.id);
+    }
   }
 
   render() {
@@ -69,6 +77,7 @@ OfferPage.propTypes = {
   isLoadedNearOffers: PropTypes.bool,
   id: PropTypes.number.isRequired,
   getOfferInformation: PropTypes.func,
+  setIsLoadFlag: PropTypes.func,
 };
 
 const mapStateToProps = (state, ownProps) => {
@@ -89,6 +98,11 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchNearOffersById(id));
     dispatch(fetchReviewsList(id));
   },
+  setIsLoadFlag(setFlag) {
+    dispatch(setIsLoadFlagOffer(setFlag));
+    dispatch(setIsLoadFlagReviews(setFlag));
+    dispatch(setIsLoadFlagNearOffers(setFlag));
+  }
 });
 
 export {OfferPage};
