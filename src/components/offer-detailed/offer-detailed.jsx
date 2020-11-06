@@ -6,8 +6,7 @@ import OfferReviewsList from "../offer-reviews-list/offer-reviews-list";
 import Map from "../map/map";
 
 import {withLoadFlag} from "../hocs/withLoadFlag/with-load-flag";
-
-// import nearOffers from "../../mocks/offers";
+import ReviewForm from "../review-form/review-form";
 
 const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers}) => {
 
@@ -87,9 +86,14 @@ const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers}) => {
               </p>
             </div>
           </div>
+          <section className="property__reviews reviews">
+            <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
 
-          <OfferReviewsList reviews={reviews} />
+            <OfferReviewsList reviews={reviews} />
 
+            <ReviewForm />
+
+          </section>
         </div>
       </div>
       <section className="property__map map">
