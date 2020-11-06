@@ -24,9 +24,7 @@ class OfferPage extends React.PureComponent {
   }
 
   componentDidMount() {
-    this.props.getOfferByIdAction(this.id);
-    this.props.getNearOffersByIdAction(this.id);
-    this.props.getReviewsListAction(this.id);
+    this.props.getOfferInformation(this.id);
   }
 
   render() {
@@ -70,9 +68,7 @@ OfferPage.propTypes = {
   isLoadedOffer: PropTypes.bool,
   isLoadedNearOffers: PropTypes.bool,
   id: PropTypes.number.isRequired,
-  getOfferByIdAction: PropTypes.func,
-  getNearOffersByIdAction: PropTypes.func,
-  getReviewsListAction: PropTypes.func,
+  getOfferInformation: PropTypes.func,
 };
 
 const mapStateToProps = (state, ownProps) => {
@@ -88,13 +84,9 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  getOfferByIdAction(id) {
+  getOfferInformation(id) {
     dispatch(fetchOfferById(id));
-  },
-  getNearOffersByIdAction(id) {
     dispatch(fetchNearOffersById(id));
-  },
-  getReviewsListAction(id) {
     dispatch(fetchReviewsList(id));
   },
 });
