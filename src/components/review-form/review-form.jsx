@@ -1,8 +1,11 @@
 import React from "react";
+import {withRouter} from "react-router-dom";
+import {compose} from "redux";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {postReview} from "../../store/data/operations";
 import {getAuthorizationStatus} from "../../store/user/selectors";
+import {getOfferIdFromUrl} from "../../store/data/selectors";
 
 class ReviewForm extends React.PureComponent {
   constructor(props) {
@@ -139,9 +142,9 @@ ReviewForm.propTypes = {
   authorizationStatus: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return ({
-    id: state[`DATA`].offerById.id,
+    id: getOfferIdFromUrl(ownProps),
     authorizationStatus: getAuthorizationStatus(state),
   });
 };
@@ -153,5 +156,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export {ReviewForm};
-export default connect(mapStateToProps, mapDispatchToProps)(ReviewForm);
+export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(ReviewForm);
 
