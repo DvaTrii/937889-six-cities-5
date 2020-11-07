@@ -17,15 +17,15 @@ import {
 } from "../../../store/data/selectors";
 import {fetchOfferById, fetchReviewsList, fetchNearOffersById} from "../../../store/data/operations";
 import {setIsLoadFlagNearOffers, setIsLoadFlagOffer, setIsLoadFlagReviews} from "../../../store/data/actions";
+import {getAuthorizationStatus} from "../../../store/user/selectors";
 
 class OfferPage extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.id = props.id;
   }
 
   componentDidMount() {
-    this.props.getOfferInformation(this.id);
+    this.props.getOfferInformation(this.props.id);
   }
 
   componentDidUpdate(prevProps) {
@@ -49,6 +49,7 @@ class OfferPage extends React.PureComponent {
             nearOffers={this.props.nearOffers}
             isLoaded={this.props.isLoadedOffer}
             isLoadedNearOffers={this.props.isLoadedNearOffers}
+            authorizationStatus={this.props.authorizationStatus}
           />
 
           <div className="container">
@@ -78,6 +79,7 @@ OfferPage.propTypes = {
   id: PropTypes.number.isRequired,
   getOfferInformation: PropTypes.func,
   setIsLoadFlag: PropTypes.func,
+  authorizationStatus: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
@@ -89,6 +91,7 @@ const mapStateToProps = (state, ownProps) => {
     isLoadedReviews: getIsLoadedReviews(state),
     isLoadedNearOffers: getIsLoadedNearOffers(state),
     id: getOfferIdFromUrl(ownProps),
+    authorizationStatus: getAuthorizationStatus(state),
   });
 };
 
