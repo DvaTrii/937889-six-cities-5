@@ -5,8 +5,9 @@ import {createStore, applyMiddleware} from "redux";
 import {composeWithDevTools} from "redux-devtools-extension";
 import {Provider} from "react-redux";
 import {createApi} from "./services/api/api";
-import {fetchOffersList} from "./store/data/actions";
-import {requireAuthorization, checkAuth} from "./store/user/actions";
+import {fetchOffersList} from "./store/data/operations";
+import {requireAuthorization} from "./store/user/actions";
+import {checkAuth} from "./store/user/operations";
 import {AuthorizationStatus} from "./const";
 
 import App from "./components/app/app.jsx";

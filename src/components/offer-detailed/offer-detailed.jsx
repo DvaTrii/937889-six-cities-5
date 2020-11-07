@@ -5,9 +5,10 @@ import OfferAmenitiesList from "../offer-amenities-List/offer-amenities-list";
 import OfferReviewsList from "../offer-reviews-list/offer-reviews-list";
 import Map from "../map/map";
 
-import nearOffers from "../../mocks/offers";
+import {withLoadFlag} from "../hocs/withLoadFlag/with-load-flag";
+import ReviewForm from "../review-form/review-form";
 
-const OfferDetailed = ({offer, reviews}) => {
+const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers}) => {
 
   const {pictures, isPremium, isBookmark, price, title, type, rating, description, bedroomsMax,
     guestsMax, amenities, hostInfo: {avatar, name, isSuper}} = offer;
@@ -85,13 +86,21 @@ const OfferDetailed = ({offer, reviews}) => {
               </p>
             </div>
           </div>
+          <section className="property__reviews reviews">
+            <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
 
-          <OfferReviewsList reviews={reviews} />
+            <OfferReviewsList reviews={reviews} />
 
+            <ReviewForm />
+
+          </section>
         </div>
       </div>
       <section className="property__map map">
-        <Map offers={nearOffers}/>
+        <Map
+          offers={nearOffers}
+          isLoaded={isLoadedNearOffers}
+        />
       </section>
     </section>
   );
@@ -118,6 +127,8 @@ OfferDetailed.propTypes = {
     })
   }),
   reviews: PropTypes.array.isRequired,
+  nearOffers: PropTypes.array.isRequired,
+  isLoadedNearOffers: PropTypes.bool,
 };
 
-export default OfferDetailed;
+export default withLoadFlag(OfferDetailed);

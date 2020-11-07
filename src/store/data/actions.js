@@ -1,30 +1,57 @@
-import {adaptOffer, adaptReview} from "../../utils";
-
 export const ActionType = {
   LOAD_OFFERS: `LOAD_OFFERS`,
   LOAD_REVIEWS: `LOAD_REVIEWS`,
+  LOAD_OFFER_BY_ID: `LOAD_OFFER_BY_ID`,
+  LOAD_NEAR_OFFERS_BY_ID: `LOAD_NEAR_OFFERS_BY_ID`,
+  SET_IS_LOAD_FLAG_OFFERS: `SET_IS_LOAD_FLAG_OFFERS`,
+  SET_IS_LOAD_FLAG_OFFER: `SET_IS_LOAD_FLAG_OFFER`,
+  SET_IS_LOAD_FLAG_REVIEWS: `SET_IS_LOAD_FLAG_REVIEWS`,
+  SET_IS_LOAD_FLAG_NEAR_OFFERS: `SET_IS_LOAD_FLAG_NEAR_OFFERS`,
+  SET_USER_REVIEW: `SET_USER_REVIEW`,
 };
 
-const loadOffers = (loadedOffers) => ({
+export const loadOffers = (loadedOffers) => ({
   type: ActionType.LOAD_OFFERS,
   payload: loadedOffers
 });
 
-const loadReviews = (loadedReviews) => ({
+export const loadReviews = (loadedReviews) => ({
   type: ActionType.LOAD_REVIEWS,
   payload: loadedReviews
 });
 
-export const fetchOffersList = () => (dispatch, _getState, api) => (
-  api.get(`/hotels`)
-    .then(({data}) => dispatch(loadOffers(
-        data.map((it) => adaptOffer(it))
-    )))
-);
+export const loadOfferById = (loadedOfferById) => ({
+  type: ActionType.LOAD_OFFER_BY_ID,
+  payload: loadedOfferById
+});
 
-export const fetchReviewsList = (id) => (dispatch, _getState, api) => (
-  api.get(`/comments/${id}`)
-    .then(({data}) => dispatch(loadReviews(
-        data.map((it) => adaptReview(it))
-    )))
-);
+export const loadNearOffersById = (loadedNearOffersById) => ({
+  type: ActionType.LOAD_NEAR_OFFERS_BY_ID,
+  payload: loadedNearOffersById
+});
+
+export const setIsLoadFlagOffers = (setFlag) => ({
+  type: ActionType.SET_IS_LOAD_FLAG_OFFERS,
+  payload: setFlag
+});
+
+export const setIsLoadFlagOffer = (setFlag) => ({
+  type: ActionType.SET_IS_LOAD_FLAG_OFFER,
+  payload: setFlag
+});
+
+export const setIsLoadFlagReviews = (setFlag) => ({
+  type: ActionType.SET_IS_LOAD_FLAG_REVIEWS,
+  payload: setFlag
+});
+
+export const setIsLoadFlagNearOffers = (setFlag) => ({
+  type: ActionType.SET_IS_LOAD_FLAG_NEAR_OFFERS,
+  payload: setFlag
+});
+
+export const setUserReview = (data) => ({
+  type: ActionType.SET_USER_REVIEW,
+  payload: data,
+});
+

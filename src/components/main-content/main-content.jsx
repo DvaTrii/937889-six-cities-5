@@ -6,10 +6,10 @@ import OffersList from "../offers-list/offers-list";
 import {CardClass} from "../../const";
 import Map from "../map/map";
 import {getCity} from "../../store/app/selectors";
-import {getSortedOffers, getOffersByCityNumber} from "../../store/data/selectors";
+import {getSortedOffers, getOffersByCityNumber, getIsLoadedOffers} from "../../store/data/selectors";
 import {connect} from "react-redux";
 
-const MainContent = ({currentOffers, city, offersByCityNumber}) => {
+const MainContent = ({currentOffers, city, offersByCityNumber, isLoadedOffers}) => {
   return (
     <div className="cities">
       <div className="cities__places-container container">
@@ -23,13 +23,18 @@ const MainContent = ({currentOffers, city, offersByCityNumber}) => {
 
             <OffersList
               offers={currentOffers}
-              cardClass={CardClass.MAIN}/>
+              cardClass={CardClass.MAIN}
+              isLoaded={isLoadedOffers}
+            />
 
           </div>
         </section>
         <div className="cities__right-section">
           <section className="cities__map map">
-            <Map offers={currentOffers}/>
+            <Map
+              offers={currentOffers}
+              isLoaded={isLoadedOffers}
+            />
           </section>
         </div>
       </div>
@@ -40,14 +45,16 @@ const MainContent = ({currentOffers, city, offersByCityNumber}) => {
 MainContent.propTypes = {
   currentOffers: PropTypes.array.isRequired,
   city: PropTypes.string.isRequired,
-  offersByCityNumber: PropTypes.number.isRequired
+  offersByCityNumber: PropTypes.number.isRequired,
+  isLoadedOffers: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => {
   return ({
     city: getCity(state),
     currentOffers: getSortedOffers(state),
-    offersByCityNumber: getOffersByCityNumber(state)
+    offersByCityNumber: getOffersByCityNumber(state),
+    isLoadedOffers: getIsLoadedOffers(state),
   });
 };
 

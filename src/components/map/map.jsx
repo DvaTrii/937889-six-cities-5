@@ -1,4 +1,6 @@
 import React, {createRef} from "react";
+import {connect} from "react-redux";
+import {compose} from "redux";
 import PropTypes from "prop-types";
 
 import leaflet from "leaflet";
@@ -6,7 +8,7 @@ import "leaflet/dist/leaflet.css";
 
 import {ZOOM} from "../../const";
 import {getHoveredOfferId} from "../../store/app/selectors";
-import {connect} from "react-redux";
+import {withLoadFlag} from "../hocs/withLoadFlag/with-load-flag";
 
 class Map extends React.PureComponent {
   constructor(props) {
@@ -85,4 +87,4 @@ const mapStateToProps = (state) => ({
 });
 
 export {Map};
-export default connect(mapStateToProps)(Map);
+export default compose(withLoadFlag, connect(mapStateToProps))(Map);
