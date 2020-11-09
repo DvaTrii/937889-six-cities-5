@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should OfferImagesList render properly 1`] = `
+<div
+  className="property__gallery-container container"
+>
+  <div
+    className="property__gallery"
+  >
+    <div
+      className="property__image-wrapper"
+    >
+      <img
+        alt="Photo studio"
+        className="property__image"
+        src="#"
+      />
+    </div>
+    <div
+      className="property__image-wrapper"
+    >
+      <img
+        alt="Photo studio"
+        className="property__image"
+        src="#"
+      />
+    </div>
+    <div
+      className="property__image-wrapper"
+    >
+      <img
+        alt="Photo studio"
+        className="property__image"
+        src="#"
+      />
+    </div>
+    <div
+      className="property__image-wrapper"
+    >
+      <img
+        alt="Photo studio"
+        className="property__image"
+        src="#"
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should OfferAmenitiesList render properly 1`] = `
+<ul
+  className="property__inside-list"
+>
+  <li
+    className="property__inside-item"
+  >
+    Wifi
+  </li>
+  <li
+    className="property__inside-item"
+  >
+    Parking
+  </li>
+  <li
+    className="property__inside-item"
+  >
+    Dishwasher
+  </li>
+</ul>
+`;
