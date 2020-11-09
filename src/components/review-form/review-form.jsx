@@ -4,7 +4,6 @@ import {compose} from "redux";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {postReview} from "../../store/data/operations";
-import {getAuthorizationStatus} from "../../store/user/selectors";
 import {getOfferIdFromUrl} from "../../store/data/selectors";
 
 class ReviewForm extends React.PureComponent {
@@ -31,7 +30,7 @@ class ReviewForm extends React.PureComponent {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    this.props.postReview(this.state, this.props.id);
+    this.props.postReview(this.state, this.props.offerId);
     this.setState({
       rating: ``,
       review: ``,
@@ -155,14 +154,12 @@ class ReviewForm extends React.PureComponent {
 
 ReviewForm.propTypes = {
   postReview: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired,
-  authorizationStatus: PropTypes.bool.isRequired,
+  offerId: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => {
   return ({
-    id: getOfferIdFromUrl(ownProps),
-    authorizationStatus: getAuthorizationStatus(state),
+    offerId: getOfferIdFromUrl(ownProps),
   });
 };
 
