@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should Map render properly 1`] = `
+<div
+  className="lds-ring"
+>
+  <div />
+  <div />
+  <div />
+  <div />
+</div>
+`;
+
+exports[`Should OffersList render properly 1`] = `
+<div
+  className="lds-ring"
+>
+  <div />
+  <div />
+  <div />
+  <div />
+</div>
+`;
