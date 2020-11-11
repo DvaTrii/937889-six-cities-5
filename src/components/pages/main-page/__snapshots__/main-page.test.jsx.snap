@@ -334,7 +334,6 @@ exports[`Should MainPage render properly 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
-                  onClick={[Function]}
                 >
                   <a
                     href="/offer/101"
@@ -435,7 +434,6 @@ exports[`Should MainPage render properly 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
-                  onClick={[Function]}
                 >
                   <a
                     href="/offer/102"
@@ -536,7 +534,6 @@ exports[`Should MainPage render properly 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
-                  onClick={[Function]}
                 >
                   <a
                     href="/offer/103"

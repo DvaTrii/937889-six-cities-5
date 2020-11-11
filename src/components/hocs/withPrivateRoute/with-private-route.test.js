@@ -2,8 +2,6 @@ import React from "react";
 import renderer from "react-test-renderer";
 import {withPrivateRoute} from "./withPrivateRoute";
 
-const noop = () => {};
-
 const MockComponent = () => {
 
   return (

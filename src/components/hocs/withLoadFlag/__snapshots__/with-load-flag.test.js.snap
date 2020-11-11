@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`withAudio is rendered correctly 1`] = `
+exports[`withLoadFlag is rendered correctly 1`] = `
 <div
   className="lds-ring"
 >
