@@ -2,11 +2,10 @@ import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import {setHoveredOfferId, resetHoveredOfferId} from "../../store/app/actions";
-import {fetchReviewsList} from "../../store/data/operations";
 import {getHoveredOfferId} from "../../store/app/selectors";
 import {connect} from "react-redux";
 
-const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferIdAction, getReviewsAction}) => {
+const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferIdAction}) => {
 
   const {id, previewImage, isPremium, isBookmark, price, title, type, rating} = card;
 
@@ -51,10 +50,7 @@ const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferI
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name"
-          onClick={() => {
-            getReviewsAction(id);
-          }}>
+        <h2 className="place-card__name">
           <Link to={`/offer/${id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
@@ -77,7 +73,6 @@ OfferCard.propTypes = {
   cardClass: PropTypes.string.isRequired,
   setHoveredOfferIdAction: PropTypes.func.isRequired,
   resetHoveredOfferIdAction: PropTypes.func.isRequired,
-  getReviewsAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -90,9 +85,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
   resetHoveredOfferIdAction() {
     dispatch(resetHoveredOfferId());
-  },
-  getReviewsAction(id) {
-    dispatch(fetchReviewsList(id));
   }
 });
 
