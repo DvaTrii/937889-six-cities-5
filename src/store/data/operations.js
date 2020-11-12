@@ -68,5 +68,7 @@ export const fetchFavoritesOffersList = () => (dispatch, _getState, api) => (
           data.map((it) => adaptOffer(it))));
       dispatch(setIsLoadFlagFavoritesOffers(true));
     })
+    .catch((err) => {
+      throw err;
+    })
 );
-

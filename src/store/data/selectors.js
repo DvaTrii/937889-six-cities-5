@@ -28,9 +28,10 @@ const getIsLoadedOffers = (state) => state[NameSpace.DATA].isLoadedOffers;
 const getIsLoadedOffer = (state) => state[NameSpace.DATA].isLoadedOfferById;
 const getIsLoadedReviews = (state) => state[NameSpace.DATA].isLoadedReviews;
 const getIsLoadedNearOffers = (state) => state[NameSpace.DATA].isLoadedNearOffers;
+
 const getFavoritesOffers = (state) => state[NameSpace.DATA].favoritesOffers;
-const getFavoritesOffersNumber = createSelector(getFavoritesOffers, (offers) => offers.length);
-const getFavoriteOffersCities = createSelector(getFavoritesOffers, (offers) => [...new Set(offers.map((it) => it.city.name))]);
+const getFavoritesOffersNumber = createSelector(getFavoritesOffers, (favoritesOffers) => favoritesOffers.length);
+const getFavoriteOffersCities = createSelector(getFavoritesOffers, (favoritesOffers) => [...new Set(favoritesOffers.map((it) => it.city.name))]);
 
 export {
   getOffers,

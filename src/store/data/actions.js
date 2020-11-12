@@ -32,9 +32,9 @@ export const loadNearOffersById = (loadedNearOffersById) => ({
   payload: loadedNearOffersById
 });
 
-export const loadFavoritesOffers = ({payload}) => ({
+export const loadFavoritesOffers = (loadedFavoritesOffers) => ({
   type: ActionType.LOAD_FAVORITES_OFFERS,
-  payload
+  payload: loadedFavoritesOffers
 });
 
 export const setIsLoadFlagOffers = (setFlag) => ({
