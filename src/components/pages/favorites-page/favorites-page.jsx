@@ -7,30 +7,41 @@ import {getFavoritesOffersNumber} from "../../../store/data/selectors";
 import {FavoritesPageClasses} from "../../../const";
 import {connect} from "react-redux";
 import FavoritesEmpty from "../../favorites-empty/favorites-empty";
+import {fetchFavoritesOffersList} from "../../../store/data/operations";
 
-const FavoritesPage = ({favoritesNumber}) => {
+class FavoritesPage extends React.PureComponent {
+  constructor(props) {
+    super(props);
+  }
 
-  return (
-    <div className={`page
-      ${favoritesNumber || FavoritesPageClasses.PAGE}`}>
+  componentDidMount() {
+    this.props.getFavoritesOffers();
+  }
 
-      <Header />
+  render() {
+    return (
+      <div className={`page
+      ${this.props.favoritesNumber || FavoritesPageClasses.PAGE}`}>
 
-      <main className={`page__main page__main--favorites
-      ${favoritesNumber || FavoritesPageClasses.MAIN}`}>
+        <Header />
 
-        {favoritesNumber ? <FavoritesList /> : <FavoritesEmpty />}
+        <main className={`page__main page__main--favorites
+      ${this.props.favoritesNumber || FavoritesPageClasses.MAIN}`}>
 
-      </main>
+          {this.props.favoritesNumber ? <FavoritesList /> : <FavoritesEmpty />}
 
-      <Footer />
+        </main>
 
-    </div>
-  );
-};
+        <Footer />
+
+      </div>
+    );
+  }
+}
 
 FavoritesPage.propTypes = {
-  favoritesNumber: PropTypes.number.isRequired
+  favoritesNumber: PropTypes.number.isRequired,
+  getFavoritesOffers: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {
@@ -39,5 +50,11 @@ const mapStateToProps = (state) => {
   });
 };
 
+const mapDispatchToProps = (dispatch) => ({
+  getFavoritesOffers() {
+    dispatch(fetchFavoritesOffersList());
+  }
+});
+
 export {FavoritesPage};
-export default connect(mapStateToProps)(FavoritesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(FavoritesPage);
