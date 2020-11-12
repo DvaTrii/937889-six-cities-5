@@ -37,6 +37,11 @@ export const CurrentCityClass = {
   ACTIVE: `tabs__item--active`
 };
 
+export const FavoritesPageClasses = {
+  PAGE: `page--favorites-empty`,
+  MAIN: `page__main--favorites-empty`
+};
+
 export const Cities = {
   PARIS: `Paris`,
   COLOGNE: `Cologne`,
