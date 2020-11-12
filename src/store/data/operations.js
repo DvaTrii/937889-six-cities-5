@@ -4,10 +4,12 @@ import {
   loadReviews,
   loadOfferById,
   loadNearOffersById,
+  loadFavoritesOffers,
   setIsLoadFlagOffers,
   setIsLoadFlagReviews,
   setIsLoadFlagOffer,
   setIsLoadFlagNearOffers,
+  setIsLoadFlagFavoritesOffers,
   setUserReview
 } from "./actions";
 
@@ -58,3 +60,13 @@ export const postReview = ({review: comment, rating}, id) => (dispatch, _getStat
       throw err;
     })
 );
+
+export const fetchFavoritesOffersList = () => (dispatch, _getState, api) => (
+  api.get(`/favorite`)
+    .then(({data}) => {
+      dispatch(loadFavoritesOffers(
+          data.map((it) => adaptOffer(it))));
+      dispatch(setIsLoadFlagFavoritesOffers(true));
+    })
+);
+

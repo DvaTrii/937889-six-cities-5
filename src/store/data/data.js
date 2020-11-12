@@ -6,10 +6,12 @@ const initialState = {
   reviews: [],
   offerById: {},
   nearOffersById: [],
+  favoritesOffers: [],
   isLoadedOffers: false,
   isLoadedReviews: false,
   isLoadedOfferById: false,
   isLoadedNearOffers: false,
+  isLoadedFavoritesOffers: false,
 };
 
 const data = (state = initialState, action) => {
@@ -30,6 +32,10 @@ const data = (state = initialState, action) => {
       return extend(state, {
         nearOffersById: action.payload,
       });
+    case ActionType.LOAD_FAVORITES_OFFERS:
+      return extend(state, {
+        favoritesOffers: action.payload,
+      });
     case ActionType.SET_IS_LOAD_FLAG_OFFERS:
       return extend(state, {
         isLoadedOffers: action.payload,
@@ -45,6 +51,10 @@ const data = (state = initialState, action) => {
     case ActionType.SET_IS_LOAD_FLAG_NEAR_OFFERS:
       return extend(state, {
         isLoadedNearOffers: action.payload,
+      });
+    case ActionType.SET_IS_LOAD_FLAG_FAVORITES_OFFERS:
+      return extend(state, {
+        isLoadedFavoritesOffers: action.payload,
       });
     case ActionType.SET_USER_REVIEW:
       return extend(state, {
