@@ -8,7 +8,7 @@ import Map from "../map/map";
 import {withLoadFlag} from "../hocs/withLoadFlag/with-load-flag";
 import ReviewForm from "../review-form/review-form";
 
-const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers}) => {
+const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers, authorizationStatus}) => {
 
   const {pictures, isPremium, isBookmark, price, title, type, rating, description, bedroomsMax,
     guestsMax, amenities, hostInfo: {avatar, name, isSuper}} = offer;
@@ -91,7 +91,7 @@ const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers}) => {
 
             <OfferReviewsList reviews={reviews} />
 
-            <ReviewForm />
+            {authorizationStatus && <ReviewForm />}
 
           </section>
         </div>
@@ -129,6 +129,7 @@ OfferDetailed.propTypes = {
   reviews: PropTypes.array.isRequired,
   nearOffers: PropTypes.array.isRequired,
   isLoadedNearOffers: PropTypes.bool,
+  authorizationStatus: PropTypes.bool.isRequired
 };
 
 export default withLoadFlag(OfferDetailed);
