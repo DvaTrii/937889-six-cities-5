@@ -7,7 +7,7 @@ import MainPage from "../pages/main-page/main-page.jsx";
 import LoginPage from "../pages/login-page/login-page.jsx";
 import OfferPage from "../pages/offer-page/offer-page.jsx";
 import FavoritesPage from "../pages/favorites-page/favorites-page.jsx";
-import {withPrivateRoute} from "../hocs/withPrivateRoute/withPrivateRoute";
+import {withPrivateRoute} from "../hocs/with-private-route/with-private-route";
 import {AppRoute} from "../../const.js";
 import {getAuthorizationStatus} from "../../store/user/selectors";
 import {connect} from "react-redux";

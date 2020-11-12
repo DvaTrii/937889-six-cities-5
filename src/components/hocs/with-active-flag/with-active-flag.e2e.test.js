@@ -1,7 +1,7 @@
 import React from "react";
 import {configure, shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import {withActiveFlag} from "./withActiveFlag";
+import {withActiveFlag} from "./with-active-flag";
 
 configure({adapter: new Adapter()});
 

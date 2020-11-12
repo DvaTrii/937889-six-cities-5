@@ -5,7 +5,7 @@ import OfferAmenitiesList from "../offer-amenities-List/offer-amenities-list";
 import OfferReviewsList from "../offer-reviews-list/offer-reviews-list";
 import Map from "../map/map";
 
-import {withLoadFlag} from "../hocs/withLoadFlag/with-load-flag";
+import {withLoadFlag} from "../hocs/with-load-flag/with-load-flag";
 import ReviewForm from "../review-form/review-form";
 
 const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers, authorizationStatus}) => {

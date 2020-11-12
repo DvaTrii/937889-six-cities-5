@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import PropTypes from "prop-types";
 
-import {withActiveFlag} from "../hocs/withActiveFlag/withActiveFlag";
+import {withActiveFlag} from "../hocs/with-active-flag/with-active-flag";
 import {SorterType, SorterActiveClass, SorterListOpenedClass} from "../../const";
 import {getActiveSorter} from "../../store/app/selectors";
 import {setActiveSorter} from "../../store/app/actions";

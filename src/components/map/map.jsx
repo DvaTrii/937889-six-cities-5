@@ -8,7 +8,7 @@ import "leaflet/dist/leaflet.css";
 
 import {ZOOM} from "../../const";
 import {getHoveredOfferId} from "../../store/app/selectors";
-import {withLoadFlag} from "../hocs/withLoadFlag/with-load-flag";
+import {withLoadFlag} from "../hocs/with-load-flag/with-load-flag";
 
 class Map extends React.PureComponent {
   constructor(props) {

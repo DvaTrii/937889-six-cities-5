@@ -1,8 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import {withActiveFlag} from "./withActiveFlag";
-
-const noop = () => {};
+import {withPrivateRoute} from "./with-private-route";
 
 const MockComponent = () => {
 
@@ -12,15 +10,13 @@ const MockComponent = () => {
     </React.Fragment>
   );
 };
+const authorizationStatus = true;
 
-const MockComponentWrapped = withActiveFlag(MockComponent);
+const MockComponentWrapped = withPrivateRoute(MockComponent, authorizationStatus);
 
-it(`withActiveFlag is rendered correctly`, () => {
+it(`withPrivateRoute is rendered correctly`, () => {
   const tree = renderer.create((
-    <MockComponentWrapped
-      isActive={false}
-      onActiveChange={noop}
-    />
+    <MockComponentWrapped />
   ), {
     createNodeMock() {
       return {};
