@@ -1,13 +1,13 @@
 import {createSelector} from "reselect";
 import {NameSpace} from "../root-reducer";
 import {sortOffers} from "../../utils";
-import {getCity, getActiveSorter} from "../app/selectors";
+import {getActiveCity, getActiveSorter} from "../app/selectors";
 
 const getOffers = (state) => state[NameSpace.DATA].offers;
 
 const getOfferIdFromUrl = (ownProps) => Number(ownProps.match.params.id);
 
-const getOffersByCity = createSelector([getOffers, getCity],
+const getOffersByCity = createSelector([getOffers, getActiveCity],
     (offers, city) => offers.filter((it) => it.city.name === city));
 
 const getSortedOffers = createSelector([getOffersByCity, getActiveSorter],

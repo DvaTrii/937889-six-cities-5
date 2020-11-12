@@ -5,7 +5,7 @@ import Sorter from "../sorter/sorter";
 import OffersList from "../offers-list/offers-list";
 import {CardClass} from "../../const";
 import Map from "../map/map";
-import {getCity} from "../../store/app/selectors";
+import {getActiveCity} from "../../store/app/selectors";
 import {getSortedOffers, getOffersByCityNumber, getIsLoadedOffers} from "../../store/data/selectors";
 import {connect} from "react-redux";
 
@@ -51,7 +51,7 @@ MainContent.propTypes = {
 
 const mapStateToProps = (state) => {
   return ({
-    city: getCity(state),
+    city: getActiveCity(state),
     currentOffers: getSortedOffers(state),
     offersByCityNumber: getOffersByCityNumber(state),
     isLoadedOffers: getIsLoadedOffers(state),
