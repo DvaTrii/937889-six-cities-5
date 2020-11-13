@@ -45,7 +45,7 @@ export const adaptOffer = (offer) => {
     pictures: offer[`images`].slice(0, 6),
     previewImage: offer[`preview_image`],
     isPremium: offer[`is_premium`],
-    isBookmark: offer[`is_favourite`],
+    isBookmark: offer[`is_favorite`],
     price: offer[`price`],
     title: offer[`title`],
     type: offer[`type`],
