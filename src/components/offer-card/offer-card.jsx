@@ -5,14 +5,14 @@ import {setHoveredOfferId, resetHoveredOfferId} from "../../store/app/actions";
 import {getHoveredOfferId} from "../../store/app/selectors";
 import {connect} from "react-redux";
 import {FavoritesButton} from "../favorites-button/favorites-button";
-import {FavoritesButtonClassPrefix} from "../../const";
+import {CardClass, FavoritesButtonClassPrefix} from "../../const";
 
 const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferIdAction}) => {
 
   const {id, previewImage, isPremium, isBookmark, price, title, type, rating} = card;
 
   return (
-    <article className={`${cardClass} place-card`}
+    <article className={`${cardClass}card place-card`}
       onMouseEnter={() => {
         setHoveredOfferIdAction(id);
       }}
@@ -23,7 +23,7 @@ const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferI
         <div className="place-card__mark">
           <span>Premium</span>
         </div>)}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${cardClass === CardClass.MAIN ? `cities__` : cardClass}image-wrapper place-card__image-wrapper`}>
         <a href="#">
           <img className="place-card__image"
             src={previewImage}
@@ -31,7 +31,7 @@ const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferI
             alt="Place image" />
         </a>
       </div>
-      <div className="place-card__info">
+      <div className={`${cardClass === CardClass.FAVORITE ? `favorites__card-info` : ``}place-card__info`}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{price}</b>
@@ -40,6 +40,7 @@ const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferI
           <FavoritesButton
             classPrefix={FavoritesButtonClassPrefix.MAIN}
             isBookmark={isBookmark}
+            // offerId={id}
           />
         </div>
         <div className="place-card__rating rating">

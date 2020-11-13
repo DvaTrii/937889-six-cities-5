@@ -24,9 +24,9 @@ export const CitiesCoordinates = {
 };
 
 export const CardClass = {
-  MAIN: `cities__place-card`,
-  NEAR: `near-places__card`,
-  FAVORITE: `favorites__card`
+  MAIN: `cities__place-`,
+  NEAR: `near-places__`,
+  FAVORITE: `favorites__`
 };
 
 export const MainPageNoOffersClass = {
