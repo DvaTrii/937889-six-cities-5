@@ -15,6 +15,9 @@ const initialState = {
 };
 
 const replaceItem = (arr, id, newItem) => {
+  if (!arr) {
+    return null;
+  }
   const idx = arr.findIndex((el) => el.id === id);
 
   return [...arr.slice(0, idx),
@@ -71,7 +74,9 @@ const data = (state = initialState, action) => {
     case ActionType.TOGGLE_OFFER_IS_BOOKMARK:
       return extend(state, {
         offerById: action.payload,
-        offers: replaceItem(state.offers, action.payload.id, action.payload)
+        offers: replaceItem(state.offers, action.payload.id, action.payload),
+        nearOffers: replaceItem(state.nearOffers, action.payload.id, action.payload),
+        favoritesOffers: replaceItem(state.favoritesOffers, action.payload.id, action.payload),
       });
   }
 
