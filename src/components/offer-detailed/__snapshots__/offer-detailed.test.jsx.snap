@@ -98,10 +98,11 @@ exports[`Should OfferDetailed render properly 1`] = `
         <button
           className="property__bookmark-button button
               property__bookmark-button--active"
+          onClick={[Function]}
           type="button"
         >
           <svg
-            className="property__bookmark-icon"
+            className="place-card__bookmark-icon"
             height="33"
             width="31"
           >

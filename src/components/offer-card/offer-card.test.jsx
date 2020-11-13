@@ -1,8 +1,12 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import {BrowserRouter} from "react-router-dom";
+import {Provider} from "react-redux";
+import configureStore from "redux-mock-store";
 
 import {OfferCard} from "./offer-card";
+
+const mockStore = configureStore([]);
 
 it(`Should OfferCard render properly`, () => {
   const card = {
@@ -37,22 +41,25 @@ it(`Should OfferCard render properly`, () => {
     },
   };
 
-  const cardClass = `cities__place-card`;
+  const cardClass = `cities__place-`;
 
   const noop = () => {};
+  const store = mockStore({});
 
   const tree = renderer
     .create(
-        <BrowserRouter>
-          <OfferCard
-            card={card}
-            setHoveredOfferIdAction={noop}
-            resetHoveredOfferIdAction={noop}
-            cardClass={cardClass}
-            getReviewsAction={noop}/>
-        </BrowserRouter>
+        <Provider store={store}>
+          <BrowserRouter>
+            <OfferCard
+              card={card}
+              setHoveredOfferIdAction={noop}
+              resetHoveredOfferIdAction={noop}
+              cardClass={cardClass}
+              getReviewsAction={noop}/>
+          </BrowserRouter>
+        </Provider>
     )
-    .toJSON();
+        .toJSON();
   expect(tree).toMatchSnapshot();
 });
 

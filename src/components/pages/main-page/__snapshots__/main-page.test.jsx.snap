@@ -270,7 +270,7 @@ exports[`Should MainPage render properly 1`] = `
                 </a>
               </div>
               <div
-                className="place-card__info"
+                className=" place-card__info"
               >
                 <div
                   className="place-card__price-wrapper"
@@ -291,9 +291,9 @@ exports[`Should MainPage render properly 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button
-           place-card__bookmark-button--active
-           button"
+                    className="place-card__bookmark-button button
+              place-card__bookmark-button--active"
+                    onClick={[Function]}
                     type="button"
                   >
                     <svg
@@ -370,7 +370,7 @@ exports[`Should MainPage render properly 1`] = `
                 </a>
               </div>
               <div
-                className="place-card__info"
+                className=" place-card__info"
               >
                 <div
                   className="place-card__price-wrapper"
@@ -391,9 +391,9 @@ exports[`Should MainPage render properly 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button
-           place-card__bookmark-button--active
-           button"
+                    className="place-card__bookmark-button button
+              place-card__bookmark-button--active"
+                    onClick={[Function]}
                     type="button"
                   >
                     <svg
@@ -470,7 +470,7 @@ exports[`Should MainPage render properly 1`] = `
                 </a>
               </div>
               <div
-                className="place-card__info"
+                className=" place-card__info"
               >
                 <div
                   className="place-card__price-wrapper"
@@ -491,9 +491,9 @@ exports[`Should MainPage render properly 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button
-           false
-           button"
+                    className="place-card__bookmark-button button
+              "
+                    onClick={[Function]}
                     type="button"
                   >
                     <svg

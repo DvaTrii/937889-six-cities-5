@@ -7,10 +7,12 @@ const state = {
   reviews: [],
   offerById: {},
   nearOffersById: [],
+  favoritesOffers: [],
   isLoadedOffers: false,
   isLoadedReviews: false,
   isLoadedOfferById: false,
   isLoadedNearOffers: false,
+  isLoadedFavoritesOffers: false,
 };
 
 const offers = [
