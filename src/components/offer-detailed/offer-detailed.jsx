@@ -7,12 +7,12 @@ import Map from "../map/map";
 
 import {withLoadFlag} from "../hocs/with-load-flag/with-load-flag";
 import ReviewForm from "../review-form/review-form";
-import {FavoritesButton} from "../favorites-button/favorites-button";
+import FavoritesButton from "../favorites-button/favorites-button";
 import {FavoritesButtonClassPrefix} from "../../const";
 
 const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers, authorizationStatus}) => {
 
-  const {pictures, isPremium, isBookmark, price, title, type, rating, description, bedroomsMax,
+  const {id, pictures, isPremium, isBookmark, price, title, type, rating, description, bedroomsMax,
     guestsMax, amenities, hostInfo: {avatar, name, isSuper}} = offer;
 
   return (
@@ -38,6 +38,7 @@ const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers, authoriz
             <FavoritesButton
               classPrefix={FavoritesButtonClassPrefix.PROPERTY}
               isBookmark={isBookmark}
+              offerId={id}
             />
           </div>
           <div className="property__rating rating">

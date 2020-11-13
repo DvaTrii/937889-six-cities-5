@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import {setHoveredOfferId, resetHoveredOfferId} from "../../store/app/actions";
 import {getHoveredOfferId} from "../../store/app/selectors";
 import {connect} from "react-redux";
-import {FavoritesButton} from "../favorites-button/favorites-button";
+import FavoritesButton from "../favorites-button/favorites-button";
 import {CardClass, FavoritesButtonClassPrefix} from "../../const";
 
 const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferIdAction}) => {
@@ -40,7 +40,7 @@ const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferI
           <FavoritesButton
             classPrefix={FavoritesButtonClassPrefix.MAIN}
             isBookmark={isBookmark}
-            // offerId={id}
+            offerId={id}
           />
         </div>
         <div className="place-card__rating rating">
