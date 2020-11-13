@@ -42,6 +42,11 @@ export const FavoritesPageClasses = {
   MAIN: `page__main--favorites-empty`
 };
 
+export const FavoritesButtonClassPrefix = {
+  MAIN: `place-card`,
+  PROPERTY: `property`,
+};
+
 export const Cities = {
   PARIS: `Paris`,
   COLOGNE: `Cologne`,
