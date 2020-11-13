@@ -7,6 +7,8 @@ import Map from "../map/map";
 
 import {withLoadFlag} from "../hocs/with-load-flag/with-load-flag";
 import ReviewForm from "../review-form/review-form";
+import {FavoritesButton} from "../favorites-button/favorites-button";
+import {FavoritesButtonClassPrefix} from "../../const";
 
 const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers, authorizationStatus}) => {
 
@@ -33,14 +35,10 @@ const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers, authoriz
             <h1 className="property__name">
               {title}
             </h1>
-            <button className={`place-card__bookmark-button
-              ${isBookmark && `place-card__bookmark-button--active`}
-              button`} type="button">
-              <svg className="property__bookmark-icon" width="31" height="33">
-                <use xlinkHref="#icon-bookmark"></use>
-              </svg>
-              <span className="visually-hidden">To bookmarks</span>
-            </button>
+            <FavoritesButton
+              classPrefix={FavoritesButtonClassPrefix.PROPERTY}
+              isBookmark={isBookmark}
+            />
           </div>
           <div className="property__rating rating">
             <div className="property__stars rating__stars">
