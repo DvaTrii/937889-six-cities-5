@@ -1,17 +1,21 @@
 import React from "react";
-import {FavoritesButtonClassPrefix} from "../../const";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {postOfferToFavorite} from "../../store/data/operations";
+import {FavoritesButtonClassPrefix} from "../../const";
 
-export const FavoritesButton = ({classPrefix, isBookmark}) => {
+const FavoritesButton = ({classPrefix, isBookmark, offerId, toggleIsBookmarkProperty}) => {
   return (
     <button
       className={`${classPrefix}__bookmark-button button
-              ${isBookmark && classPrefix + `__bookmark-button--active`}`}
+              ${isBookmark ? classPrefix + `__bookmark-button--active` : ``}`}
       type="button"
-      // onClick={/* func from dispatch*/}
+      onClick={() => {
+        toggleIsBookmarkProperty(offerId, isBookmark ? 0 : 1);
+      }}
     >
       <svg
-        className={`${classPrefix}__bookmark-icon`}
+        className={`place-card__bookmark-icon`}
         width={`${classPrefix === FavoritesButtonClassPrefix.MAIN ? `18` : `31`}`}
         height={`${classPrefix === FavoritesButtonClassPrefix.MAIN ? `19` : `33`}`}>
         <use xlinkHref="#icon-bookmark"></use>
@@ -23,5 +27,16 @@ export const FavoritesButton = ({classPrefix, isBookmark}) => {
 
 FavoritesButton.propTypes = {
   classPrefix: PropTypes.string.isRequired,
-  isBookmark: PropTypes.bool
+  isBookmark: PropTypes.bool,
+  offerId: PropTypes.number.isRequired,
+  toggleIsBookmarkProperty: PropTypes.func.isRequired,
 };
+
+const mapDispatchToProps = (dispatch) => ({
+  toggleIsBookmarkProperty(id, status) {
+    dispatch(postOfferToFavorite(id, status));
+  }
+});
+
+export {FavoritesButton};
+export default connect(null, mapDispatchToProps)(FavoritesButton);
