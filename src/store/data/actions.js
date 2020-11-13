@@ -10,6 +10,7 @@ export const ActionType = {
   SET_IS_LOAD_FLAG_NEAR_OFFERS: `SET_IS_LOAD_FLAG_NEAR_OFFERS`,
   SET_IS_LOAD_FLAG_FAVORITES_OFFERS: `SET_IS_LOAD_FLAG_FAVORITES_OFFERS`,
   SET_USER_REVIEW: `SET_USER_REVIEW`,
+  TOGGLE_OFFER_IS_BOOKMARK: `TOGGLE_OFFER_IS_BOOKMARK`,
 };
 
 export const loadOffers = (loadedOffers) => ({
@@ -65,5 +66,10 @@ export const setIsLoadFlagFavoritesOffers = (setFlag) => ({
 export const setUserReview = (data) => ({
   type: ActionType.SET_USER_REVIEW,
   payload: data,
+});
+
+export const toggleOfferIsBookmark = (data) => ({
+  type: ActionType.TOGGLE_OFFER_IS_BOOKMARK,
+  payload: data
 });
 

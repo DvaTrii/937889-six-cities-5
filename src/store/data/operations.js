@@ -10,7 +10,7 @@ import {
   setIsLoadFlagOffer,
   setIsLoadFlagNearOffers,
   setIsLoadFlagFavoritesOffers,
-  setUserReview
+  setUserReview, toggleOfferIsBookmark
 } from "./actions";
 
 export const fetchOffersList = () => (dispatch, _getState, api) => (
@@ -67,6 +67,16 @@ export const fetchFavoritesOffersList = () => (dispatch, _getState, api) => (
       dispatch(loadFavoritesOffers(
           data.map((it) => adaptOffer(it))));
       dispatch(setIsLoadFlagFavoritesOffers(true));
+    })
+    .catch((err) => {
+      throw err;
+    })
+);
+
+export const postOfferToFavorite = (id, status) => (dispatch, _getState, api) => (
+  api.post(`/favorite/${id}/${status}`)
+    .then(({data}) => {
+      dispatch(toggleOfferIsBookmark(adaptOffer(data)));
     })
     .catch((err) => {
       throw err;

@@ -14,6 +14,14 @@ const initialState = {
   isLoadedFavoritesOffers: false,
 };
 
+const replaceItem = (arr, id, newItem) => {
+  const idx = arr.findIndex((el) => el.id === id);
+
+  return [...arr.slice(0, idx),
+    newItem,
+    ...arr.slice(idx + 1)];
+};
+
 const data = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.LOAD_OFFERS:
@@ -59,6 +67,11 @@ const data = (state = initialState, action) => {
     case ActionType.SET_USER_REVIEW:
       return extend(state, {
         reviews: action.payload,
+      });
+    case ActionType.TOGGLE_OFFER_IS_BOOKMARK:
+      return extend(state, {
+        offerById: action.payload,
+        offers: replaceItem(state.offers, action.payload.id, action.payload)
       });
   }
 
