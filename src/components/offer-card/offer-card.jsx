@@ -27,11 +27,12 @@ const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferI
         <a href="#">
           <img className="place-card__image"
             src={previewImage}
-            width="260" height="200"
+            width={`${cardClass === CardClass.FAVORITE ? 150 : 260}`}
+            height={`${cardClass === CardClass.FAVORITE ? 110 : 200}`}
             alt="Place image" />
         </a>
       </div>
-      <div className={`${cardClass === CardClass.FAVORITE ? `favorites__card-info` : ``}place-card__info`}>
+      <div className={`${cardClass === CardClass.FAVORITE ? `favorites__card-info` : ``} place-card__info`}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{price}</b>
