@@ -13,8 +13,7 @@ import {
   getIsLoadedReviews,
   getNearOffers,
   getOfferByIdFromServer, getOfferIdFromUrl,
-  getReviewsById
-} from "../../../store/data/selectors";
+  getSortedReviews} from "../../../store/data/selectors";
 import {fetchOfferById, fetchReviewsList, fetchNearOffersById} from "../../../store/data/operations";
 import {setIsLoadFlagNearOffers, setIsLoadFlagOffer, setIsLoadFlagReviews} from "../../../store/data/actions";
 import {getAuthorizationStatus} from "../../../store/user/selectors";
@@ -85,7 +84,7 @@ OfferPage.propTypes = {
 const mapStateToProps = (state, ownProps) => {
   return ({
     offer: getOfferByIdFromServer(state),
-    reviews: getReviewsById(state),
+    reviews: getSortedReviews(state),
     nearOffers: getNearOffers(state),
     isLoadedOffer: getIsLoadedOffer(state),
     isLoadedReviews: getIsLoadedReviews(state),

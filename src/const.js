@@ -76,3 +76,5 @@ export const AuthorizationStatus = {
   NO_AUTH: false,
 };
 
+export const REVIEWS_NUMBER = 10;
+

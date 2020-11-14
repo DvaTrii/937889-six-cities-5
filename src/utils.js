@@ -1,4 +1,4 @@
-import {SorterType} from "./const";
+import {SorterType, REVIEWS_NUMBER} from "./const";
 
 export const extend = (a, b) => {
   return Object.assign({}, a, b);
@@ -22,6 +22,10 @@ export const sortOffers = (offers, activeSorter) => {
       break;
   }
   return sortedOffers;
+};
+
+export const sortReviews = (reviews) => {
+  return reviews.slice().sort((a, b) => b.date - a.date).slice(0, REVIEWS_NUMBER);
 };
 
 // адаптер для изменения структуры данных оффера

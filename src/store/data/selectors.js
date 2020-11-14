@@ -1,6 +1,6 @@
 import {createSelector} from "reselect";
 import {NameSpace} from "../root-reducer";
-import {sortOffers} from "../../utils";
+import {sortOffers, sortReviews} from "../../utils";
 import {getActiveCity, getActiveSorter} from "../app/selectors";
 
 const getOffers = (state) => state[NameSpace.DATA].offers;
@@ -21,6 +21,7 @@ const getOffersByCityNumber = createSelector(getOffersByCity, (offers) => offers
 const getNearOffers = (state) => state[NameSpace.DATA].nearOffersById;
 
 const getReviewsById = (state) => state[NameSpace.DATA].reviews;
+const getSortedReviews = createSelector(getReviewsById, (reviews) => sortReviews(reviews));
 
 const getOfferByIdFromServer = (state) => state[NameSpace.DATA].offerById;
 
@@ -44,6 +45,7 @@ export {
   getFavoritesOffersNumber,
   getOfferIdFromUrl,
   getReviewsById,
+  getSortedReviews,
   getNearOffers,
   getOfferByIdFromServer,
   getIsLoadedOffers,
