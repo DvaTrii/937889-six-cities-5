@@ -13,6 +13,9 @@ import {
   setUserReview, toggleOfferIsBookmark
 } from "./actions";
 
+import {redirectToRoute} from "../app/actions";
+import {AppRoute} from "../../const";
+
 export const fetchOffersList = () => (dispatch, _getState, api) => (
   api.get(`/hotels`)
     .then(({data}) => {
@@ -79,6 +82,7 @@ export const postOfferToFavorite = (id, status) => (dispatch, _getState, api) =>
       dispatch(toggleOfferIsBookmark(adaptOffer(data)));
     })
     .catch((err) => {
+      dispatch(redirectToRoute(AppRoute.MAIN));
       throw err;
     })
 );
