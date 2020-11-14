@@ -1,6 +1,7 @@
 import React from "react";
 
 import PropTypes from "prop-types";
+import {Months} from "../../const";
 
 const OfferReview = ({review}) => {
   const {id, userInfo: {avatar, name}, rating, text, date} = review;
@@ -25,7 +26,7 @@ const OfferReview = ({review}) => {
         <p className="reviews__text">
           {text}
         </p>
-        <time className="reviews__time" dateTime={`${date}`}>{date}</time>
+        <time className="reviews__time" dateTime={`${new Date(date).toDateString()}`}>{Months[new Date(date).getMonth()]} {new Date(date).getFullYear()}</time>
       </div>
     </li>
   );
