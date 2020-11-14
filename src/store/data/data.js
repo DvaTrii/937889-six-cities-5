@@ -15,8 +15,10 @@ const initialState = {
 };
 
 const replaceItem = (arr, id, newItem) => {
-
   const idx = arr.findIndex((el) => el.id === id);
+  if (idx === -1) {
+    return arr;
+  }
 
   return [...arr.slice(0, idx),
     newItem,
