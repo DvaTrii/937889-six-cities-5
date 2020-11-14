@@ -401,9 +401,11 @@ exports[`Should OfferPage render properly 1`] = `
                   </p>
                   <time
                     className="reviews__time"
-                    dateTime="April 2019"
+                    dateTime="Sat Nov 14 2020"
                   >
-                    April 2019
+                    October
+                     
+                    2020
                   </time>
                 </div>
               </li>
@@ -460,8 +462,11 @@ exports[`Should OfferPage render properly 1`] = `
                   </p>
                   <time
                     className="reviews__time"
-                    dateTime="undefined"
-                  />
+                    dateTime="Invalid Date"
+                  >
+                     
+                    NaN
+                  </time>
                 </div>
               </li>
               <li
@@ -517,8 +522,12 @@ exports[`Should OfferPage render properly 1`] = `
                   </p>
                   <time
                     className="reviews__time"
-                    dateTime="undefined"
-                  />
+                    dateTime="Sat Nov 14 2020"
+                  >
+                    October
+                     
+                    2020
+                  </time>
                 </div>
               </li>
               <li
@@ -574,8 +583,12 @@ exports[`Should OfferPage render properly 1`] = `
                   </p>
                   <time
                     className="reviews__time"
-                    dateTime="undefined"
-                  />
+                    dateTime="Sat Nov 14 2020"
+                  >
+                    October
+                     
+                    2020
+                  </time>
                 </div>
               </li>
             </ul>

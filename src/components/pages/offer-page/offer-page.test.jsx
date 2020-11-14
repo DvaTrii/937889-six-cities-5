@@ -137,7 +137,7 @@ const offerById = {
 const reviews = [
   {
     id: 300,
-    date: `April 2019`,
+    date: 1605357744252,
     userInfo: {
       avatar: `img/avatar-max.jpg`,
       name: `Tom`
@@ -147,7 +147,7 @@ const reviews = [
   },
   {
     id: 333,
-    reviewDate: `March 2020`,
+    reviewDate: 1605357744252,
     userInfo: {
       avatar: `img/avatar-max.jpg`,
       name: `Bob`
@@ -157,7 +157,7 @@ const reviews = [
   },
   {
     id: 344,
-    reviewDate: `May 2021`,
+    date: 1605357744252,
     userInfo: {
       avatar: `img/avatar-angelina.jpg`,
       name: `Jess`
@@ -167,7 +167,7 @@ const reviews = [
   },
   {
     id: 455,
-    reviewDate: `June 2022`,
+    date: 1605357744252,
     userInfo: {
       avatar: `img/avatar-angelina.jpg`,
       name: `Mary`
