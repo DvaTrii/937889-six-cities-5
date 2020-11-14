@@ -82,7 +82,7 @@ export const postOfferToFavorite = (id, status) => (dispatch, _getState, api) =>
       dispatch(toggleOfferIsBookmark(adaptOffer(data)));
     })
     .catch((err) => {
-      dispatch(redirectToRoute(AppRoute.MAIN));
+      dispatch(redirectToRoute(AppRoute.LOGIN));
       throw err;
     })
 );
