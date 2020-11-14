@@ -12,6 +12,7 @@ describe(`Async operations /user work correctly`, () => {
     const apiMock = new MockAdapter(api);
     const dispatch = jest.fn();
     const loader = checkAuth();
+    const fakeData = [{fake: true}];
 
     apiMock
       .onGet(`/login`)
@@ -19,10 +20,14 @@ describe(`Async operations /user work correctly`, () => {
 
     return loader(dispatch, () => {}, api)
       .then(() => {
-        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenCalledTimes(2);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.REQUIRED_AUTHORIZATION,
           payload: AuthorizationStatus.AUTH,
+        });
+        expect(dispatch).toHaveBeenNthCalledWith(2, {
+          type: ActionType.SET_USER_INFO,
+          payload: fakeData,
         });
       });
   });
