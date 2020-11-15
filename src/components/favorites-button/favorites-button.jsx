@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {postOfferToFavorite} from "../../store/data/operations";
-import {FavoritesButtonClassPrefix} from "../../const";
+import {FavoritesButtonClassPrefix, FavoritesRequestType} from "../../const";
 
 const FavoritesButton = ({classPrefix, isBookmark, offerId, toggleIsBookmarkProperty}) => {
   return (
@@ -11,7 +11,10 @@ const FavoritesButton = ({classPrefix, isBookmark, offerId, toggleIsBookmarkProp
               ${isBookmark ? classPrefix + `__bookmark-button--active` : ``}`}
       type="button"
       onClick={() => {
-        toggleIsBookmarkProperty(offerId, isBookmark ? 0 : 1);
+        toggleIsBookmarkProperty(offerId,
+            isBookmark ?
+              FavoritesRequestType.POP_OUT :
+              FavoritesRequestType.PUT_IN);
       }}
     >
       <svg

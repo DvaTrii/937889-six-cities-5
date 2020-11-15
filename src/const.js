@@ -93,3 +93,7 @@ export const Months = {
   12: `December`,
 };
 
+export const FavoritesRequestType = {
+  PUT_IN: 1,
+  POP_OUT: 0
+}
