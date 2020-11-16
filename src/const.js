@@ -96,4 +96,4 @@ export const Months = {
 export const FavoritesRequestType = {
   PUT_IN: 1,
   POP_OUT: 0
-}
+};
