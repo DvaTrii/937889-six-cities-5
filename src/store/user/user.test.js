@@ -4,7 +4,7 @@ import {user} from "./user";
 
 const state = {
   authorizationStatus: AuthorizationStatus.NO_AUTH,
-  userInfo: {name: ``},
+  userInfo: {email: ``},
 };
 
 const newUserInfo = {name: `Michael`};
