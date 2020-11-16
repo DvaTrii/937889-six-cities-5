@@ -12,17 +12,6 @@ export const AppRoute = {
   OFFER: `/offer/:id`,
 };
 
-export const ZOOM = 12;
-
-export const CitiesCoordinates = {
-  PARIS: [48.864716, 2.349014],
-  COLOGNE: [50.935173, 6.953101],
-  BRUSSELS: [50.8505, 4.3488],
-  AMSTERDAM: [52.38333, 4.9],
-  HAMBURG: [53.551086, 9.993682],
-  DUSSELDORF: [51.233334, 6.783333],
-};
-
 export const CardClass = {
   MAIN: `cities__place-`,
   NEAR: `near-places__`,
