@@ -6,8 +6,8 @@ import PropTypes from "prop-types";
 import leaflet from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-import {ZOOM} from "../../const";
 import {getHoveredOfferId} from "../../store/app/selectors";
+import {getOfferById} from "../../store/data/selectors";
 import {withLoadFlag} from "../hocs/with-load-flag/with-load-flag";
 
 class Map extends React.PureComponent {
@@ -17,12 +17,7 @@ class Map extends React.PureComponent {
   }
 
   _update() {
-    const {offers} = this.props;
-
-    const city = offers[0].city.coordinates;
-    const coordinates = [city.latitude, city.longitude];
-
-    const zoom = ZOOM;
+    const {offers, isMainPageMap, offerById} = this.props;
 
     const icon = leaflet.icon({
       iconUrl: `/img/pin.svg`,
@@ -33,6 +28,15 @@ class Map extends React.PureComponent {
       iconUrl: `/img/pin-active.svg`,
       iconSize: [30, 30]
     });
+
+    const city = offers[0].city.coordinates;
+    const coordinates = isMainPageMap ?
+      [city.latitude, city.longitude] :
+      [offerById.coordinates.latitude, offerById.coordinates.longitude];
+
+    const zoom = isMainPageMap ?
+      offers[0].city.coordinates.zoom
+      : offerById.coordinates.zoom;
 
     this.map = leaflet.map(this._mapRef.current, {
       center: coordinates,
@@ -48,17 +52,29 @@ class Map extends React.PureComponent {
           })
       .addTo(this.map);
 
-    offers.forEach((item) => {
-      if (item.id === this.props.hoveredOfferId) {
-        leaflet
-          .marker([item.coordinates.latitude, item.coordinates.longitude], {icon: hoveredIcon})
-          .addTo(this.map);
-      } else {
+    if (!isMainPageMap) {
+      leaflet
+        .marker([offerById.coordinates.latitude, offerById.coordinates.longitude], {icon: hoveredIcon})
+        .addTo(this.map);
+
+      offers.forEach((item) => {
         leaflet
           .marker([item.coordinates.latitude, item.coordinates.longitude], {icon})
           .addTo(this.map);
-      }
-    });
+      });
+    } else {
+      offers.forEach((item) => {
+        if (item.id === this.props.hoveredOfferId) {
+          leaflet
+            .marker([item.coordinates.latitude, item.coordinates.longitude], {icon: hoveredIcon})
+            .addTo(this.map);
+        } else {
+          leaflet
+            .marker([item.coordinates.latitude, item.coordinates.longitude], {icon})
+            .addTo(this.map);
+        }
+      });
+    }
   }
 
   componentDidMount() {
@@ -77,13 +93,21 @@ class Map extends React.PureComponent {
   }
 }
 
+Map.defaultProps = {
+  offerById: {},
+  isMainPageMap: true
+};
+
 Map.propTypes = {
   offers: PropTypes.array.isRequired,
-  hoveredOfferId: PropTypes.number.isRequired
+  hoveredOfferId: PropTypes.number.isRequired,
+  isMainPageMap: PropTypes.bool.isRequired,
+  offerById: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
   hoveredOfferId: getHoveredOfferId(state),
+  offerById: getOfferById(state)
 });
 
 export {Map};

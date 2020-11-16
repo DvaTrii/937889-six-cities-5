@@ -18,6 +18,8 @@ const getOffersByCityNumber = createSelector(getOffersByCity, (offers) => offers
 // const getOfferById = createSelector([getOffersByCity, (state, ownProps) => Number(ownProps.match.params.id)],
 //     (offers, id) => offers.find((it) => it.id === id));
 
+const getOfferById = (state) => state[NameSpace.DATA].offerById;
+
 const getNearOffers = (state) => state[NameSpace.DATA].nearOffersById;
 
 const getReviewsById = (state) => state[NameSpace.DATA].reviews;
@@ -39,7 +41,7 @@ export {
   getOffersByCity,
   getSortedOffers,
   getOffersByCityNumber,
-  // getOfferById,
+  getOfferById,
   getFavoritesOffers,
   getFavoriteOffersCities,
   getFavoritesOffersNumber,

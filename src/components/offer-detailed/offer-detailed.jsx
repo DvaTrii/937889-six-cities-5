@@ -99,6 +99,7 @@ const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers, authoriz
         <Map
           offers={nearOffers}
           isLoaded={isLoadedNearOffers}
+          isMainPageMap={false}
         />
       </section>
     </section>
