@@ -161,6 +161,7 @@ it(`Should OfferDetailed render properly`, () => {
 
   const store = mockStore({
     APP: {hoveredOfferId: -1},
+    DATA: {offerById: offer}
   });
 
   const tree = renderer
