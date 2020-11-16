@@ -1,12 +1,14 @@
 import MockAdapter from "axios-mock-adapter";
 import {createApi} from "../../services/api/api";
 import {ActionType} from "./actions";
+
 import {
   fetchOffersList,
   fetchOfferById,
   fetchReviewsList,
   fetchNearOffersById,
-  postReview
+  postReview,
+  postOfferToFavorite
 } from "./operations";
 import {adaptOffer, adaptReview} from "../../utils";
 
@@ -61,6 +63,7 @@ const offers = [
   }
 ];
 const parsedOffers = offers.map((it) => adaptOffer(it));
+
 const reviews = [{
   "id": 1,
   "user": {
@@ -205,6 +208,28 @@ describe(`Async operations /data work correctly`, () => {
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.SET_USER_REVIEW,
           payload: parseReviews(reviewsRespondOnPost),
+        });
+      });
+  });
+
+  it(`Should make a correct API call (post) to /favorite/id/status`, () => {
+    const apiMock = new MockAdapter(api);
+    const dispatch = jest.fn();
+    const id = 1;
+    const status = 1;
+
+    const loader = postOfferToFavorite(1, 1);
+
+    apiMock
+      .onPost(`/favorite/${id}/${status}`)
+      .reply(200, offers[0]);
+
+    return loader(dispatch, () => {}, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionType.TOGGLE_OFFER_IS_BOOKMARK,
+          payload: parsedOffers[0]
         });
       });
   });

@@ -2,7 +2,9 @@ import {
   setCurrentCity,
   setActiveSorter,
   setHoveredOfferId,
-  resetHoveredOfferId, ActionType
+  resetHoveredOfferId,
+  redirectToRoute,
+  ActionType
 } from "./actions";
 
 describe(`Action creators work correctly`, () => {
@@ -31,6 +33,13 @@ describe(`Action creators work correctly`, () => {
     expect(resetHoveredOfferId(23)).toEqual({
       type: ActionType.RESET_HOVERED_OFFER_ID,
       payload: -1
+    });
+  });
+
+  it(`Action creator for redirect to root works correctly`, () => {
+    expect(redirectToRoute(`/login`)).toEqual({
+      type: ActionType.REDIRECT_TO_ROUTE,
+      payload: `/login`
     });
   });
 });
