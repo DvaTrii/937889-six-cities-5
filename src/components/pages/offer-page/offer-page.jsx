@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 
@@ -12,62 +12,54 @@ import {
   getIsLoadedOffer,
   getIsLoadedReviews,
   getNearOffers,
-  getOfferByIdFromServer, getOfferIdFromUrl,
+  getOfferByIdFromServer,
+  getOfferIdFromUrl,
   getSortedReviews} from "../../../store/data/selectors";
 import {fetchOfferById, fetchReviewsList, fetchNearOffersById} from "../../../store/data/operations";
 import {setIsLoadFlagNearOffers, setIsLoadFlagOffer, setIsLoadFlagReviews} from "../../../store/data/actions";
 import {getAuthorizationStatus} from "../../../store/user/selectors";
 
-class OfferPage extends React.PureComponent {
-  constructor(props) {
-    super(props);
-  }
+const OfferPage = (props) => {
+  const {id, offer, reviews, nearOffers, isLoadedOffer, isLoadedNearOffers,
+    authorizationStatus, getOfferInformation, setIsLoadFlag} = props;
 
-  componentDidMount() {
-    this.props.getOfferInformation(this.props.id);
-  }
+  useEffect(() => {
+    getOfferInformation(id);
+    setIsLoadFlag(false);
+  }, [id]);
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.id !== this.props.id) {
-      this.props.setIsLoadFlag(false);
-      this.props.getOfferInformation(this.props.id);
-    }
-  }
+  return (
+    <div className="page">
 
-  render() {
-    return (
-      <div className="page">
+      <Header />
 
-        <Header />
+      <main className="page__main page__main--property">
 
-        <main className="page__main page__main--property">
+        <OfferDetailed
+          offer={offer}
+          reviews={reviews}
+          nearOffers={nearOffers}
+          isLoaded={isLoadedOffer}
+          isLoadedNearOffers={isLoadedNearOffers}
+          authorizationStatus={authorizationStatus}
+        />
 
-          <OfferDetailed
-            offer={this.props.offer}
-            reviews={this.props.reviews}
-            nearOffers={this.props.nearOffers}
-            isLoaded={this.props.isLoadedOffer}
-            isLoadedNearOffers={this.props.isLoadedNearOffers}
-            authorizationStatus={this.props.authorizationStatus}
-          />
-
-          <div className="container">
-            <section className="near-places places">
-              <h2 className="near-places__title">Other places in the neighbourhood</h2>
-              <div className="near-places__list places__list">
-                <OffersList
-                  offers={this.props.nearOffers}
-                  cardClass={CardClass.NEAR}
-                  isLoaded={this.props.isLoadedNearOffers}
-                />
-              </div>
-            </section>
-          </div>
-        </main>
-      </div>
-    );
-  }
-}
+        <div className="container">
+          <section className="near-places places">
+            <h2 className="near-places__title">Other places in the neighbourhood</h2>
+            <div className="near-places__list places__list">
+              <OffersList
+                offers={nearOffers}
+                cardClass={CardClass.NEAR}
+                isLoaded={isLoadedNearOffers}
+              />
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  );
+};
 
 OfferPage.propTypes = {
   offer: PropTypes.object,
