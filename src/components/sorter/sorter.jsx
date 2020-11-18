@@ -1,21 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import {connect} from "react-redux";
-import {compose} from "redux";
 import PropTypes from "prop-types";
 
-import {withActiveFlag} from "../hocs/with-active-flag/with-active-flag";
 import {SorterType, SorterActiveClass, SorterListOpenedClass} from "../../const";
 import {getActiveSorter} from "../../store/app/selectors";
 import {setActiveSorter} from "../../store/app/actions";
 
 
-const Sorter = ({isActive, onActiveChange, activeSorter, setActiveSorterAction}) => {
+const Sorter = ({activeSorter, setActiveSorterAction}) => {
+
+  const [isActive, setIsActive] = useState(false);
+  const toggleIsActive = () => setIsActive(!isActive);
+
   return (
     <form className="places__sorting" action="#" method="get">
       <span className="places__sorting-caption">Sort by</span>
       <span className="places__sorting-type"
         tabIndex="0"
-        onClick={onActiveChange}>
+        onClick={toggleIsActive}>
         {activeSorter}
         <svg className="places__sorting-arrow" width="7" height="4">
           <use xlinkHref="#icon-arrow-select"></use>
@@ -31,7 +33,7 @@ const Sorter = ({isActive, onActiveChange, activeSorter, setActiveSorterAction})
               className={`places__option ${activeSorter === it ? SorterActiveClass.ACTIVE : ``}`}
               onClick={() => {
                 setActiveSorterAction(it);
-                onActiveChange();
+                toggleIsActive();
               }}
               tabIndex="0">
               {it}
@@ -50,8 +52,6 @@ const Sorter = ({isActive, onActiveChange, activeSorter, setActiveSorterAction})
 };
 
 Sorter.propTypes = {
-  isActive: PropTypes.bool.isRequired,
-  onActiveChange: PropTypes.func.isRequired,
   activeSorter: PropTypes.string.isRequired,
   setActiveSorterAction: PropTypes.func.isRequired
 };
@@ -69,4 +69,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export {Sorter};
-export default compose(withActiveFlag, connect(mapStateToProps, mapDispatchToProps))(Sorter);
+export default connect(mapStateToProps, mapDispatchToProps)(Sorter);
