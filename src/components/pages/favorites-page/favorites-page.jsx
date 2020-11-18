@@ -34,36 +34,6 @@ const FavoritesPage = ({favoritesNumber, getFavoritesOffers}) => {
   );
 };
 
-// class FavoritesPage extends React.PureComponent {
-//   constructor(props) {
-//     super(props);
-//   }
-//
-//   componentDidMount() {
-//     this.props.getFavoritesOffers();
-//   }
-//
-//   render() {
-//     return (
-//       <div className={`page
-//       ${this.props.favoritesNumber || FavoritesPageClasses.PAGE}`}>
-//
-//         <Header />
-//
-//         <main className={`page__main page__main--favorites
-//       ${this.props.favoritesNumber || FavoritesPageClasses.MAIN}`}>
-//
-//           {this.props.favoritesNumber ? <FavoritesList /> : <FavoritesEmpty />}
-//
-//         </main>
-//
-//         <Footer />
-//
-//       </div>
-//     );
-//   }
-// }
-
 FavoritesPage.propTypes = {
   favoritesNumber: PropTypes.number.isRequired,
   getFavoritesOffers: PropTypes.func.isRequired
