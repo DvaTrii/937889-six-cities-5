@@ -25,7 +25,7 @@ const OfferPage = (props) => {
 
   useEffect(() => {
     getOfferInformation(id);
-    setIsLoadFlag(false);
+    return () => setIsLoadFlag(false);
   }, [id]);
 
   return (
