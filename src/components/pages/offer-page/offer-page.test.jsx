@@ -199,7 +199,7 @@ it(`Should OfferPage render properly`, () => {
     },
     USER: {
       authorizationStatus: false,
-      userInfo: {name: ``},
+      userInfo: {email: ``},
     },
     DATA: {
       offers,
