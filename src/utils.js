@@ -53,7 +53,7 @@ export const adaptOffer = (offer) => {
     price: offer[`price`],
     title: offer[`title`],
     type: offer[`type`],
-    rating: offer[`rating`],
+    rating: Math.round(offer[`rating`]),
     description: offer[`description`],
     bedroomsMax: offer[`bedrooms`],
     guestsMax: offer[`max_adults`],
@@ -62,8 +62,7 @@ export const adaptOffer = (offer) => {
       avatar: offer[`host`][`avatar_url`],
       name: offer[`host`][`name`],
       isSuper: offer[`host`][`is_pro`],
-    },
-    nearOffers: []
+    }
   };
 };
 
