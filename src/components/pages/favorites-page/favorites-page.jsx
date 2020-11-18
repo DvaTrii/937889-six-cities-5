@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Header from "../../header/header";
 import FavoritesList from "../../favorites-list/favorites-list";
 import Footer from "../../footer/footer";
@@ -9,35 +9,60 @@ import {connect} from "react-redux";
 import FavoritesEmpty from "../../favorites-empty/favorites-empty";
 import {fetchFavoritesOffersList} from "../../../store/data/operations";
 
-class FavoritesPage extends React.PureComponent {
-  constructor(props) {
-    super(props);
-  }
+const FavoritesPage = ({favoritesNumber, getFavoritesOffers}) => {
 
-  componentDidMount() {
-    this.props.getFavoritesOffers();
-  }
+  useEffect(() => {
+    getFavoritesOffers();
+  }, []);
 
-  render() {
-    return (
-      <div className={`page
-      ${this.props.favoritesNumber || FavoritesPageClasses.PAGE}`}>
+  return (
+    <div className={`page
+    ${favoritesNumber || FavoritesPageClasses.PAGE}`}>
 
-        <Header />
+      <Header />
 
-        <main className={`page__main page__main--favorites
-      ${this.props.favoritesNumber || FavoritesPageClasses.MAIN}`}>
+      <main className={`page__main page__main--favorites
+    ${favoritesNumber || FavoritesPageClasses.MAIN}`}>
 
-          {this.props.favoritesNumber ? <FavoritesList /> : <FavoritesEmpty />}
+        {favoritesNumber ? <FavoritesList /> : <FavoritesEmpty />}
 
-        </main>
+      </main>
 
-        <Footer />
+      <Footer />
 
-      </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+// class FavoritesPage extends React.PureComponent {
+//   constructor(props) {
+//     super(props);
+//   }
+//
+//   componentDidMount() {
+//     this.props.getFavoritesOffers();
+//   }
+//
+//   render() {
+//     return (
+//       <div className={`page
+//       ${this.props.favoritesNumber || FavoritesPageClasses.PAGE}`}>
+//
+//         <Header />
+//
+//         <main className={`page__main page__main--favorites
+//       ${this.props.favoritesNumber || FavoritesPageClasses.MAIN}`}>
+//
+//           {this.props.favoritesNumber ? <FavoritesList /> : <FavoritesEmpty />}
+//
+//         </main>
+//
+//         <Footer />
+//
+//       </div>
+//     );
+//   }
+// }
 
 FavoritesPage.propTypes = {
   favoritesNumber: PropTypes.number.isRequired,
