@@ -5,7 +5,7 @@ import OfferReview from "./offer-review";
 it(`Should OfferReview render properly`, () => {
   const review = {
     id: 300,
-    date: `April 2019`,
+    date: 1605357744252,
     userInfo: {
       avatar: `img/avatar-max.jpg`,
       name: `Tom`

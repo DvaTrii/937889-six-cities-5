@@ -7,7 +7,9 @@ import {
   setIsLoadFlagReviews,
   setIsLoadFlagOffer,
   setIsLoadFlagNearOffers,
-  setUserReview, ActionType
+  setUserReview,
+  toggleOfferIsBookmark,
+  ActionType
 } from "./actions";
 
 describe(`Action creators work correctly`, () => {
@@ -71,6 +73,13 @@ describe(`Action creators work correctly`, () => {
     expect(setUserReview({})).toEqual({
       type: ActionType.SET_USER_REVIEW,
       payload: {}
+    });
+  });
+
+  it(`Action creator for toggle offer bookmark works correctly`, () => {
+    expect(toggleOfferIsBookmark(1)).toEqual({
+      type: ActionType.TOGGLE_OFFER_IS_BOOKMARK,
+      payload: 1
     });
   });
 });

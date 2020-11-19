@@ -4,12 +4,17 @@ import {
   loadReviews,
   loadOfferById,
   loadNearOffersById,
+  loadFavoritesOffers,
   setIsLoadFlagOffers,
   setIsLoadFlagReviews,
   setIsLoadFlagOffer,
   setIsLoadFlagNearOffers,
-  setUserReview
+  setIsLoadFlagFavoritesOffers,
+  setUserReview, toggleOfferIsBookmark
 } from "./actions";
+
+import {redirectToRoute} from "../app/actions";
+import {AppRoute} from "../../const";
 
 export const fetchOffersList = () => (dispatch, _getState, api) => (
   api.get(`/hotels`)
@@ -55,6 +60,29 @@ export const postReview = ({review: comment, rating}, id) => (dispatch, _getStat
       ));
     })
     .catch((err) => {
+      throw err;
+    })
+);
+
+export const fetchFavoritesOffersList = () => (dispatch, _getState, api) => (
+  api.get(`/favorite`)
+    .then(({data}) => {
+      dispatch(loadFavoritesOffers(
+          data.map((it) => adaptOffer(it))));
+      dispatch(setIsLoadFlagFavoritesOffers(true));
+    })
+    .catch((err) => {
+      throw err;
+    })
+);
+
+export const postOfferToFavorite = (id, status) => (dispatch, _getState, api) => (
+  api.post(`/favorite/${id}/${status}`)
+    .then(({data}) => {
+      dispatch(toggleOfferIsBookmark(adaptOffer(data)));
+    })
+    .catch((err) => {
+      dispatch(redirectToRoute(AppRoute.LOGIN));
       throw err;
     })
 );

@@ -10,13 +10,10 @@ Enzyme.configure({
 
 it(`Should Sorter be set active`, () => {
 
-  const onActiveChange = jest.fn();
   const setActiveSorterAction = jest.fn();
 
   const wrapper = shallow(
       <Sorter
-        isActive={false}
-        onActiveChange={onActiveChange}
         activeSorter={SorterType.POPULAR}
         setActiveSorterAction={setActiveSorterAction}
       />
@@ -24,18 +21,31 @@ it(`Should Sorter be set active`, () => {
 
   const element = wrapper.find(`.places__sorting-type`);
   element.simulate(`click`);
-  expect(onActiveChange).toHaveBeenCalledTimes(1);
+  expect(wrapper.find(`.places__options--opened`).length).toEqual(1);
 });
 
-it(`Should Sorter type be pressed`, () => {
+it(`Should Sorter be set active`, () => {
 
-  const onActiveChange = jest.fn();
   const setActiveSorterAction = jest.fn();
 
   const wrapper = shallow(
       <Sorter
-        isActive={true}
-        onActiveChange={onActiveChange}
+        activeSorter={SorterType.POPULAR}
+        setActiveSorterAction={setActiveSorterAction}
+      />
+  );
+
+  const element = wrapper.find(`.places__sorting-type`);
+  element.simulate(`click`);
+  expect(wrapper.find(`.places__options--opened`).length).toEqual(1);
+});
+
+it(`Should Sorter type be pressed`, () => {
+
+  const setActiveSorterAction = jest.fn();
+
+  const wrapper = shallow(
+      <Sorter
         activeSorter={SorterType.POPULAR}
         setActiveSorterAction={setActiveSorterAction}
       />

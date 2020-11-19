@@ -4,13 +4,15 @@ import PropTypes from "prop-types";
 import {setHoveredOfferId, resetHoveredOfferId} from "../../store/app/actions";
 import {getHoveredOfferId} from "../../store/app/selectors";
 import {connect} from "react-redux";
+import FavoritesButton from "../favorites-button/favorites-button";
+import {CardClass, FavoritesButtonClassPrefix} from "../../const";
 
 const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferIdAction}) => {
 
   const {id, previewImage, isPremium, isBookmark, price, title, type, rating} = card;
 
   return (
-    <article className={`${cardClass} place-card`}
+    <article className={`${cardClass}card place-card`}
       onMouseEnter={() => {
         setHoveredOfferIdAction(id);
       }}
@@ -21,28 +23,26 @@ const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferI
         <div className="place-card__mark">
           <span>Premium</span>
         </div>)}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${cardClass === CardClass.MAIN ? `cities__` : cardClass}image-wrapper place-card__image-wrapper`}>
         <a href="#">
           <img className="place-card__image"
             src={previewImage}
-            width="260" height="200"
+            width={`${cardClass === CardClass.FAVORITE ? 150 : 260}`}
+            height={`${cardClass === CardClass.FAVORITE ? 110 : 200}`}
             alt="Place image" />
         </a>
       </div>
-      <div className="place-card__info">
+      <div className={`${cardClass === CardClass.FAVORITE ? `favorites__card-info` : ``} place-card__info`}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
-          <button className={`place-card__bookmark-button
-           ${isBookmark && `place-card__bookmark-button--active`}
-           button`} type="button">
-            <svg className="place-card__bookmark-icon" width="18" height="19">
-              <use xlinkHref="#icon-bookmark" />
-            </svg>
-            <span className="visually-hidden">{isBookmark ? `In bookmarks` : `To bookmarks`}</span>
-          </button>
+          <FavoritesButton
+            classPrefix={FavoritesButtonClassPrefix.MAIN}
+            isBookmark={isBookmark}
+            offerId={id}
+          />
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">

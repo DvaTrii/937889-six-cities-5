@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 
 import Header from "../../header/header";
 
-import {getCity} from "../../../store/app/selectors";
+import {getActiveCity} from "../../../store/app/selectors";
 import LoginForm from "../../login-form/login-form";
 
 const LoginPage = ({city}) => {
@@ -39,7 +39,7 @@ LoginPage.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  city: getCity(state),
+  city: getActiveCity(state),
 });
 
 export {LoginPage};

@@ -1,4 +1,4 @@
-import {SorterType} from "./const";
+import {SorterType, REVIEWS_NUMBER} from "./const";
 
 export const extend = (a, b) => {
   return Object.assign({}, a, b);
@@ -24,6 +24,10 @@ export const sortOffers = (offers, activeSorter) => {
   return sortedOffers;
 };
 
+export const sortReviews = (reviews) => {
+  return reviews.slice().sort((a, b) => b.date - a.date).slice(0, REVIEWS_NUMBER);
+};
+
 // адаптер для изменения структуры данных оффера
 
 export const adaptOffer = (offer) => {
@@ -45,11 +49,11 @@ export const adaptOffer = (offer) => {
     pictures: offer[`images`].slice(0, 6),
     previewImage: offer[`preview_image`],
     isPremium: offer[`is_premium`],
-    isBookmark: offer[`is_favourite`],
+    isBookmark: offer[`is_favorite`],
     price: offer[`price`],
     title: offer[`title`],
     type: offer[`type`],
-    rating: offer[`rating`],
+    rating: Math.round(offer[`rating`]),
     description: offer[`description`],
     bedroomsMax: offer[`bedrooms`],
     guestsMax: offer[`max_adults`],
@@ -58,8 +62,7 @@ export const adaptOffer = (offer) => {
       avatar: offer[`host`][`avatar_url`],
       name: offer[`host`][`name`],
       isSuper: offer[`host`][`is_pro`],
-    },
-    nearOffers: []
+    }
   };
 };
 

@@ -9,6 +9,8 @@ import {fetchOffersList} from "./store/data/operations";
 import {requireAuthorization} from "./store/user/actions";
 import {checkAuth} from "./store/user/operations";
 import {AuthorizationStatus} from "./const";
+import {redirect} from "./store/middleware/redirect";
+
 
 import App from "./components/app/app.jsx";
 
@@ -21,7 +23,8 @@ const api = createApi(
 const store = createStore(
     rootReducer,
     composeWithDevTools(
-        applyMiddleware(thunk.withExtraArgument(api))
+        applyMiddleware(thunk.withExtraArgument(api)),
+        applyMiddleware(redirect)
     ));
 
 store.dispatch(fetchOffersList());

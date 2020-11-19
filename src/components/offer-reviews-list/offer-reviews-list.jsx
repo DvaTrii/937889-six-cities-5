@@ -9,7 +9,7 @@ const OfferReviewsList = ({reviews}) => {
       {reviews.map((review) => {
 
         return (
-          <OfferReview key={review.id} review={review}/>
+          <OfferReview key={review.id + review.date} review={review}/>
         );
       })}
     </ul>

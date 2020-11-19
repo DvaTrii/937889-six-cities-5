@@ -5,12 +5,14 @@ import OfferAmenitiesList from "../offer-amenities-List/offer-amenities-list";
 import OfferReviewsList from "../offer-reviews-list/offer-reviews-list";
 import Map from "../map/map";
 
-import {withLoadFlag} from "../hocs/withLoadFlag/with-load-flag";
+import {withLoadFlag} from "../hocs/with-load-flag/with-load-flag";
 import ReviewForm from "../review-form/review-form";
+import FavoritesButton from "../favorites-button/favorites-button";
+import {FavoritesButtonClassPrefix} from "../../const";
 
 const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers, authorizationStatus}) => {
 
-  const {pictures, isPremium, isBookmark, price, title, type, rating, description, bedroomsMax,
+  const {id, pictures, isPremium, isBookmark, price, title, type, rating, description, bedroomsMax,
     guestsMax, amenities, hostInfo: {avatar, name, isSuper}} = offer;
 
   return (
@@ -33,14 +35,11 @@ const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers, authoriz
             <h1 className="property__name">
               {title}
             </h1>
-            <button className={`place-card__bookmark-button
-              ${isBookmark && `place-card__bookmark-button--active`}
-              button`} type="button">
-              <svg className="property__bookmark-icon" width="31" height="33">
-                <use xlinkHref="#icon-bookmark"></use>
-              </svg>
-              <span className="visually-hidden">To bookmarks</span>
-            </button>
+            <FavoritesButton
+              classPrefix={FavoritesButtonClassPrefix.PROPERTY}
+              isBookmark={isBookmark}
+              offerId={id}
+            />
           </div>
           <div className="property__rating rating">
             <div className="property__stars rating__stars">
@@ -100,6 +99,7 @@ const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers, authoriz
         <Map
           offers={nearOffers}
           isLoaded={isLoadedNearOffers}
+          isMainPageMap={false}
         />
       </section>
     </section>

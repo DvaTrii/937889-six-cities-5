@@ -8,7 +8,7 @@ it(`Should ReviewForm render properly`, () => {
   const tree = renderer
     .create(
         <ReviewForm
-          postReview={() => {}}
+          postCurrentReview={() => {}}
           offerId={offerId}
         />
     )

@@ -3,11 +3,14 @@ export const ActionType = {
   LOAD_REVIEWS: `LOAD_REVIEWS`,
   LOAD_OFFER_BY_ID: `LOAD_OFFER_BY_ID`,
   LOAD_NEAR_OFFERS_BY_ID: `LOAD_NEAR_OFFERS_BY_ID`,
+  LOAD_FAVORITES_OFFERS: `LOAD_FAVORITES_OFFERS`,
   SET_IS_LOAD_FLAG_OFFERS: `SET_IS_LOAD_FLAG_OFFERS`,
   SET_IS_LOAD_FLAG_OFFER: `SET_IS_LOAD_FLAG_OFFER`,
   SET_IS_LOAD_FLAG_REVIEWS: `SET_IS_LOAD_FLAG_REVIEWS`,
   SET_IS_LOAD_FLAG_NEAR_OFFERS: `SET_IS_LOAD_FLAG_NEAR_OFFERS`,
+  SET_IS_LOAD_FLAG_FAVORITES_OFFERS: `SET_IS_LOAD_FLAG_FAVORITES_OFFERS`,
   SET_USER_REVIEW: `SET_USER_REVIEW`,
+  TOGGLE_OFFER_IS_BOOKMARK: `TOGGLE_OFFER_IS_BOOKMARK`,
 };
 
 export const loadOffers = (loadedOffers) => ({
@@ -30,6 +33,11 @@ export const loadNearOffersById = (loadedNearOffersById) => ({
   payload: loadedNearOffersById
 });
 
+export const loadFavoritesOffers = (loadedFavoritesOffers) => ({
+  type: ActionType.LOAD_FAVORITES_OFFERS,
+  payload: loadedFavoritesOffers
+});
+
 export const setIsLoadFlagOffers = (setFlag) => ({
   type: ActionType.SET_IS_LOAD_FLAG_OFFERS,
   payload: setFlag
@@ -50,8 +58,18 @@ export const setIsLoadFlagNearOffers = (setFlag) => ({
   payload: setFlag
 });
 
+export const setIsLoadFlagFavoritesOffers = (setFlag) => ({
+  type: ActionType.SET_IS_LOAD_FLAG_FAVORITES_OFFERS,
+  payload: setFlag
+});
+
 export const setUserReview = (data) => ({
   type: ActionType.SET_USER_REVIEW,
   payload: data,
+});
+
+export const toggleOfferIsBookmark = (data) => ({
+  type: ActionType.TOGGLE_OFFER_IS_BOOKMARK,
+  payload: data
 });
 

@@ -96,13 +96,13 @@ exports[`Should OfferDetailed render properly 1`] = `
           Wood and stone place
         </h1>
         <button
-          className="place-card__bookmark-button
-              place-card__bookmark-button--active
-              button"
+          className="property__bookmark-button button
+              property__bookmark-button--active"
+          onClick={[Function]}
           type="button"
         >
           <svg
-            className="property__bookmark-icon"
+            className="place-card__bookmark-icon"
             height="33"
             width="31"
           >
@@ -113,7 +113,7 @@ exports[`Should OfferDetailed render properly 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -281,7 +281,7 @@ exports[`Should OfferDetailed render properly 1`] = `
           <span
             className="reviews__amount"
           >
-            4
+            2
           </span>
         </h2>
         <ul
@@ -336,13 +336,15 @@ exports[`Should OfferDetailed render properly 1`] = `
               <p
                 className="reviews__text"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                Lorem ipsum dolor sit et dolore magna aliqua. Ut enim ad minim veniam
               </p>
               <time
                 className="reviews__time"
-                dateTime="April 2019"
+                dateTime="Sat Nov 14 2020"
               >
-                April 2019
+                October
+                 
+                2020
               </time>
             </div>
           </li>
@@ -395,126 +397,15 @@ exports[`Should OfferDetailed render properly 1`] = `
               <p
                 className="reviews__text"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                Lorem ipsum dolor sir incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
               </p>
               <time
                 className="reviews__time"
-                dateTime="undefined"
-              />
-            </div>
-          </li>
-          <li
-            className="reviews__review"
-          >
-            <div
-              className="reviews__user user"
-            >
-              <div
-                className="reviews__avatar-wrapper user__avatar-wrapper"
+                dateTime="Invalid Date"
               >
-                <img
-                  alt="Reviews avatar"
-                  className="reviews__avatar user__avatar"
-                  height="54"
-                  src="img/avatar-angelina.jpg"
-                  width="54"
-                />
-              </div>
-              <span
-                className="reviews__user-name"
-              >
-                Jess
-              </span>
-            </div>
-            <div
-              className="reviews__info"
-            >
-              <div
-                className="reviews__rating rating"
-              >
-                <div
-                  className="reviews__stars rating__stars"
-                >
-                  <span
-                    style={
-                      Object {
-                        "width": "40%",
-                      }
-                    }
-                  />
-                  <span
-                    className="visually-hidden"
-                  >
-                    Rating
-                  </span>
-                </div>
-              </div>
-              <p
-                className="reviews__text"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-              </p>
-              <time
-                className="reviews__time"
-                dateTime="undefined"
-              />
-            </div>
-          </li>
-          <li
-            className="reviews__review"
-          >
-            <div
-              className="reviews__user user"
-            >
-              <div
-                className="reviews__avatar-wrapper user__avatar-wrapper"
-              >
-                <img
-                  alt="Reviews avatar"
-                  className="reviews__avatar user__avatar"
-                  height="54"
-                  src="img/avatar-angelina.jpg"
-                  width="54"
-                />
-              </div>
-              <span
-                className="reviews__user-name"
-              >
-                Mary
-              </span>
-            </div>
-            <div
-              className="reviews__info"
-            >
-              <div
-                className="reviews__rating rating"
-              >
-                <div
-                  className="reviews__stars rating__stars"
-                >
-                  <span
-                    style={
-                      Object {
-                        "width": "100%",
-                      }
-                    }
-                  />
-                  <span
-                    className="visually-hidden"
-                  >
-                    Rating
-                  </span>
-                </div>
-              </div>
-              <p
-                className="reviews__text"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-              </p>
-              <time
-                className="reviews__time"
-                dateTime="undefined"
-              />
+                 
+                NaN
+              </time>
             </div>
           </li>
         </ul>

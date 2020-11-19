@@ -12,21 +12,10 @@ export const AppRoute = {
   OFFER: `/offer/:id`,
 };
 
-export const ZOOM = 12;
-
-export const CitiesCoordinates = {
-  PARIS: [48.864716, 2.349014],
-  COLOGNE: [50.935173, 6.953101],
-  BRUSSELS: [50.8505, 4.3488],
-  AMSTERDAM: [52.38333, 4.9],
-  HAMBURG: [53.551086, 9.993682],
-  DUSSELDORF: [51.233334, 6.783333],
-};
-
 export const CardClass = {
-  MAIN: `cities__place-card`,
-  NEAR: `near-places__card`,
-  FAVORITE: `favorites__card`
+  MAIN: `cities__place-`,
+  NEAR: `near-places__`,
+  FAVORITE: `favorites__`
 };
 
 export const MainPageNoOffersClass = {
@@ -35,6 +24,16 @@ export const MainPageNoOffersClass = {
 
 export const CurrentCityClass = {
   ACTIVE: `tabs__item--active`
+};
+
+export const FavoritesPageClasses = {
+  PAGE: `page--favorites-empty`,
+  MAIN: `page__main--favorites-empty`
+};
+
+export const FavoritesButtonClassPrefix = {
+  MAIN: `place-card`,
+  PROPERTY: `property`,
 };
 
 export const Cities = {
@@ -66,3 +65,24 @@ export const AuthorizationStatus = {
   NO_AUTH: false,
 };
 
+export const REVIEWS_NUMBER = 10;
+
+export const Months = {
+  1: `January`,
+  2: `February`,
+  3: `March`,
+  4: `April`,
+  5: `May`,
+  6: `June`,
+  7: `July`,
+  8: `August`,
+  9: `September`,
+  10: `October`,
+  11: `November`,
+  12: `December`,
+};
+
+export const FavoritesRequestType = {
+  PUT_IN: 1,
+  POP_OUT: 0
+};

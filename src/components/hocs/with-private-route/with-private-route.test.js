@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import {withPrivateRoute} from "./withPrivateRoute";
+import {withPrivateRoute} from "./with-private-route";
 
 const MockComponent = () => {
 

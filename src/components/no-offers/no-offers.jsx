@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 
-import {getCity} from "../../store/app/selectors";
+import {getActiveCity} from "../../store/app/selectors";
 
 const NoOffers = ({city}) => {
   return (
@@ -26,7 +26,7 @@ NoOffers.propTypes = {
 
 const mapStateToProps = (state) => {
   return ({
-    city: getCity(state)
+    city: getActiveCity(state)
   });
 };
 

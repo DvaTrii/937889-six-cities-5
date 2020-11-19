@@ -157,13 +157,13 @@ exports[`Should OfferPage render properly 1`] = `
               Wood and stone place
             </h1>
             <button
-              className="place-card__bookmark-button
-              place-card__bookmark-button--active
-              button"
+              className="property__bookmark-button button
+              property__bookmark-button--active"
+              onClick={[Function]}
               type="button"
             >
               <svg
-                className="property__bookmark-icon"
+                className="place-card__bookmark-icon"
                 height="33"
                 width="31"
               >
@@ -174,7 +174,7 @@ exports[`Should OfferPage render properly 1`] = `
               <span
                 className="visually-hidden"
               >
-                To bookmarks
+                In bookmarks
               </span>
             </button>
           </div>
@@ -401,9 +401,11 @@ exports[`Should OfferPage render properly 1`] = `
                   </p>
                   <time
                     className="reviews__time"
-                    dateTime="April 2019"
+                    dateTime="Sat Nov 14 2020"
                   >
-                    April 2019
+                    October
+                     
+                    2020
                   </time>
                 </div>
               </li>
@@ -460,8 +462,11 @@ exports[`Should OfferPage render properly 1`] = `
                   </p>
                   <time
                     className="reviews__time"
-                    dateTime="undefined"
-                  />
+                    dateTime="Invalid Date"
+                  >
+                     
+                    NaN
+                  </time>
                 </div>
               </li>
               <li
@@ -517,8 +522,12 @@ exports[`Should OfferPage render properly 1`] = `
                   </p>
                   <time
                     className="reviews__time"
-                    dateTime="undefined"
-                  />
+                    dateTime="Sat Nov 14 2020"
+                  >
+                    October
+                     
+                    2020
+                  </time>
                 </div>
               </li>
               <li
@@ -574,8 +583,12 @@ exports[`Should OfferPage render properly 1`] = `
                   </p>
                   <time
                     className="reviews__time"
-                    dateTime="undefined"
-                  />
+                    dateTime="Sat Nov 14 2020"
+                  >
+                    October
+                     
+                    2020
+                  </time>
                 </div>
               </li>
             </ul>
@@ -621,7 +634,7 @@ exports[`Should OfferPage render properly 1`] = `
               </span>
             </div>
             <div
-              className="cities__image-wrapper place-card__image-wrapper"
+              className="near-places__image-wrapper place-card__image-wrapper"
             >
               <a
                 href="#"
@@ -636,7 +649,7 @@ exports[`Should OfferPage render properly 1`] = `
               </a>
             </div>
             <div
-              className="place-card__info"
+              className=" place-card__info"
             >
               <div
                 className="place-card__price-wrapper"
@@ -657,9 +670,9 @@ exports[`Should OfferPage render properly 1`] = `
                   </span>
                 </div>
                 <button
-                  className="place-card__bookmark-button
-           place-card__bookmark-button--active
-           button"
+                  className="place-card__bookmark-button button
+              place-card__bookmark-button--active"
+                  onClick={[Function]}
                   type="button"
                 >
                   <svg
@@ -721,7 +734,7 @@ exports[`Should OfferPage render properly 1`] = `
             onMouseLeave={[Function]}
           >
             <div
-              className="cities__image-wrapper place-card__image-wrapper"
+              className="near-places__image-wrapper place-card__image-wrapper"
             >
               <a
                 href="#"
@@ -736,7 +749,7 @@ exports[`Should OfferPage render properly 1`] = `
               </a>
             </div>
             <div
-              className="place-card__info"
+              className=" place-card__info"
             >
               <div
                 className="place-card__price-wrapper"
@@ -757,9 +770,9 @@ exports[`Should OfferPage render properly 1`] = `
                   </span>
                 </div>
                 <button
-                  className="place-card__bookmark-button
-           place-card__bookmark-button--active
-           button"
+                  className="place-card__bookmark-button button
+              place-card__bookmark-button--active"
+                  onClick={[Function]}
                   type="button"
                 >
                   <svg
@@ -821,7 +834,7 @@ exports[`Should OfferPage render properly 1`] = `
             onMouseLeave={[Function]}
           >
             <div
-              className="cities__image-wrapper place-card__image-wrapper"
+              className="near-places__image-wrapper place-card__image-wrapper"
             >
               <a
                 href="#"
@@ -836,7 +849,7 @@ exports[`Should OfferPage render properly 1`] = `
               </a>
             </div>
             <div
-              className="place-card__info"
+              className=" place-card__info"
             >
               <div
                 className="place-card__price-wrapper"
@@ -857,9 +870,9 @@ exports[`Should OfferPage render properly 1`] = `
                   </span>
                 </div>
                 <button
-                  className="place-card__bookmark-button
-           false
-           button"
+                  className="place-card__bookmark-button button
+              "
+                  onClick={[Function]}
                   type="button"
                 >
                   <svg

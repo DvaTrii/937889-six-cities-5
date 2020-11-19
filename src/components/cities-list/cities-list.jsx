@@ -4,7 +4,7 @@ import {setCurrentCity} from "../../store/app/actions";
 import PropTypes from "prop-types";
 
 import {Cities, CurrentCityClass} from "../../const";
-import {getCities, getCity} from "../../store/app/selectors";
+import {getCities, getActiveCity} from "../../store/app/selectors";
 
 const CitiesList = ({cities, city, setCurrentCityAction}) => {
 
@@ -39,7 +39,7 @@ CitiesList.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  city: getCity(state),
+  city: getActiveCity(state),
   cities: getCities(Cities)
 });
 
