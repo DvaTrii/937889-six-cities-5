@@ -3,17 +3,17 @@ import Header from "../../header/header";
 import FavoritesList from "../../favorites-list/favorites-list";
 import Footer from "../../footer/footer";
 import PropTypes from "prop-types";
-import {getFavoritesOffersNumber} from "../../../store/data/selectors";
+import {getFavoritesOffers, getFavoritesOffersNumber} from "../../../store/data/selectors";
 import {FavoritesPageClasses} from "../../../const";
 import {connect} from "react-redux";
 import FavoritesEmpty from "../../favorites-empty/favorites-empty";
 import {fetchFavoritesOffersList} from "../../../store/data/operations";
 
-const FavoritesPage = ({favoritesNumber, getFavoritesOffers}) => {
+const FavoritesPage = ({favoritesNumber, getCurrentFavoritesOffers, favoritesOffers}) => {
 
   useEffect(() => {
-    getFavoritesOffers();
-  }, []);
+    getCurrentFavoritesOffers();
+  }, [favoritesOffers]);
 
   return (
     <div className={`page
@@ -36,17 +36,19 @@ const FavoritesPage = ({favoritesNumber, getFavoritesOffers}) => {
 
 FavoritesPage.propTypes = {
   favoritesNumber: PropTypes.number.isRequired,
-  getFavoritesOffers: PropTypes.func.isRequired
+  getCurrentFavoritesOffers: PropTypes.func.isRequired,
+  favoritesOffers: PropTypes.array.isRequired
 };
 
 const mapStateToProps = (state) => {
   return ({
-    favoritesNumber: getFavoritesOffersNumber(state)
+    favoritesNumber: getFavoritesOffersNumber(state),
+    favoritesOffers: getFavoritesOffers(state)
   });
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  getFavoritesOffers() {
+  getCurrentFavoritesOffers() {
     dispatch(fetchFavoritesOffersList());
   }
 });
