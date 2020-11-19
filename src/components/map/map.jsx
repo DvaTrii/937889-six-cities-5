@@ -93,7 +93,7 @@ Map.propTypes = {
   hoveredOfferId: PropTypes.number.isRequired,
   isMainPageMap: PropTypes.bool.isRequired,
   offerById: PropTypes.object.isRequired,
-  activeCity: PropTypes.string.isRequired
+  activeCity: PropTypes.string
 };
 
 const mapStateToProps = (state) => ({

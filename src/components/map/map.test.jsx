@@ -104,7 +104,9 @@ const offers = [
 
 it(`Should Map render properly`, () => {
   const store = mockStore({
-    APP: {hoveredOfferId: -1},
+    APP: {
+      city: `Amsterdam`,
+      hoveredOfferId: -1},
     DATA: {offerById: {}}
   });
 
