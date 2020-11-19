@@ -8,6 +8,8 @@ Enzyme.configure({
   adapter: new Adapter(),
 });
 
+const activeCity = `Paris`;
+
 it(`Should Sorter be set active`, () => {
 
   const setActiveSorterAction = jest.fn();
@@ -16,6 +18,7 @@ it(`Should Sorter be set active`, () => {
       <Sorter
         activeSorter={SorterType.POPULAR}
         setActiveSorterAction={setActiveSorterAction}
+        activeCity={activeCity}
       />
   );
 
@@ -32,6 +35,7 @@ it(`Should Sorter be set active`, () => {
       <Sorter
         activeSorter={SorterType.POPULAR}
         setActiveSorterAction={setActiveSorterAction}
+        activeCity={activeCity}
       />
   );
 
@@ -48,6 +52,7 @@ it(`Should Sorter type be pressed`, () => {
       <Sorter
         activeSorter={SorterType.POPULAR}
         setActiveSorterAction={setActiveSorterAction}
+        activeCity={activeCity}
       />
   );
 

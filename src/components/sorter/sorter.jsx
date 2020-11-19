@@ -1,16 +1,20 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 
 import {SorterType, SorterActiveClass, SorterListOpenedClass} from "../../const";
-import {getActiveSorter} from "../../store/app/selectors";
+import {getActiveSorter, getActiveCity} from "../../store/app/selectors";
 import {setActiveSorter} from "../../store/app/actions";
 
 
-const Sorter = ({activeSorter, setActiveSorterAction}) => {
+const Sorter = ({activeSorter, setActiveSorterAction, activeCity}) => {
 
   const [isActive, setIsActive] = useState(false);
   const toggleIsActive = () => setIsActive(!isActive);
+
+  useEffect(() => {
+    setIsActive(false);
+  }, [activeCity]);
 
   return (
     <form className="places__sorting" action="#" method="get">
@@ -53,12 +57,14 @@ const Sorter = ({activeSorter, setActiveSorterAction}) => {
 
 Sorter.propTypes = {
   activeSorter: PropTypes.string.isRequired,
-  setActiveSorterAction: PropTypes.func.isRequired
+  setActiveSorterAction: PropTypes.func.isRequired,
+  activeCity: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state) => {
   return ({
     activeSorter: getActiveSorter(state),
+    activeCity: getActiveCity(state)
   });
 };
 
