@@ -499,7 +499,7 @@ exports[`Should OfferDetailed render properly 1`] = `
             <input
               checked={false}
               className="form__rating-input visually-hidden"
-              id="1-stars"
+              id="2-stars"
               name="rating"
               onChange={[Function]}
               type="radio"
