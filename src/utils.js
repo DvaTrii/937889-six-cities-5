@@ -28,8 +28,6 @@ export const sortReviews = (reviews) => {
   return reviews.slice().sort((a, b) => b.date - a.date).slice(0, REVIEWS_NUMBER);
 };
 
-// адаптер для изменения структуры данных оффера
-
 export const adaptOffer = (offer) => {
   return {
     id: offer[`id`],
@@ -65,8 +63,6 @@ export const adaptOffer = (offer) => {
     }
   };
 };
-
-// адаптер для изменения структуры данных review
 
 export const adaptReview = (review) => {
   return {
