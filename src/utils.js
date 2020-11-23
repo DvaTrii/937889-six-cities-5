@@ -1,4 +1,4 @@
-import {SorterType, REVIEWS_NUMBER} from "./const";
+import {SorterType, REVIEWS_NUMBER, PHOTOS_NUMBER} from "./const";
 
 export const extend = (a, b) => {
   return Object.assign({}, a, b);
@@ -44,7 +44,7 @@ export const adaptOffer = (offer) => {
       longitude: offer[`location`][`longitude`],
       zoom: offer[`location`][`zoom`]
     },
-    pictures: offer[`images`].slice(0, 6),
+    pictures: offer[`images`].slice(0, PHOTOS_NUMBER),
     previewImage: offer[`preview_image`],
     isPremium: offer[`is_premium`],
     isBookmark: offer[`is_favorite`],

@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {postReview} from "../../store/data/operations";
 import {getOfferIdFromUrl} from "../../store/data/selectors";
 import {extend} from "../../utils";
+import {ReviewSymbolsNumber} from "../../const";
 
 const ReviewForm = ({offerId, postCurrentReview}) => {
 
@@ -29,7 +30,9 @@ const ReviewForm = ({offerId, postCurrentReview}) => {
   };
 
   const validateForm = () => {
-    const isValid = review.rating && (review.review.length < 300 && review.review.length > 50);
+    const isValid = review.rating &&
+      (review.review.length < ReviewSymbolsNumber.MAX &&
+      review.review.length > ReviewSymbolsNumber.MIN);
 
     setIsValidForm(isValid);
   };

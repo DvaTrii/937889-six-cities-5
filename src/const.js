@@ -86,3 +86,10 @@ export const FavoritesRequestType = {
   PUT_IN: 1,
   POP_OUT: 0
 };
+
+export const PHOTOS_NUMBER = 6;
+
+export const ReviewSymbolsNumber = {
+  MIN: 50,
+  MAX: 300
+};
