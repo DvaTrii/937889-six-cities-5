@@ -211,6 +211,40 @@ const updatedReviews = [
   },
 ];
 
+const offerToggledIsBookmark = {
+  id: 103,
+  city: {
+    name: `Amsterdam`,
+    coordinates: { // был [33, 33]
+      latitude: 52.38333,
+      longitude: 4.9
+    }
+  },
+  coordinates: {
+    latitude: 52.3909553943508,
+    longitude: 4.929309666406198
+  },
+  previewImage: `img/apartment-02.jpg`,
+  pictures: [`img/apartment-01.jpg`, `img/apartment-01.jpg`, `img/apartment-01.jpg`, `img/apartment-01.jpg`, `img/apartment-01.jpg`, `img/apartment-01.jpg`],
+  isPremium: false,
+  isBookmark: true,
+  price: 120,
+  title: `Canal View Prinsengracht`,
+  type: OfferType.HOUSE,
+  rating: 3,
+  description: `Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam`,
+  bedroomsMax: `1 Bedroom`,
+  guestsMax: `Max 2 adults`,
+  amenities: [`Wi-Fi`, `Heating`, `Kitchen`, `Fridge`, `Washing machine`, `Dishwasher`, `Towels`, `TV`],
+  hostInfo: {
+    avatar: `img/avatar-angelina.jpg`,
+    name: `Monica`,
+    isSuper: false,
+  },
+};
+
+const favoritesOffers = offers.slice(0, 1);
+
 
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(data(void 0, {})).toEqual(state);
@@ -256,6 +290,16 @@ it(`Reducer should update nearOffersById by load nearOffers`, () => {
   });
 });
 
+it(`Reducer should update favoritesOffers by load favoritesOffers`, () => {
+  expect(data({favoritesOffers: []},
+      {
+        type: ActionType.LOAD_FAVORITES_OFFERS,
+        payload: favoritesOffers
+      })).toEqual({
+    favoritesOffers
+  });
+});
+
 it(`Reducer should update isLoadedOffers by set true`, () => {
   expect(data({isLoadedOffers: false},
       {
@@ -296,6 +340,16 @@ it(`Reducer should update isLoadedNearOffers by set true`, () => {
   });
 });
 
+it(`Reducer should update isLoadedFavoritesOffers by set true`, () => {
+  expect(data({isLoadedFavoritesOffers: false},
+      {
+        type: ActionType.SET_IS_LOAD_FLAG_FAVORITES_OFFERS,
+        payload: true
+      })).toEqual({
+    isLoadedFavoritesOffers: true
+  });
+});
+
 it(`Reducer should update reviews by receive updatedReviews`, () => {
   expect(data({reviews},
       {
@@ -303,5 +357,18 @@ it(`Reducer should update reviews by receive updatedReviews`, () => {
         payload: updatedReviews
       })).toEqual({
     reviews: updatedReviews
+  });
+});
+
+it(`Reducer should update favorites offers`, () => {
+  expect(data({offers: [], offerById: offers[2], nearOffersById: [], favoritesOffers: []},
+      {
+        type: ActionType.TOGGLE_OFFER_IS_BOOKMARK,
+        payload: offerToggledIsBookmark
+      })).toEqual({
+    offers: [],
+    offerById: offerToggledIsBookmark,
+    nearOffersById: [],
+    favoritesOffers: []
   });
 });

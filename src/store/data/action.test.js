@@ -9,7 +9,7 @@ import {
   setIsLoadFlagNearOffers,
   setUserReview,
   toggleOfferIsBookmark,
-  ActionType
+  ActionType, loadFavoritesOffers, setIsLoadFlagFavoritesOffers
 } from "./actions";
 
 describe(`Action creators work correctly`, () => {
@@ -41,6 +41,13 @@ describe(`Action creators work correctly`, () => {
     });
   });
 
+  it(`Action creator for load favorites offers works correctly`, () => {
+    expect(loadFavoritesOffers([])).toEqual({
+      type: ActionType.LOAD_FAVORITES_OFFERS,
+      payload: []
+    });
+  });
+
   it(`Action creator for set isLoad offers flag works correctly`, () => {
     expect(setIsLoadFlagOffers(true)).toEqual({
       type: ActionType.SET_IS_LOAD_FLAG_OFFERS,
@@ -65,6 +72,13 @@ describe(`Action creators work correctly`, () => {
   it(`Action creator for set isLoad near offers flag works correctly`, () => {
     expect(setIsLoadFlagNearOffers(true)).toEqual({
       type: ActionType.SET_IS_LOAD_FLAG_NEAR_OFFERS,
+      payload: true
+    });
+  });
+
+  it(`Action creator for set isLoad favorites offers flag works correctly`, () => {
+    expect(setIsLoadFlagFavoritesOffers(true)).toEqual({
+      type: ActionType.SET_IS_LOAD_FLAG_FAVORITES_OFFERS,
       payload: true
     });
   });
