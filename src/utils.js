@@ -42,7 +42,7 @@ export const adaptOffer = (offer) => {
     coordinates: {
       latitude: offer[`location`][`latitude`],
       longitude: offer[`location`][`longitude`],
-      zoom: offer[`location`][`zoom`]
+      zoom: Number(offer[`location`][`zoom`] - 2)
     },
     pictures: offer[`images`].slice(0, PHOTOS_NUMBER),
     previewImage: offer[`preview_image`],
