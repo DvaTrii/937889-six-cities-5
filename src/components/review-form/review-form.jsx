@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 import PropTypes from "prop-types";
@@ -17,6 +17,10 @@ const ReviewForm = ({offerId, postCurrentReview}) => {
 
   const [isValidForm, setIsValidForm] = useState(false);
 
+  useEffect(() => {
+    validateForm();
+  }, [review]);
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     postCurrentReview(review, offerId);
@@ -31,16 +35,14 @@ const ReviewForm = ({offerId, postCurrentReview}) => {
 
   const validateForm = () => {
     const isValid = review.rating &&
-      (review.review.length < ReviewSymbolsNumber.MAX &&
-      review.review.length > ReviewSymbolsNumber.MIN);
-
+      (review.review.length >= ReviewSymbolsNumber.MIN
+        && review.review.length <= ReviewSymbolsNumber.MAX);
     setIsValidForm(isValid);
   };
 
   const handleFieldChange = (evt) => {
     const {name, value} = evt.target;
     setReview(extend(review, {[name]: value}));
-    validateForm();
   };
 
   return (
@@ -100,7 +102,7 @@ const ReviewForm = ({offerId, postCurrentReview}) => {
           className="form__rating-input visually-hidden"
           name="rating"
           value="2"
-          id="1-stars"
+          id="2-stars"
           type="radio"
           onChange={handleFieldChange}
           checked={review.rating === `2`}
