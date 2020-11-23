@@ -8,7 +8,7 @@ import "leaflet/dist/leaflet.css";
 
 import {getActiveCity, getHoveredOfferId} from "../../store/app/selectors";
 import {getOfferById} from "../../store/data/selectors";
-import {withLoadFlag} from "../hocs/with-load-flag/with-load-flag";
+import {withLoadFlag} from "../../hocs/with-load-flag/with-load-flag";
 
 const Map = (props) => {
 

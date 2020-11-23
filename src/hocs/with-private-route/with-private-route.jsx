@@ -1,6 +1,6 @@
 import React from "react";
 import {Redirect} from "react-router-dom";
-import {AuthorizationStatus} from "../../../const";
+import {AuthorizationStatus} from "../../const";
 
 export const withPrivateRoute = (Component, authorizationStatus, URL = `/`) => {
   class PrivateRoute extends React.PureComponent {

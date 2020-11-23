@@ -5,7 +5,7 @@ import OfferAmenitiesList from "../offer-amenities-List/offer-amenities-list";
 import OfferReviewsList from "../offer-reviews-list/offer-reviews-list";
 import Map from "../map/map";
 
-import {withLoadFlag} from "../hocs/with-load-flag/with-load-flag";
+import {withLoadFlag} from "../../hocs/with-load-flag/with-load-flag";
 import ReviewForm from "../review-form/review-form";
 import FavoritesButton from "../favorites-button/favorites-button";
 import {FavoritesButtonClassPrefix} from "../../const";
