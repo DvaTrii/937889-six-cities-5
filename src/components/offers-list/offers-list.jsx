@@ -17,7 +17,7 @@ const OffersList = (props) => {
 };
 
 OffersList.propTypes = {
-  offers: PropTypes.array.isRequired
+  offers: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default withLoadFlag(OffersList);

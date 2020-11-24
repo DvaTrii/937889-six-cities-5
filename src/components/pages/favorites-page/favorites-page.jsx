@@ -37,7 +37,7 @@ const FavoritesPage = ({favoritesNumber, getCurrentFavoritesOffers, favoritesOff
 FavoritesPage.propTypes = {
   favoritesNumber: PropTypes.number.isRequired,
   getCurrentFavoritesOffers: PropTypes.func.isRequired,
-  favoritesOffers: PropTypes.array.isRequired
+  favoritesOffers: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 const mapStateToProps = (state) => {

@@ -43,7 +43,7 @@ const MainContent = ({currentOffers, city, offersByCityNumber, isLoadedOffers}) 
 };
 
 MainContent.propTypes = {
-  currentOffers: PropTypes.array.isRequired,
+  currentOffers: PropTypes.arrayOf(PropTypes.object).isRequired,
   city: PropTypes.string.isRequired,
   offersByCityNumber: PropTypes.number.isRequired,
   isLoadedOffers: PropTypes.bool.isRequired,

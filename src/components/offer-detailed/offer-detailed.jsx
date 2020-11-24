@@ -109,7 +109,7 @@ const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers, authoriz
 OfferDetailed.propTypes = {
   offer: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    pictures: PropTypes.array.isRequired,
+    pictures: PropTypes.arrayOf(PropTypes.string).isRequired,
     isPremium: PropTypes.bool.isRequired,
     isBookmark: PropTypes.bool,
     price: PropTypes.number.isRequired,
@@ -119,15 +119,15 @@ OfferDetailed.propTypes = {
     description: PropTypes.string.isRequired,
     bedroomsMax: PropTypes.number.isRequired,
     guestsMax: PropTypes.number.isRequired,
-    amenities: PropTypes.array,
+    amenities: PropTypes.arrayOf(PropTypes.string),
     hostInfo: PropTypes.shape({
       avatar: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       isSuper: PropTypes.bool.isRequired,
     })
   }),
-  reviews: PropTypes.array.isRequired,
-  nearOffers: PropTypes.array.isRequired,
+  reviews: PropTypes.arrayOf(PropTypes.object).isRequired,
+  nearOffers: PropTypes.arrayOf(PropTypes.object).isRequired,
   isLoadedNearOffers: PropTypes.bool,
   authorizationStatus: PropTypes.bool.isRequired
 };

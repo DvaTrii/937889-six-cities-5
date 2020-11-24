@@ -33,7 +33,7 @@ const CitiesList = ({cities, city, setCurrentCityAction}) => {
 };
 
 CitiesList.propTypes = {
-  cities: PropTypes.array.isRequired,
+  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
   city: PropTypes.string.isRequired,
   setCurrentCityAction: PropTypes.func.isRequired
 };

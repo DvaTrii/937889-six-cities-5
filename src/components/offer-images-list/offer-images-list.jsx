@@ -19,7 +19,7 @@ const OfferImagesList = ({pictures}) => {
 };
 
 OfferImagesList.propTypes = {
-  pictures: PropTypes.array.isRequired
+  pictures: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 export default OfferImagesList;

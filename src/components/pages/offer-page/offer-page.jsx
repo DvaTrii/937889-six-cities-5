@@ -63,8 +63,8 @@ const OfferPage = (props) => {
 
 OfferPage.propTypes = {
   offer: PropTypes.object,
-  reviews: PropTypes.array,
-  nearOffers: PropTypes.array,
+  reviews: PropTypes.arrayOf(PropTypes.object),
+  nearOffers: PropTypes.arrayOf(PropTypes.object),
   isLoadedOffer: PropTypes.bool,
   isLoadedNearOffers: PropTypes.bool,
   id: PropTypes.number.isRequired,

@@ -17,7 +17,7 @@ const OfferAmenitiesList = ({amenities}) => {
 };
 
 OfferAmenitiesList.propTypes = {
-  amenities: PropTypes.array.isRequired
+  amenities: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 export default OfferAmenitiesList;

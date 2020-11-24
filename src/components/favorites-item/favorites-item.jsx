@@ -21,7 +21,7 @@ const FavoritesItem = ({offers, city}) => {
 };
 
 FavoritesItem.propTypes = {
-  offers: PropTypes.array.isRequired,
+  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
   city: PropTypes.string.isRequired
 };
 

@@ -17,7 +17,7 @@ const OfferReviewsList = ({reviews}) => {
 };
 
 OfferReviewsList.propTypes = {
-  reviews: PropTypes.array.isRequired
+  reviews: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default OfferReviewsList;

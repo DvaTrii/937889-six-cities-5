@@ -89,7 +89,7 @@ Map.defaultProps = {
 };
 
 Map.propTypes = {
-  offers: PropTypes.array.isRequired,
+  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
   hoveredOfferId: PropTypes.number.isRequired,
   isMainPageMap: PropTypes.bool.isRequired,
   offerById: PropTypes.object.isRequired,
