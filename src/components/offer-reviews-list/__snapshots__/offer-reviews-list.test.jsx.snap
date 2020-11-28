@@ -59,7 +59,7 @@ exports[`Should OfferReviewsList render properly 1`] = `
         className="reviews__time"
         dateTime="Sat Nov 14 2020"
       >
-        October
+        November
          
         2020
       </time>
