@@ -118,10 +118,11 @@ exports[`Should OfferReviewsList render properly 1`] = `
       </p>
       <time
         className="reviews__time"
-        dateTime="Invalid Date"
+        dateTime="Sat Nov 14 2020"
       >
+        November
          
-        NaN
+        2020
       </time>
     </div>
   </li>

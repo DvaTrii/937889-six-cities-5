@@ -16,7 +16,7 @@ it(`Should OfferReviewsList render properly`, () => {
     },
     {
       id: 333,
-      reviewDate: 1605357744253,
+      date: 1605357744253,
       userInfo: {
         avatar: `img/avatar-max.jpg`,
         name: `Bob`

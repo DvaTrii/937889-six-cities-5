@@ -147,7 +147,7 @@ const reviews = [
   },
   {
     id: 333,
-    reviewDate: 1605357744252,
+    date: 1605357744252,
     userInfo: {
       avatar: `img/avatar-max.jpg`,
       name: `Bob`
