@@ -1,5 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 import thunk from "redux-thunk";
 import {createStore, applyMiddleware} from "redux";
 import {composeWithDevTools} from "redux-devtools-extension";
@@ -12,7 +12,7 @@ import {AuthorizationStatus} from "./const";
 import {redirect} from "./store/middleware/redirect";
 
 
-import App from "./components/app/app.jsx";
+import App from "./components/app/app";
 
 import rootReducer from "./store/root-reducer";
 
