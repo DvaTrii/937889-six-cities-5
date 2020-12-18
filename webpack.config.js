@@ -28,6 +28,10 @@ module.exports = {
       {
         test: /\.(png|jpe?g|svg)$/i,
         use: ['url-loader']
+      },
+      {
+        test: /\.(tsx|ts)?$/,
+        loader: `ts-loader`
       }
     ],
   },
