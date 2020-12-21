@@ -1,7 +1,6 @@
 import * as React from "react";
 import {connect} from "react-redux";
 import {compose} from "redux";
-import PropTypes from "prop-types";
 
 import leaflet from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -88,13 +87,13 @@ Map.defaultProps = {
   isMainPageMap: true
 };
 
-Map.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
-  hoveredOfferId: PropTypes.number.isRequired,
-  isMainPageMap: PropTypes.bool.isRequired,
-  offerById: PropTypes.object.isRequired,
-  activeCity: PropTypes.string
-};
+// Map.propTypes = {
+//   offers: PropTypes.arrayOf(PropTypes.object).isRequired,
+//   hoveredOfferId: PropTypes.number.isRequired,
+//   isMainPageMap: PropTypes.bool.isRequired,
+//   offerById: PropTypes.object.isRequired,
+//   activeCity: PropTypes.string
+// };
 
 const mapStateToProps = (state) => ({
   hoveredOfferId: getHoveredOfferId(state),

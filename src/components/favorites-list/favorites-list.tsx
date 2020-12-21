@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import FavoritesItem from "../favorites-item/favorites-item";
 import {getFavoriteOffersCities, getFavoritesOffers} from "../../store/data/selectors";
@@ -18,10 +17,10 @@ const FavoritesList = ({offers, cities}) => {
   );
 };
 
-FavoritesList.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
-  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
+// FavoritesList.propTypes = {
+//   offers: PropTypes.arrayOf(PropTypes.object).isRequired,
+//   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
+// };
 
 const mapStateToProps = (state) => {
   return ({

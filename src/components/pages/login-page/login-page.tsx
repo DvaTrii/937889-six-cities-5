@@ -1,8 +1,7 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
-import Header from "../../header/header.tsx";
+import Header from "../../header/header";
 
 import {getActiveCity} from "../../../store/app/selectors";
 import LoginForm from "../../login-form/login-form";
@@ -34,9 +33,9 @@ const LoginPage = ({city}) => {
   );
 };
 
-LoginPage.propTypes = {
-  city: PropTypes.string.isRequired,
-};
+// LoginPage.propTypes = {
+//   city: PropTypes.string.isRequired,
+// };
 
 const mapStateToProps = (state) => ({
   city: getActiveCity(state),

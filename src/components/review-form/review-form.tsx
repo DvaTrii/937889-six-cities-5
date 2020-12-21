@@ -1,7 +1,6 @@
 import * as React from "react";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
-import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {postReview} from "../../store/data/operations";
 import {getOfferIdFromUrl} from "../../store/data/selectors";
@@ -152,10 +151,10 @@ const ReviewForm = ({offerId, postCurrentReview}) => {
   );
 };
 
-ReviewForm.propTypes = {
-  postCurrentReview: PropTypes.func.isRequired,
-  offerId: PropTypes.number.isRequired,
-};
+// ReviewForm.propTypes = {
+//   postCurrentReview: PropTypes.func.isRequired,
+//   offerId: PropTypes.number.isRequired,
+// };
 
 const mapStateToProps = (state, ownProps) => {
   return ({

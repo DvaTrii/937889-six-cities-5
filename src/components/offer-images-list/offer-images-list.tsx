@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 
 const OfferImagesList = ({pictures}) => {
   return (
@@ -18,8 +17,8 @@ const OfferImagesList = ({pictures}) => {
   );
 };
 
-OfferImagesList.propTypes = {
-  pictures: PropTypes.arrayOf(PropTypes.string).isRequired
-};
+// OfferImagesList.propTypes = {
+//   pictures: PropTypes.arrayOf(PropTypes.string).isRequired
+// };
 
 export default OfferImagesList;

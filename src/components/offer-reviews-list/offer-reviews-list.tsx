@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import OfferReview from "../offer-review/offer-review";
 
 const OfferReviewsList = ({reviews}) => {
@@ -16,8 +15,8 @@ const OfferReviewsList = ({reviews}) => {
   );
 };
 
-OfferReviewsList.propTypes = {
-  reviews: PropTypes.arrayOf(PropTypes.object).isRequired
-};
+// OfferReviewsList.propTypes = {
+//   reviews: PropTypes.arrayOf(PropTypes.object).isRequired
+// };
 
 export default OfferReviewsList;

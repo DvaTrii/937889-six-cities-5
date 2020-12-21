@@ -1,6 +1,5 @@
 import * as React from "react";
 import {connect} from "react-redux";
-import PropTypes from "prop-types";
 
 import OfferDetailed from "../../offer-detailed/offer-detailed";
 import Header from "../../header/header";
@@ -61,17 +60,17 @@ const OfferPage = (props) => {
   );
 };
 
-OfferPage.propTypes = {
-  offer: PropTypes.object,
-  reviews: PropTypes.arrayOf(PropTypes.object),
-  nearOffers: PropTypes.arrayOf(PropTypes.object),
-  isLoadedOffer: PropTypes.bool,
-  isLoadedNearOffers: PropTypes.bool,
-  id: PropTypes.number.isRequired,
-  getOfferInformation: PropTypes.func,
-  setIsLoadFlag: PropTypes.func,
-  authorizationStatus: PropTypes.bool.isRequired
-};
+// OfferPage.propTypes = {
+//   offer: PropTypes.object,
+//   reviews: PropTypes.arrayOf(PropTypes.object),
+//   nearOffers: PropTypes.arrayOf(PropTypes.object),
+//   isLoadedOffer: PropTypes.bool,
+//   isLoadedNearOffers: PropTypes.bool,
+//   id: PropTypes.number.isRequired,
+//   getOfferInformation: PropTypes.func,
+//   setIsLoadFlag: PropTypes.func,
+//   authorizationStatus: PropTypes.bool.isRequired
+// };
 
 const mapStateToProps = (state, ownProps) => {
   return ({

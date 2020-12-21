@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {postOfferToFavorite} from "../../store/data/operations";
 import {FavoritesButtonClassPrefix, FavoritesRequestType} from "../../const";
@@ -28,12 +27,12 @@ const FavoritesButton = ({classPrefix, isBookmark, offerId, toggleIsBookmarkProp
   );
 };
 
-FavoritesButton.propTypes = {
-  classPrefix: PropTypes.string.isRequired,
-  isBookmark: PropTypes.bool,
-  offerId: PropTypes.number.isRequired,
-  toggleIsBookmarkProperty: PropTypes.func.isRequired,
-};
+// FavoritesButton.propTypes = {
+//   classPrefix: PropTypes.string.isRequired,
+//   isBookmark: PropTypes.bool,
+//   offerId: PropTypes.number.isRequired,
+//   toggleIsBookmarkProperty: PropTypes.func.isRequired,
+// };
 
 const mapDispatchToProps = (dispatch) => ({
   toggleIsBookmarkProperty(id, status) {

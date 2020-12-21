@@ -1,6 +1,4 @@
 import * as React from "react";
-
-import PropTypes from "prop-types";
 import {Months} from "../../const";
 
 const OfferReview = ({review}) => {
@@ -32,18 +30,18 @@ const OfferReview = ({review}) => {
   );
 };
 
-OfferReview.propTypes = {
-  review: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    rating: PropTypes.number.isRequired,
-    text: PropTypes.string.isRequired,
-    date: PropTypes.number.isRequired,
-    userInfo: PropTypes.shape({
-      avatar: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired
-    }).isRequired
-  }).isRequired,
-};
+// OfferReview.propTypes = {
+//   review: PropTypes.shape({
+//     id: PropTypes.number.isRequired,
+//     rating: PropTypes.number.isRequired,
+//     text: PropTypes.string.isRequired,
+//     date: PropTypes.number.isRequired,
+//     userInfo: PropTypes.shape({
+//       avatar: PropTypes.string.isRequired,
+//       name: PropTypes.string.isRequired
+//     }).isRequired
+//   }).isRequired,
+// };
 
 export default OfferReview;
 

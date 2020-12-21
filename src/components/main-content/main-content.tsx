@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 
 import Sorter from "../sorter/sorter";
 import OffersList from "../offers-list/offers-list";
@@ -42,12 +41,12 @@ const MainContent = ({currentOffers, city, offersByCityNumber, isLoadedOffers}) 
   );
 };
 
-MainContent.propTypes = {
-  currentOffers: PropTypes.arrayOf(PropTypes.object).isRequired,
-  city: PropTypes.string.isRequired,
-  offersByCityNumber: PropTypes.number.isRequired,
-  isLoadedOffers: PropTypes.bool.isRequired,
-};
+// MainContent.propTypes = {
+//   currentOffers: PropTypes.arrayOf(PropTypes.object).isRequired,
+//   city: PropTypes.string.isRequired,
+//   offersByCityNumber: PropTypes.number.isRequired,
+//   isLoadedOffers: PropTypes.bool.isRequired,
+// };
 
 const mapStateToProps = (state) => {
   return ({

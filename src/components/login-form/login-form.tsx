@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {login} from "../../store/user/operations";
 
@@ -51,9 +50,9 @@ const LoginForm = ({onSubmit}) => {
 
 };
 
-LoginForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired
-};
+// LoginForm.propTypes = {
+//   onSubmit: PropTypes.func.isRequired
+// };
 
 const mapDispatchToProps = (dispatch) => ({
   onSubmit(authData) {

@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import OfferImagesList from "../offer-images-list/offer-images-list";
 import OfferAmenitiesList from "../offer-amenities-List/offer-amenities-list";
 import OfferReviewsList from "../offer-reviews-list/offer-reviews-list";
@@ -106,30 +105,30 @@ const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers, authoriz
   );
 };
 
-OfferDetailed.propTypes = {
-  offer: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    pictures: PropTypes.arrayOf(PropTypes.string).isRequired,
-    isPremium: PropTypes.bool.isRequired,
-    isBookmark: PropTypes.bool,
-    price: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired,
-    bedroomsMax: PropTypes.number.isRequired,
-    guestsMax: PropTypes.number.isRequired,
-    amenities: PropTypes.arrayOf(PropTypes.string),
-    hostInfo: PropTypes.shape({
-      avatar: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      isSuper: PropTypes.bool.isRequired,
-    })
-  }),
-  reviews: PropTypes.arrayOf(PropTypes.object).isRequired,
-  nearOffers: PropTypes.arrayOf(PropTypes.object).isRequired,
-  isLoadedNearOffers: PropTypes.bool,
-  authorizationStatus: PropTypes.bool.isRequired
-};
+// OfferDetailed.propTypes = {
+//   offer: PropTypes.shape({
+//     id: PropTypes.number.isRequired,
+//     pictures: PropTypes.arrayOf(PropTypes.string).isRequired,
+//     isPremium: PropTypes.bool.isRequired,
+//     isBookmark: PropTypes.bool,
+//     price: PropTypes.number.isRequired,
+//     title: PropTypes.string.isRequired,
+//     type: PropTypes.string.isRequired,
+//     rating: PropTypes.number.isRequired,
+//     description: PropTypes.string.isRequired,
+//     bedroomsMax: PropTypes.number.isRequired,
+//     guestsMax: PropTypes.number.isRequired,
+//     amenities: PropTypes.arrayOf(PropTypes.string),
+//     hostInfo: PropTypes.shape({
+//       avatar: PropTypes.string.isRequired,
+//       name: PropTypes.string.isRequired,
+//       isSuper: PropTypes.bool.isRequired,
+//     })
+//   }),
+//   reviews: PropTypes.arrayOf(PropTypes.object).isRequired,
+//   nearOffers: PropTypes.arrayOf(PropTypes.object).isRequired,
+//   isLoadedNearOffers: PropTypes.bool,
+//   authorizationStatus: PropTypes.bool.isRequired
+// };
 
 export default withLoadFlag(OfferDetailed);

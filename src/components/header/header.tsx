@@ -1,7 +1,6 @@
 import * as React from "react";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
-import PropTypes from "prop-types";
 
 import {AppRoute, AuthorizationStatus} from "../../const";
 import {getAuthorizationStatus, getUserEmail} from "../../store/user/selectors";
@@ -37,10 +36,10 @@ const Header = ({authorizationStatus, userName}) => {
   );
 };
 
-Header.propTypes = {
-  authorizationStatus: PropTypes.bool.isRequired,
-  userName: PropTypes.string
-};
+// Header.propTypes = {
+//   authorizationStatus: PropTypes.bool.isRequired,
+//   userName: PropTypes.string
+// };
 
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthorizationStatus(state),

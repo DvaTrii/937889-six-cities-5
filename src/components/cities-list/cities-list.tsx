@@ -1,7 +1,6 @@
 import * as React from "react";
 import {connect} from "react-redux";
 import {setCurrentCity} from "../../store/app/actions";
-import PropTypes from "prop-types";
 
 import {Cities, CurrentCityClass} from "../../const";
 import {getCities, getActiveCity} from "../../store/app/selectors";
@@ -32,11 +31,11 @@ const CitiesList = ({cities, city, setCurrentCityAction}) => {
   );
 };
 
-CitiesList.propTypes = {
-  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
-  city: PropTypes.string.isRequired,
-  setCurrentCityAction: PropTypes.func.isRequired
-};
+// CitiesList.propTypes = {
+//   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
+//   city: PropTypes.string.isRequired,
+//   setCurrentCityAction: PropTypes.func.isRequired
+// };
 
 const mapStateToProps = (state) => ({
   city: getActiveCity(state),

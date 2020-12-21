@@ -1,6 +1,5 @@
 import * as React from "react";
 import {Link} from "react-router-dom";
-import PropTypes from "prop-types";
 import {setHoveredOfferId, resetHoveredOfferId} from "../../store/app/actions";
 import {getHoveredOfferId} from "../../store/app/selectors";
 import {connect} from "react-redux";
@@ -59,21 +58,21 @@ const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferI
   );
 };
 
-OfferCard.propTypes = {
-  card: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    previewImage: PropTypes.string.isRequired,
-    isPremium: PropTypes.bool.isRequired,
-    isBookmark: PropTypes.bool,
-    price: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-  }),
-  cardClass: PropTypes.string.isRequired,
-  setHoveredOfferIdAction: PropTypes.func.isRequired,
-  resetHoveredOfferIdAction: PropTypes.func.isRequired,
-};
+// OfferCard.propTypes = {
+//   card: PropTypes.shape({
+//     id: PropTypes.number.isRequired,
+//     previewImage: PropTypes.string.isRequired,
+//     isPremium: PropTypes.bool.isRequired,
+//     isBookmark: PropTypes.bool,
+//     price: PropTypes.number.isRequired,
+//     title: PropTypes.string.isRequired,
+//     type: PropTypes.string.isRequired,
+//     rating: PropTypes.number.isRequired,
+//   }),
+//   cardClass: PropTypes.string.isRequired,
+//   setHoveredOfferIdAction: PropTypes.func.isRequired,
+//   resetHoveredOfferIdAction: PropTypes.func.isRequired,
+// };
 
 const mapStateToProps = (state) => ({
   hoveredOfferId: getHoveredOfferId(state),

@@ -1,6 +1,5 @@
 import * as React from "react";
 import {connect} from "react-redux";
-import PropTypes from "prop-types";
 
 import {getActiveCity} from "../../store/app/selectors";
 
@@ -20,9 +19,9 @@ const NoOffers = ({city}) => {
   );
 };
 
-NoOffers.propTypes = {
-  city: PropTypes.string.isRequired,
-};
+// NoOffers.propTypes = {
+//   city: PropTypes.string.isRequired,
+// };
 
 const mapStateToProps = (state) => {
   return ({

@@ -1,7 +1,5 @@
 import * as React from "react";
 import {Router as BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
-import PropTypes from "prop-types";
-
 
 import MainPage from "../pages/main-page/main-page";
 import LoginPage from "../pages/login-page/login-page";
@@ -45,9 +43,9 @@ const App = ({authorizationStatus}) => {
   );
 };
 
-App.propTypes = {
-  authorizationStatus: PropTypes.bool.isRequired
-};
+// App.propTypes = {
+//   authorizationStatus: PropTypes.bool.isRequired
+// };
 
 
 const mapStateToProps = (state) => ({

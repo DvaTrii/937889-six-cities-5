@@ -2,7 +2,6 @@ import * as React from "react";
 import Header from "../../header/header";
 import FavoritesList from "../../favorites-list/favorites-list";
 import Footer from "../../footer/footer";
-import PropTypes from "prop-types";
 import {getFavoritesOffers, getFavoritesOffersNumber} from "../../../store/data/selectors";
 import {FavoritesPageClasses} from "../../../const";
 import {connect} from "react-redux";
@@ -34,11 +33,11 @@ const FavoritesPage = ({favoritesNumber, getCurrentFavoritesOffers, favoritesOff
   );
 };
 
-FavoritesPage.propTypes = {
-  favoritesNumber: PropTypes.number.isRequired,
-  getCurrentFavoritesOffers: PropTypes.func.isRequired,
-  favoritesOffers: PropTypes.arrayOf(PropTypes.object).isRequired
-};
+// FavoritesPage.propTypes = {
+//   favoritesNumber: PropTypes.number.isRequired,
+//   getCurrentFavoritesOffers: PropTypes.func.isRequired,
+//   favoritesOffers: PropTypes.arrayOf(PropTypes.object).isRequired
+// };
 
 const mapStateToProps = (state) => {
   return ({

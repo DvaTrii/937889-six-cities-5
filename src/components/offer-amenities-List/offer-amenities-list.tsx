@@ -1,5 +1,5 @@
 import * as React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 const OfferAmenitiesList = ({amenities}) => {
 
@@ -16,8 +16,8 @@ const OfferAmenitiesList = ({amenities}) => {
   );
 };
 
-OfferAmenitiesList.propTypes = {
-  amenities: PropTypes.arrayOf(PropTypes.string).isRequired
-};
+// OfferAmenitiesList.propTypes = {
+//   amenities: PropTypes.arrayOf(PropTypes.string).isRequired
+// };
 
 export default OfferAmenitiesList;

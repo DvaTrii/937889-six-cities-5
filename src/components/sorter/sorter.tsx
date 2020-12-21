@@ -1,6 +1,5 @@
 import * as React from "react";
 import {connect} from "react-redux";
-import PropTypes from "prop-types";
 
 import {SorterType, SorterActiveClass, SorterListOpenedClass} from "../../const";
 import {getActiveSorter, getActiveCity} from "../../store/app/selectors";
@@ -49,11 +48,11 @@ const Sorter = ({activeSorter, setActiveSorterAction, activeCity}) => {
   );
 };
 
-Sorter.propTypes = {
-  activeSorter: PropTypes.string.isRequired,
-  setActiveSorterAction: PropTypes.func.isRequired,
-  activeCity: PropTypes.string.isRequired
-};
+// Sorter.propTypes = {
+//   activeSorter: PropTypes.string.isRequired,
+//   setActiveSorterAction: PropTypes.func.isRequired,
+//   activeCity: PropTypes.string.isRequired
+// };
 
 const mapStateToProps = (state) => {
   return ({
