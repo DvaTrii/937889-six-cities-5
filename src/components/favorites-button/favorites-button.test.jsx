@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 
-import {FavoritesButton} from "./favorites-button";
+import {FavoritesButton} from "./favorites-button.tsx";
 
 const mockStore = configureStore([]);
 

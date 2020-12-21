@@ -3,7 +3,7 @@ import {Provider} from "react-redux";
 import {BrowserRouter} from "react-router-dom";
 import configureStore from "redux-mock-store";
 import renderer from "react-test-renderer";
-import MainPage from "./main-page";
+import MainPage from "./main-page.tsx";
 
 const mockStore = configureStore([]);
 

@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import {Sorter} from "./sorter";
+import {Sorter} from "./sorter.tsx";
 
 it(`Should Sorter render properly`, () => {
 

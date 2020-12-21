@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import * as React from "react";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 import PropTypes from "prop-types";
@@ -10,14 +10,14 @@ import {ReviewSymbolsNumber} from "../../const";
 
 const ReviewForm = ({offerId, postCurrentReview}) => {
 
-  const [review, setReview] = useState({
+  const [review, setReview] = React.useState({
     rating: ``,
     review: ``
   });
 
-  const [isValidForm, setIsValidForm] = useState(false);
+  const [isValidForm, setIsValidForm] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     validateForm();
   }, [review]);
 

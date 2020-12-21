@@ -1,4 +1,4 @@
-import React, {createRef, useEffect} from "react";
+import * as React from "react";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import PropTypes from "prop-types";
@@ -13,9 +13,9 @@ import {withLoadFlag} from "../../hocs/with-load-flag/with-load-flag";
 const Map = (props) => {
 
   const {offers, isMainPageMap, offerById, hoveredOfferId, activeCity} = props;
-  const mapRef = createRef();
+  const mapRef = React.createRef();
 
-  useEffect(() => {
+  React.useEffect(() => {
 
     const icon = leaflet.icon({
       iconUrl: `/img/pin.svg`,

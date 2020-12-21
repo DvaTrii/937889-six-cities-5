@@ -4,7 +4,7 @@ import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 
-import {OfferCard} from "./offer-card";
+import {OfferCard} from "./offer-card.tsx";
 
 const mockStore = configureStore([]);
 

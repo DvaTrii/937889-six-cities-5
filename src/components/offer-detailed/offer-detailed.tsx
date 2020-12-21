@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
 import OfferImagesList from "../offer-images-list/offer-images-list";
 import OfferAmenitiesList from "../offer-amenities-List/offer-amenities-list";

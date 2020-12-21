@@ -1,8 +1,8 @@
-import React from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
-import Header from "../../header/header";
+import Header from "../../header/header.tsx";
 
 import {getActiveCity} from "../../../store/app/selectors";
 import LoginForm from "../../login-form/login-form";

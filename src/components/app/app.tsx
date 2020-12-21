@@ -1,14 +1,14 @@
-import React from "react";
+import * as React from "react";
 import {Router as BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
 import PropTypes from "prop-types";
 
 
-import MainPage from "../pages/main-page/main-page.jsx";
-import LoginPage from "../pages/login-page/login-page.jsx";
-import OfferPage from "../pages/offer-page/offer-page.jsx";
-import FavoritesPage from "../pages/favorites-page/favorites-page.jsx";
+import MainPage from "../pages/main-page/main-page";
+import LoginPage from "../pages/login-page/login-page";
+import OfferPage from "../pages/offer-page/offer-page";
+import FavoritesPage from "../pages/favorites-page/favorites-page";
 import {withPrivateRoute} from "../../hocs/with-private-route/with-private-route";
-import {AppRoute} from "../../const.js";
+import {AppRoute} from "../../const";
 import {getAuthorizationStatus} from "../../store/user/selectors";
 import {connect} from "react-redux";
 import browserHistory from "../../browser-history";

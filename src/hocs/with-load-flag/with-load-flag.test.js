@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import {withLoadFlag} from "./with-load-flag";
+import {withLoadFlag} from "./with-load-flag.tsx";
 
 const MockComponent = () => {
 

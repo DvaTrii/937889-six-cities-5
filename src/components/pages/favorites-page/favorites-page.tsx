@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import * as React from "react";
 import Header from "../../header/header";
 import FavoritesList from "../../favorites-list/favorites-list";
 import Footer from "../../footer/footer";
@@ -11,7 +11,7 @@ import {fetchFavoritesOffersList} from "../../../store/data/operations";
 
 const FavoritesPage = ({favoritesNumber, getCurrentFavoritesOffers, favoritesOffers}) => {
 
-  useEffect(() => {
+  React.useEffect(() => {
     getCurrentFavoritesOffers();
   }, [favoritesOffers]);
 

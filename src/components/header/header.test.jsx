@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter} from "react-router-dom";
 import renderer from "react-test-renderer";
-import {Header} from "./header";
+import {Header} from "./header.tsx";
 
 describe(`<Header> render`, () => {
   it(`Should Header render properly with authorized user`, () => {

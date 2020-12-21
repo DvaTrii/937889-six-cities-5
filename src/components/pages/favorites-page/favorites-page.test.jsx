@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 
 import configureStore from "redux-mock-store";
 import renderer from "react-test-renderer";
-import FavoritesPage from "./favorites-page";
+import FavoritesPage from "./favorites-page.tsx";
 
 const favoritesOffers = [
   {

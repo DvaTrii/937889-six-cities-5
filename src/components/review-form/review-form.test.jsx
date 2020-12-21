@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import {ReviewForm} from "./review-form";
+import {ReviewForm} from "./review-form.tsx";
 
 it(`Should ReviewForm render properly`, () => {
   const offerId = 3;

@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import {NoOffers} from "./no-offers";
+import {NoOffers} from "./no-offers.tsx";
 
 it(`Should NoOffers render properly`, () => {
   const city = `Amsterdam`;

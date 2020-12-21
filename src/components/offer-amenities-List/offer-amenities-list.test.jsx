@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import OfferAmenitiesList from "./offer-amenities-list";
+import OfferAmenitiesList from "./offer-amenities-list.tsx";
 
 
 it(`Should OfferAmenitiesList render properly`, () => {

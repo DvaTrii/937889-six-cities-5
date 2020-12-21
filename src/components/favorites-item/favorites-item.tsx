@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import OfferCard from "../offer-card/offer-card";
 import {CardClass} from "../../const";
 import PropTypes from "prop-types";

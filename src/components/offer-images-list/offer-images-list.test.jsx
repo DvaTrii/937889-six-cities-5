@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import OfferImagesList from "./offer-images-list";
+import OfferImagesList from "./offer-images-list.tsx";
 
 it(`Should OfferImagesList render properly`, () => {
   const pictures = [

@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import * as React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 
@@ -23,7 +23,7 @@ const OfferPage = (props) => {
   const {id, offer, reviews, nearOffers, isLoadedOffer, isLoadedNearOffers,
     authorizationStatus, getOfferInformation, setIsLoadFlag} = props;
 
-  useEffect(() => {
+  React.useEffect(() => {
     getOfferInformation(id);
     return () => setIsLoadFlag(false);
   }, [id]);

@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import {LoginForm} from "./login-form";
+import {LoginForm} from "./login-form.tsx";
 
 it(`Should LoginForm render properly`, () => {
 

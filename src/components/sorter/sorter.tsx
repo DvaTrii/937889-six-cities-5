@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import * as React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 
@@ -9,10 +9,10 @@ import {setActiveSorter} from "../../store/app/actions";
 
 const Sorter = ({activeSorter, setActiveSorterAction, activeCity}) => {
 
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = React.useState(false);
   const toggleIsActive = () => setIsActive(!isActive);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setIsActive(false);
   }, [activeCity]);
 

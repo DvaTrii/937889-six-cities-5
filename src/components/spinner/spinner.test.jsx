@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import {Spinner} from "./spinner";
+import {Spinner} from "./spinner.tsx";
 
 it(`Should Spinner render properly`, () => {
 

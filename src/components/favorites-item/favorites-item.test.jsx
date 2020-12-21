@@ -4,7 +4,7 @@ import {Provider} from "react-redux";
 import {BrowserRouter} from "react-router-dom";
 
 import configureStore from "redux-mock-store";
-import FavoritesItem from "./favorites-item";
+import FavoritesItem from "./favorites-item.tsx";
 
 const mockStore = configureStore([]);
 

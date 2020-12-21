@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import OfferReviewsList from "./offer-reviews-list";
+import OfferReviewsList from "./offer-reviews-list.tsx";
 
 it(`Should OfferReviewsList render properly`, () => {
   const reviews = [

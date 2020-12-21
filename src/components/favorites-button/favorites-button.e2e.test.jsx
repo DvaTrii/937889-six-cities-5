@@ -1,7 +1,7 @@
 import React from "react";
 import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import {FavoritesButton} from "./favorites-button";
+import {FavoritesButton} from "./favorites-button.tsx";
 
 Enzyme.configure({
   adapter: new Adapter(),

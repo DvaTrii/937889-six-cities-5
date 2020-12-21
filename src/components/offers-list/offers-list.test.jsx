@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import OffersList from "./offers-list";
+import OffersList from "./offers-list.tsx";
 import {CardClass} from "../../const";
 
 const offers = [
