@@ -3,7 +3,11 @@ import {connect} from "react-redux";
 
 import {getActiveCity} from "../../store/app/selectors";
 
-const NoOffers = ({city}) => {
+type Props = {
+  city: string
+};
+
+const NoOffers: React.FC<Props> = ({city}) => {
   return (
     <div className="cities">
       <div className="cities__places-container cities__places-container--empty container">
@@ -13,15 +17,11 @@ const NoOffers = ({city}) => {
             <p className="cities__status-description">We could not find any property available at the moment in {city}</p>
           </div>
         </section>
-        <div className="cities__right-section"></div>
+        <div className="cities__right-section"/>
       </div>
     </div>
   );
 };
-
-// NoOffers.propTypes = {
-//   city: PropTypes.string.isRequired,
-// };
 
 const mapStateToProps = (state) => {
   return ({

@@ -5,14 +5,19 @@ import {connect} from "react-redux";
 import {AppRoute, AuthorizationStatus} from "../../const";
 import {getAuthorizationStatus, getUserEmail} from "../../store/user/selectors";
 
-const Header = ({authorizationStatus, userName}) => {
+type Props = {
+  authorizationStatus: boolean,
+  userName: string
+};
+
+const Header: React.FC<Props> = ({authorizationStatus, userName}) => {
   return (
     <header className="header">
       <div className="container">
         <div className="header__wrapper">
           <div className="header__left">
             <Link to={AppRoute.MAIN} className="header__logo-link">
-              <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41"></img>
+              <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41"/>
             </Link>
           </div>
           <nav className="header__nav">
@@ -35,11 +40,6 @@ const Header = ({authorizationStatus, userName}) => {
     </header>
   );
 };
-
-// Header.propTypes = {
-//   authorizationStatus: PropTypes.bool.isRequired,
-//   userName: PropTypes.string
-// };
 
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthorizationStatus(state),

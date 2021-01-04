@@ -1,7 +1,13 @@
 import * as React from "react";
 import OfferReview from "../offer-review/offer-review";
 
-const OfferReviewsList = ({reviews}) => {
+import {ReviewType} from "../../types";
+
+type Props = {
+  reviews: Array<ReviewType>
+}
+
+const OfferReviewsList: React.FC<Props> = ({reviews}) => {
 
   return (
     <ul className="reviews__list">
@@ -14,9 +20,5 @@ const OfferReviewsList = ({reviews}) => {
     </ul>
   );
 };
-
-// OfferReviewsList.propTypes = {
-//   reviews: PropTypes.arrayOf(PropTypes.object).isRequired
-// };
 
 export default OfferReviewsList;

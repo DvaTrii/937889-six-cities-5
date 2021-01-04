@@ -18,7 +18,22 @@ import {fetchOfferById, fetchReviewsList, fetchNearOffersById} from "../../../st
 import {setIsLoadFlagNearOffers, setIsLoadFlagOffer, setIsLoadFlagReviews} from "../../../store/data/actions";
 import {getAuthorizationStatus} from "../../../store/user/selectors";
 
-const OfferPage = (props) => {
+import {OfferCardType, ReviewType} from "../../../types";
+
+type Props = {
+  id: number,
+  offer: OfferCardType,
+  reviews: Array<ReviewType>,
+  nearOffers: Array<OfferCardType>,
+  isLoadedOffer: boolean,
+  isLoadedNearOffers: boolean,
+  authorizationStatus: boolean,
+  getOfferInformation: (number) => void,
+  setIsLoadFlag: (boolean) => void,
+  children?: React.ReactNode
+}
+
+const OfferPage: React.FC = (props: Props) => {
   const {id, offer, reviews, nearOffers, isLoadedOffer, isLoadedNearOffers,
     authorizationStatus, getOfferInformation, setIsLoadFlag} = props;
 
@@ -59,18 +74,6 @@ const OfferPage = (props) => {
     </div>
   );
 };
-
-// OfferPage.propTypes = {
-//   offer: PropTypes.object,
-//   reviews: PropTypes.arrayOf(PropTypes.object),
-//   nearOffers: PropTypes.arrayOf(PropTypes.object),
-//   isLoadedOffer: PropTypes.bool,
-//   isLoadedNearOffers: PropTypes.bool,
-//   id: PropTypes.number.isRequired,
-//   getOfferInformation: PropTypes.func,
-//   setIsLoadFlag: PropTypes.func,
-//   authorizationStatus: PropTypes.bool.isRequired
-// };
 
 const mapStateToProps = (state, ownProps) => {
   return ({

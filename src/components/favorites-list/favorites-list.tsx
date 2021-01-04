@@ -2,9 +2,14 @@ import * as React from "react";
 import {connect} from "react-redux";
 import FavoritesItem from "../favorites-item/favorites-item";
 import {getFavoriteOffersCities, getFavoritesOffers} from "../../store/data/selectors";
+import {OfferCardType, Cities} from "../../types"
 
+type Props = {
+  offers: Array<OfferCardType>,
+  cities: Array<Cities>
+}
 
-const FavoritesList = ({offers, cities}) => {
+const FavoritesList: React.FC<Props> = ({offers, cities}) => {
   return (
     <div className="page__favorites-container container">
       <section className="favorites">

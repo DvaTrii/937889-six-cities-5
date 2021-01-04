@@ -5,7 +5,13 @@ import {setCurrentCity} from "../../store/app/actions";
 import {Cities, CurrentCityClass} from "../../const";
 import {getCities, getActiveCity} from "../../store/app/selectors";
 
-const CitiesList = ({cities, city, setCurrentCityAction}) => {
+type Props = {
+  cities: string[],
+  city: string,
+  setCurrentCityAction: (city: string) => void
+}
+
+const CitiesList: React.FC<Props> = ({cities, city, setCurrentCityAction}) => {
 
   return (
     <React.Fragment>
@@ -30,12 +36,6 @@ const CitiesList = ({cities, city, setCurrentCityAction}) => {
     </React.Fragment>
   );
 };
-
-// CitiesList.propTypes = {
-//   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
-//   city: PropTypes.string.isRequired,
-//   setCurrentCityAction: PropTypes.func.isRequired
-// };
 
 const mapStateToProps = (state) => ({
   city: getActiveCity(state),

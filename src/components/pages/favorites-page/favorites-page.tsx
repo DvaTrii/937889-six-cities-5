@@ -8,7 +8,15 @@ import {connect} from "react-redux";
 import FavoritesEmpty from "../../favorites-empty/favorites-empty";
 import {fetchFavoritesOffersList} from "../../../store/data/operations";
 
-const FavoritesPage = ({favoritesNumber, getCurrentFavoritesOffers, favoritesOffers}) => {
+import {OfferCardType} from "../../../types";
+
+type Props = {
+  favoritesNumber: number,
+  getCurrentFavoritesOffers: () => Array<OfferCardType>,
+  favoritesOffers: Array<OfferCardType>
+}
+
+const FavoritesPage: React.FC<Props> = ({favoritesNumber, getCurrentFavoritesOffers, favoritesOffers}) => {
 
   React.useEffect(() => {
     getCurrentFavoritesOffers();
@@ -32,12 +40,6 @@ const FavoritesPage = ({favoritesNumber, getCurrentFavoritesOffers, favoritesOff
     </div>
   );
 };
-
-// FavoritesPage.propTypes = {
-//   favoritesNumber: PropTypes.number.isRequired,
-//   getCurrentFavoritesOffers: PropTypes.func.isRequired,
-//   favoritesOffers: PropTypes.arrayOf(PropTypes.object).isRequired
-// };
 
 const mapStateToProps = (state) => {
   return ({

@@ -9,8 +9,12 @@ import NoOffers from "../../no-offers/no-offers";
 import {MainPageNoOffersClass} from "../../../const";
 import {getOffersByCityNumber} from "../../../store/data/selectors";
 
+type Props = {
+  offersByCityNumber: number
+}
 
-const MainPage = ({offersByCityNumber}) => {
+
+const MainPage: React.FC<Props> = ({offersByCityNumber}) => {
   return (
     <div className="page page--gray page--main">
 
@@ -27,10 +31,6 @@ const MainPage = ({offersByCityNumber}) => {
     </div>
   );
 };
-
-// MainPage.propTypes = {
-//   offersByCityNumber: PropTypes.number.isRequired,
-// };
 
 const mapStateToProps = (state) => {
   return ({

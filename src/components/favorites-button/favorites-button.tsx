@@ -3,7 +3,14 @@ import {connect} from "react-redux";
 import {postOfferToFavorite} from "../../store/data/operations";
 import {FavoritesButtonClassPrefix, FavoritesRequestType} from "../../const";
 
-const FavoritesButton = ({classPrefix, isBookmark, offerId, toggleIsBookmarkProperty}) => {
+type Props = {
+  classPrefix: string,
+  isBookmark?: boolean,
+  offerId: number,
+  toggleIsBookmarkProperty: (id: number, status: number) => void
+}
+
+const FavoritesButton: React.FC<Props> = ({classPrefix, isBookmark, offerId, toggleIsBookmarkProperty}) => {
   return (
     <button
       className={`${classPrefix}__bookmark-button button
@@ -20,19 +27,12 @@ const FavoritesButton = ({classPrefix, isBookmark, offerId, toggleIsBookmarkProp
         className={`place-card__bookmark-icon`}
         width={`${classPrefix === FavoritesButtonClassPrefix.MAIN ? `18` : `31`}`}
         height={`${classPrefix === FavoritesButtonClassPrefix.MAIN ? `19` : `33`}`}>
-        <use xlinkHref="#icon-bookmark"></use>
+        <use xlinkHref="#icon-bookmark"/>
       </svg>
       <span className="visually-hidden">{isBookmark ? `In bookmarks` : `To bookmarks`}</span>
     </button>
   );
 };
-
-// FavoritesButton.propTypes = {
-//   classPrefix: PropTypes.string.isRequired,
-//   isBookmark: PropTypes.bool,
-//   offerId: PropTypes.number.isRequired,
-//   toggleIsBookmarkProperty: PropTypes.func.isRequired,
-// };
 
 const mapDispatchToProps = (dispatch) => ({
   toggleIsBookmarkProperty(id, status) {

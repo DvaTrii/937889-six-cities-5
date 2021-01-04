@@ -6,7 +6,13 @@ import Header from "../../header/header";
 import {getActiveCity} from "../../../store/app/selectors";
 import LoginForm from "../../login-form/login-form";
 
-const LoginPage = ({city}) => {
+import {Cities} from "../../../types";
+
+type Props = {
+  city: Cities
+}
+
+const LoginPage: React.FC<Props> = ({city}) => {
   return (
     <div className="page page--gray page--login">
 
@@ -32,10 +38,6 @@ const LoginPage = ({city}) => {
     </div>
   );
 };
-
-// LoginPage.propTypes = {
-//   city: PropTypes.string.isRequired,
-// };
 
 const mapStateToProps = (state) => ({
   city: getActiveCity(state),

@@ -2,7 +2,7 @@ import * as React from "react";
 import {Link} from "react-router-dom";
 import {AppRoute} from "../../const";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className="footer container">
       <Link to={AppRoute.MAIN} className="footer__logo-link">

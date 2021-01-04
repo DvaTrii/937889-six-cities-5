@@ -1,7 +1,10 @@
 import * as React from "react";
-// import PropTypes from "prop-types";
 
-const OfferAmenitiesList = ({amenities}) => {
+type Props = {
+  amenities: Array<string>
+};
+
+const OfferAmenitiesList: React.FC<Props> = ({amenities}) => {
 
   return (
     <ul className="property__inside-list">
@@ -15,9 +18,5 @@ const OfferAmenitiesList = ({amenities}) => {
     </ul>
   );
 };
-
-// OfferAmenitiesList.propTypes = {
-//   amenities: PropTypes.arrayOf(PropTypes.string).isRequired
-// };
 
 export default OfferAmenitiesList;

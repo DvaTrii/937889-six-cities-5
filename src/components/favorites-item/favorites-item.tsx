@@ -1,8 +1,14 @@
 import * as React from "react";
 import OfferCard from "../offer-card/offer-card";
 import {CardClass} from "../../const";
+import {OfferCardType, Cities} from "../../types"
 
-const FavoritesItem = ({offers, city}) => {
+type Props = {
+  offers: Array<OfferCardType>,
+  city: Cities
+}
+
+const FavoritesItem: React.FC<Props> = ({offers, city}) => {
   return (
     <li className="favorites__locations-items">
       <div className="favorites__locations locations locations--current">
@@ -18,10 +24,5 @@ const FavoritesItem = ({offers, city}) => {
     </li>
   );
 };
-
-// FavoritesItem.propTypes = {
-//   offers: PropTypes.arrayOf(PropTypes.object).isRequired,
-//   city: PropTypes.string.isRequired
-// };
 
 export default FavoritesItem;

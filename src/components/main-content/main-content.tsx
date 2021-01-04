@@ -7,8 +7,16 @@ import Map from "../map/map";
 import {getActiveCity} from "../../store/app/selectors";
 import {getSortedOffers, getOffersByCityNumber, getIsLoadedOffers} from "../../store/data/selectors";
 import {connect} from "react-redux";
+import {OfferCardType} from "../../types";
 
-const MainContent = ({currentOffers, city, offersByCityNumber, isLoadedOffers}) => {
+type Props = {
+  currentOffers: OfferCardType[],
+  city: string,
+  offersByCityNumber: number,
+  isLoadedOffers: boolean
+};
+
+const MainContent: React.FC<Props> = ({currentOffers, city, offersByCityNumber, isLoadedOffers}) => {
   return (
     <div className="cities">
       <div className="cities__places-container container">
@@ -40,13 +48,6 @@ const MainContent = ({currentOffers, city, offersByCityNumber, isLoadedOffers}) 
     </div>
   );
 };
-
-// MainContent.propTypes = {
-//   currentOffers: PropTypes.arrayOf(PropTypes.object).isRequired,
-//   city: PropTypes.string.isRequired,
-//   offersByCityNumber: PropTypes.number.isRequired,
-//   isLoadedOffers: PropTypes.bool.isRequired,
-// };
 
 const mapStateToProps = (state) => {
   return ({

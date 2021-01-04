@@ -8,11 +8,19 @@ import "leaflet/dist/leaflet.css";
 import {getActiveCity, getHoveredOfferId} from "../../store/app/selectors";
 import {getOfferById} from "../../store/data/selectors";
 import {withLoadFlag} from "../../hocs/with-load-flag/with-load-flag";
+import {OfferCardType} from "../../types";
 
-const Map = (props) => {
+type Props = {
+  offers: OfferCardType[],
+  hoveredOfferId: number,
+  isMainPageMap: boolean,
+  offerById: OfferCardType,
+  activeCity: string
+};
 
-  const {offers, isMainPageMap, offerById, hoveredOfferId, activeCity} = props;
-  const mapRef = React.createRef();
+const Map: React.FC<Props>= ({offers, isMainPageMap = true, offerById = {}, hoveredOfferId, activeCity}) => {
+
+  const mapRef = React.createRef<HTMLDivElement>();
 
   React.useEffect(() => {
 
@@ -82,17 +90,9 @@ const Map = (props) => {
   );
 };
 
-Map.defaultProps = {
-  offerById: {},
-  isMainPageMap: true
-};
-
-// Map.propTypes = {
-//   offers: PropTypes.arrayOf(PropTypes.object).isRequired,
-//   hoveredOfferId: PropTypes.number.isRequired,
-//   isMainPageMap: PropTypes.bool.isRequired,
-//   offerById: PropTypes.object.isRequired,
-//   activeCity: PropTypes.string
+// Map.defaultProps = {
+//   offerById: {},
+//   isMainPageMap: true
 // };
 
 const mapStateToProps = (state) => ({
@@ -102,4 +102,4 @@ const mapStateToProps = (state) => ({
 });
 
 export {Map};
-export default compose(withLoadFlag, connect(mapStateToProps))(Map);
+export default compose<>(withLoadFlag, connect(mapStateToProps))(Map);

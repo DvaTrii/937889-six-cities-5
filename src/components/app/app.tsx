@@ -11,8 +11,11 @@ import {getAuthorizationStatus} from "../../store/user/selectors";
 import {connect} from "react-redux";
 import browserHistory from "../../browser-history";
 
+type Props = {
+  authorizationStatus: boolean
+};
 
-const App = ({authorizationStatus}) => {
+const App: React.FC<Props> = ({authorizationStatus}) => {
   const LoginWrappedPrivate = withPrivateRoute(LoginPage, !authorizationStatus);
   const FavoritesWrappedPrivate = withPrivateRoute(FavoritesPage, authorizationStatus, AppRoute.LOGIN);
   return (
@@ -42,11 +45,6 @@ const App = ({authorizationStatus}) => {
     </BrowserRouter>
   );
 };
-
-// App.propTypes = {
-//   authorizationStatus: PropTypes.bool.isRequired
-// };
-
 
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthorizationStatus(state),

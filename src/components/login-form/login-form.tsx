@@ -2,10 +2,14 @@ import * as React from "react";
 import {connect} from "react-redux";
 import {login} from "../../store/user/operations";
 
-const LoginForm = ({onSubmit}) => {
+type Props = {
+  onSubmit: ({login, password}: { login: string; password: string }) => void;
+};
 
-  const loginRef = useRef();
-  const passwordRef = useRef();
+const LoginForm: React.FC<Props> = ({onSubmit}) => {
+
+  const loginRef = React.useRef<HTMLInputElement>(null);
+  const passwordRef = React.useRef<HTMLInputElement>(null);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -30,7 +34,6 @@ const LoginForm = ({onSubmit}) => {
           type="email"
           name="email"
           placeholder="Email"
-          required=""
         />
       </div>
       <div className="login__input-wrapper form__input-wrapper">
@@ -41,7 +44,6 @@ const LoginForm = ({onSubmit}) => {
           type="password"
           name="password"
           placeholder="Password"
-          required=""
         />
       </div>
       <button className="login__submit form__submit button" type="submit">Sign in</button>
@@ -49,10 +51,6 @@ const LoginForm = ({onSubmit}) => {
   );
 
 };
-
-// LoginForm.propTypes = {
-//   onSubmit: PropTypes.func.isRequired
-// };
 
 const mapDispatchToProps = (dispatch) => ({
   onSubmit(authData) {

@@ -9,7 +9,17 @@ import ReviewForm from "../review-form/review-form";
 import FavoritesButton from "../favorites-button/favorites-button";
 import {FavoritesButtonClassPrefix} from "../../const";
 
-const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers, authorizationStatus}) => {
+import {OfferCardType, ReviewType} from "../../types";
+
+type Props = {
+  offer: OfferCardType,
+  reviews: Array<ReviewType>,
+  nearOffers: Array<OfferCardType>,
+  isLoadedNearOffers: boolean,
+  authorizationStatus: boolean
+}
+
+const OfferDetailed: React.FC<Props> = ({offer, reviews, nearOffers, isLoadedNearOffers, authorizationStatus}) => {
 
   const {id, pictures, isPremium, isBookmark, price, title, type, rating, description, bedroomsMax,
     guestsMax, amenities, hostInfo: {avatar, name, isSuper}} = offer;
@@ -104,31 +114,5 @@ const OfferDetailed = ({offer, reviews, nearOffers, isLoadedNearOffers, authoriz
     </section>
   );
 };
-
-// OfferDetailed.propTypes = {
-//   offer: PropTypes.shape({
-//     id: PropTypes.number.isRequired,
-//     pictures: PropTypes.arrayOf(PropTypes.string).isRequired,
-//     isPremium: PropTypes.bool.isRequired,
-//     isBookmark: PropTypes.bool,
-//     price: PropTypes.number.isRequired,
-//     title: PropTypes.string.isRequired,
-//     type: PropTypes.string.isRequired,
-//     rating: PropTypes.number.isRequired,
-//     description: PropTypes.string.isRequired,
-//     bedroomsMax: PropTypes.number.isRequired,
-//     guestsMax: PropTypes.number.isRequired,
-//     amenities: PropTypes.arrayOf(PropTypes.string),
-//     hostInfo: PropTypes.shape({
-//       avatar: PropTypes.string.isRequired,
-//       name: PropTypes.string.isRequired,
-//       isSuper: PropTypes.bool.isRequired,
-//     })
-//   }),
-//   reviews: PropTypes.arrayOf(PropTypes.object).isRequired,
-//   nearOffers: PropTypes.arrayOf(PropTypes.object).isRequired,
-//   isLoadedNearOffers: PropTypes.bool,
-//   authorizationStatus: PropTypes.bool.isRequired
-// };
 
 export default withLoadFlag(OfferDetailed);

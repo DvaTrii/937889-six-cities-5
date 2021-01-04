@@ -1,6 +1,10 @@
 import * as React from "react";
 
-const OfferImagesList = ({pictures}) => {
+type Props = {
+  pictures: Array<string>
+}
+
+const OfferImagesList: React.FC<Props> = ({pictures}) => {
   return (
     <div className="property__gallery-container container">
       <div className="property__gallery">
@@ -16,9 +20,5 @@ const OfferImagesList = ({pictures}) => {
     </div>
   );
 };
-
-// OfferImagesList.propTypes = {
-//   pictures: PropTypes.arrayOf(PropTypes.string).isRequired
-// };
 
 export default OfferImagesList;

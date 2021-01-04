@@ -5,8 +5,16 @@ import {getHoveredOfferId} from "../../store/app/selectors";
 import {connect} from "react-redux";
 import FavoritesButton from "../favorites-button/favorites-button";
 import {CardClass, FavoritesButtonClassPrefix} from "../../const";
+import {OfferCardType} from "../../types";
 
-const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferIdAction}) => {
+type Props = {
+  card: OfferCardType,
+  cardClass: string,
+  setHoveredOfferIdAction: (id: number) => void,
+  resetHoveredOfferIdAction: () => void
+}
+
+const OfferCard: React.FC<Props> = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferIdAction}) => {
 
   const {id, previewImage, isPremium, isBookmark, price, title, type, rating} = card;
 
@@ -57,22 +65,6 @@ const OfferCard = ({card, cardClass, setHoveredOfferIdAction, resetHoveredOfferI
     </article>
   );
 };
-
-// OfferCard.propTypes = {
-//   card: PropTypes.shape({
-//     id: PropTypes.number.isRequired,
-//     previewImage: PropTypes.string.isRequired,
-//     isPremium: PropTypes.bool.isRequired,
-//     isBookmark: PropTypes.bool,
-//     price: PropTypes.number.isRequired,
-//     title: PropTypes.string.isRequired,
-//     type: PropTypes.string.isRequired,
-//     rating: PropTypes.number.isRequired,
-//   }),
-//   cardClass: PropTypes.string.isRequired,
-//   setHoveredOfferIdAction: PropTypes.func.isRequired,
-//   resetHoveredOfferIdAction: PropTypes.func.isRequired,
-// };
 
 const mapStateToProps = (state) => ({
   hoveredOfferId: getHoveredOfferId(state),

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const FavoritesEmpty = () => {
+const FavoritesEmpty: React.FC = () => {
   return (
     <div className="page__favorites-container container">
       <section className="favorites favorites--empty">
