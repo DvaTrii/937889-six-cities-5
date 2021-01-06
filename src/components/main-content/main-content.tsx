@@ -10,7 +10,7 @@ import {connect} from "react-redux";
 import {OfferCardType} from "../../types";
 
 type Props = {
-  currentOffers: OfferCardType[],
+  currentOffers: Array<OfferCardType>,
   city: string,
   offersByCityNumber: number,
   isLoadedOffers: boolean

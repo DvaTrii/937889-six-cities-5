@@ -2,7 +2,7 @@ import * as React from "react";
 import {connect} from "react-redux";
 import {compose} from "redux";
 
-import leaflet from "leaflet";
+import * as leaflet from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 import {getActiveCity, getHoveredOfferId} from "../../store/app/selectors";
@@ -11,11 +11,12 @@ import {withLoadFlag} from "../../hocs/with-load-flag/with-load-flag";
 import {OfferCardType} from "../../types";
 
 type Props = {
-  offers: OfferCardType[],
-  hoveredOfferId: number,
-  isMainPageMap: boolean,
-  offerById: OfferCardType,
-  activeCity: string
+  offers: Array<OfferCardType>,
+  hoveredOfferId?: number,
+  isMainPageMap?: boolean,
+  offerById?: OfferCardType,
+  activeCity?: string,
+  isLoaded?: boolean
 };
 
 const Map: React.FC<Props>= ({offers, isMainPageMap = true, offerById = {}, hoveredOfferId, activeCity}) => {
@@ -90,11 +91,6 @@ const Map: React.FC<Props>= ({offers, isMainPageMap = true, offerById = {}, hove
   );
 };
 
-// Map.defaultProps = {
-//   offerById: {},
-//   isMainPageMap: true
-// };
-
 const mapStateToProps = (state) => ({
   hoveredOfferId: getHoveredOfferId(state),
   offerById: getOfferById(state),
@@ -102,4 +98,4 @@ const mapStateToProps = (state) => ({
 });
 
 export {Map};
-export default compose<>(withLoadFlag, connect(mapStateToProps))(Map);
+export default compose<React.FC<Props>>(withLoadFlag, connect(mapStateToProps))(Map);
