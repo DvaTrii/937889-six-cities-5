@@ -2,14 +2,10 @@ import * as React from "react";
 import * as renderer from "react-test-renderer";
 import {withLoadFlag} from "./with-load-flag";
 
-type LoadProps = {
-  children: React.ReactNode
-}
-
-const MockComponent = () => {
+const MockComponent: React.FC = () => {
 
   return (
-    
+    <div />
   );
 };
 

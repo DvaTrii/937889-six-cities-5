@@ -1,16 +1,16 @@
-import React from "react";
-import renderer from "react-test-renderer";
+import * as React from "react";
+import * as renderer from "react-test-renderer";
 import {withPrivateRoute} from "./with-private-route";
 
-const MockComponent = () => {
+const MockComponent: React.FC = () => {
 
   return (
     <React.Fragment>
-      <div></div>
+      <div/>
     </React.Fragment>
   );
 };
-const authorizationStatus = true;
+const authorizationStatus: boolean = true;
 
 const MockComponentWrapped = withPrivateRoute(MockComponent, authorizationStatus);
 
