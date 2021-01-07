@@ -78,3 +78,5 @@ export const adaptReview = (review) => {
     },
   };
 };
+
+export const noop = () => {};
